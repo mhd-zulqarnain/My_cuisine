@@ -191,6 +191,7 @@ include('./admin/includes/db.php');
 <!--/Forgot-password-Form --> 
  
  <?php include('./includes/post_testimonial.php');?>
+
  <?php include('./includes/fl_register.php'); ?>
 	
 </body>
