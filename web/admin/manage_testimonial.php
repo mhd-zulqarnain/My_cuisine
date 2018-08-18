@@ -20,7 +20,6 @@ if($run){
 }
 }
 
-
 if(isset($_REQUEST['i_id']))
 	{
 $iid=$_GET['i_id'];
