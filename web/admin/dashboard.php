@@ -51,8 +51,14 @@ else{
 								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 							</div>
 							<div class="four-text">
-								<h3>User</h3>
-		<h4> <?php ?> </h4>
+								<h3>Reg User</h3>
+								<?php 
+$query ="select c_id from customer";
+$run =mysqli_query($con,$query);
+$count_users =mysqli_num_rows($run);
+
+?>
+		<h4> <?php echo $count_users ?> </h4>
 				
 								
 							</div>
@@ -94,8 +100,13 @@ else{
 							</div>
 							<div class="four-text">
 								<h3>Chefs</h3>
+<?php
+$query ="select chef_id from chef";
+$run =mysqli_query($con,$query);
+$count_chef =mysqli_num_rows($run);
 
-								<h4><?php ?></h4>
+?>
+								<h4><?php echo $count_chef ?></h4>
 								
 							</div>
 							

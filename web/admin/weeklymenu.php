@@ -62,15 +62,7 @@
 		<div class="header">
 			<div class="container">	
 				<nav class="navbar navbar-default">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<h1><a  href="home.php"><span>M</span>Y <span>C</span>UISINE</a></h1>
-					</div>
+					
 					<!-- navbar-header -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
@@ -81,20 +73,11 @@
 							<li><a href="popularmenu.php" class="hvr-underline-from-center scroll">Popular menu</a></li>
 							<li><a href="dietmenu.php" class="hvr-underline-from-center scroll">Diet menu</a></li>
 						</ul>
+
 					</div>
 					<div class="clearfix"> </div>	
 				</nav>
-				<div class="search">
-					<input class="search_box" type="checkbox" id="search_box">
-					<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-					<div class="search_form">
-						<form action="#" method="post">
-							<input type="search" name="Search" placeholder="Search..." required="">
 
-							<input type="submit" value="Send">
-						</form>
-					</div>
-				</div>
 			</div> 
 		</div>
 		<!-- //header -->
@@ -104,7 +87,7 @@
 			<!--body-->
 		
 		 <!-- TAB CONTROLLERS -->
-<input id="panel-1-ctrl"
+ <input id="panel-1-ctrl"
        class="panel-radios" type="radio" name="tab-radios" checked>
 <input id="panel-2-ctrl"
        class="panel-radios" type="radio" name="tab-radios">
@@ -115,7 +98,8 @@
 <input id="panel-5-ctrl"
        class="panel-radios" type="radio" name="tab-radios">
 <input id="nav-ctrl"
-       class="panel-radios" type="checkbox" name="nav-checkbox">
+       class="panel-radios" type="checkbox" name="nav-checkbox"> 
+
 
 <header id="introduction">
   <h1>Weekly Menu</h1>
@@ -1351,80 +1335,6 @@
   
   <!--body-->
 
-
-
-	<!-- Footer -->
-	<div class="w3l-footer">
-		<div class="container">
-			<div class="footer-info-agile">
-				<div class="col-md-4 footer-info-grid address">
-					<h4>Contact <span class="opening">Us</span></h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Agile ac.</p>
-					<address>
-						<ul>
-							<li>New York City</li>
-							<li>40019 Bronx,Morris Park</li>
-							
-							<li>Telephone : +1 (734) 123-4567</li>
-							<li>Email : <a class="mail" href="mailto:mail@example.com">info(at)example.com</a></li>
-						</ul>
-					</address>
-				</div>
-				
-				<div class="col-md-4 footer-grid">
-					<h4>Our <span class="opening">INSTAGRAM</span></h4>
-
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f1.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f2.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f3.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f4.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f5.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="footer-grid-instagram">
-						<a href="#"><img src="images/f6.jpg" alt=" " class="img-responsive"></a>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				
-				<div class="clearfix"></div>
-			</div>
-
-			<div class="connect-agileits">
-				<div class="col-md-6 connect-social">
-					<h5>CONNECT WITH US</h5>
-					<section class="social">
-						<ul>
-							<li><a class="icon fb" href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a class="icon tw" href="#"><i class="fa fa-twitter"></i></a></li>
-						</ul>
-					</section>
-
-				</div>
-				<div class="col-md-6 newsletter">
-					<h5>NEWSLETTER</h5>
-
-					<form action="#" method="post" class="newsletter">
-						<input class="email" type="email" placeholder="Your email address..." required="">
-
-						<input type="submit" class="submit" value="">
-					</form>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="copyright-wthree">
-			<p>&copy; 2018 My Cuisine. All Rights Reserved | Design by KUA</p>
-		</div>
-	</div>
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>

@@ -220,6 +220,7 @@ if(mysqli_num_rows($result)>0) {
   $_SESSION["c_email"]=$cust_email;
   echo "<script type='text/javascript'>alert('Sucessfully loged in')</script>";
   echo "<meta http-equiv='refresh' content='0'>";
+  //swal("Good job!", "You clicked the button!", "success");
  // echo "<script type='text/javascript'> document.location = 'home.php'; </script>";
       }
   else{

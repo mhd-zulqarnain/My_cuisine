@@ -7,11 +7,11 @@
 					<p></p>
 					<address>
 						<ul>
-							<li><a href="pagee.php?type=aboutus" style="color: white"> > About Us</a></li>
-                            <li><a href="pagee.php?type=faqs" style="color: white"> > FAQs</a></li>
-                            <li><a href="pagee.php?type=privacy" style="color: white"> > Privacy</a></li>
-                            <li><a href="pagee.php?type=terms" style="color: white"> > Terms of use</a></li>
-                            <li><a href="../web/admin" style="color: white"> > Admin Login</a></li>
+							<li><a href="pagee.php?type=aboutus" style="color: white"> <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> About Us</a></li>
+                            <li><a href="pagee.php?type=faqs" style="color: white"> <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> FAQs</a></li>
+                            <li><a href="pagee.php?type=privacy" style="color: white"> <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Privacy</a></li>
+                            <li><a href="pagee.php?type=terms" style="color: white"> <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Terms of use</a></li>
+                            <li><a href="../web/admin" style="color: white"><span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Admin Login</a></li>
 							<li>Telephone : +92 123-4567</li>
 							<li>Email : <a class="mail" href="mailto:mail@example.com">mycuisine@gmail.com</a></li>
 						</ul>

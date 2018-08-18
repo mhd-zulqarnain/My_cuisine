@@ -10,9 +10,11 @@ include('./admin/includes/db.php');
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="My Cuisine, Cuisine ,Online Food Order, Food Order, Home Made Food" />
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--w3 cn -->
+<!--w3 schhoolcn -->
+
+ <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
 <!-- Custom Theme files -->
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">  
@@ -77,6 +79,7 @@ include('./admin/includes/db.php');
 
 	 
 	<?php include('includes/menu.php');?>
+	<?php include('includes/foodlancer.php'); ?>    
 	
 	<?php include('includes/reviews2.php');?>
 	<?php include('includes/contact.php');?>
@@ -188,6 +191,7 @@ include('./admin/includes/db.php');
 <!--/Forgot-password-Form --> 
  
  <?php include('./includes/post_testimonial.php');?>
+ <?php include('./includes/fl_register.php'); ?>
 	
 </body>
 </html>

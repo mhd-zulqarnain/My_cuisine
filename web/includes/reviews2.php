@@ -32,7 +32,7 @@
 			<!--.testimonials-->
 	<div class="section carousel-reviews broun-block" id="testimonials">
 		<div class="container">
-			<h3 class="tittle">Reviews</h3> 
+			<h3 class="tittle">REVIEWS</h3> 
 				<center><b>We get to hear this..</b></center>
 			<div class="row">
 				<div id="carousel-reviews" class="carousel " data-ride=""> 
@@ -41,7 +41,7 @@
 						<div class="item active">
 								<?php 
  include('../admin/includes/db.php');
- $query ="select * from feedback_table order by rand() LIMIT 0,3";
+ $query ="select * from feedback_table where status='1' order by rand() LIMIT 0,3";
  $run=mysqli_query($con,$query);
  while ($row=mysqli_fetch_array($run)) {
 
