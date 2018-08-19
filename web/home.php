@@ -1,3 +1,6 @@
+
+
+//changes by rose
 <?php 
 session_start();
 include('./admin/includes/db.php');
