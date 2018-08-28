@@ -9,14 +9,6 @@
 <link rel="stylesheet" type="text/css" href="bootstrap.min2.js">
 <link rel="stylesheet" type="text/css" href="bootstrap-theme.min2.css"> -->
 <style type="text/css">
-.div1_tit{
- background-color:#4CAF50!important;
- width:30px;
- margin-left:115px;
- text-align:center; 
- font-size: 22px !important;
- margin-top:10px 
-}
 </style>
 </head>
 <body>
@@ -37,25 +29,25 @@
       </div>
 
       <div >
-      <div style="background-color:#4CAF50!important;width:30px;margin-left:115px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>1</b></span></div>
+      <div style="background-color:#4CAF50!important;width:30px;margin-left:162px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>1</b></span></div>
 
-       <div style="background-color:#4CAF50!important;width:30px;margin-left:195px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>2</b></span></div>
+       <div style="background-color:#4CAF50!important;width:30px;margin-left:240px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>2</b></span></div>
 
-        <div style="background-color:#4CAF50!important;width:30px;margin-left:175px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>3</b></span></div>
+        <div style="background-color:#4CAF50!important;width:30px;margin-left:235px;text-align: center; font-size: 22px !important;margin-top:10px;display:inline-block;"><span><b>3</b></span></div>
       </div><br>
 
       <div>
-        <div style="background-color:#4CAF50!important;width:200px;margin-left:25px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>FILL THE FORM</b></span>
+        <div style="background-color:#4CAF50!important;width:200px;margin-left:60px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>FILL THE FORM</b></span>
         </div>
-         <div style="background-color:#4CAF50!important;width:200px;margin-left:25px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>KITCHEN SNAPS</b></span>
+         <div style="background-color:#4CAF50!important;width:205px;margin-left:80px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>KITCHEN SNAPS</b></span>
          </div>
 
-          <div style="background-color:#4CAF50!important;width:200px;margin-left:25px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>FOOD TEST</b></span></div>
+          <div style="background-color:#4CAF50!important;width:205px;margin-left:70px;text-align: center; font-size: 20px !important;margin-top:5px;display:inline-block;"><span><b>FOOD TEST</b></span></div>
       </div>
       <div>
-        <div style="display:inline-block;"><p style="font-size:13px;margin-left: 20px;margin-top:15px"><b>Fill the form by clicking below button</b></p></div>
-        <div style="display:inline-block;"><p style="font-size:13px;margin-left:20px;margin-top:15px"><b>Please send us 3 kitchen snaps whatsapp: XXXXX</b></p></div>
-        <div style="display:inline-block;"><p style="font-size:13px;margin-left:20px;margin-top:15px"><b>Get your food tested by our food reviewer near you</b></p></div>
+        <div style="display:inline-block;"><p style="font-size:13px;margin-left: 25px;margin-top:15px"><b>Fill the form by clicking below button</b></p></div>
+        <div style="display:inline-block;"><p style="font-size:13px;margin-left:35px;margin-top:15px"><b>Please send us 3 kitchen snaps whatsapp: XXXXX</b></p></div>
+        <div style="display:inline-block;"><p style="font-size:13px;margin-left:25px;margin-top:15px"><b>Get your food tested by our food reviewer near you</b></p></div>
       </div>
 
       <form class="w3-container" action="">
@@ -73,13 +65,29 @@
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required> -->
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Register</button>
+       <center> <button style="margin-top:10px" class="w3-button w3-green w3-large button" type="submit" name="fl_submit"> <a href="fl_form.php" style="color: white"> Join US</a></button></center>
+
          
         </div>
       </form>
     </div>
   </div>
 </div>
-            
+      <style>   
+  .button {
+  display: inline-block;
+  border-radius: 2px;
+  background-color:#ff8c00;
+  border: none;
+  color: #FFFFFF;
+  text-align: centre;
+  font-size: 20px;
+  padding: 12px;
+  width: 160px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+</style>       
 </body>
 </html>

@@ -29,15 +29,6 @@
 										  </ul>
 										</li>
 										<?php
-                                         
-                                         if (isset($_GET['notf'])) {
-                                         	$n_id=$_GET['notf'];
-                                         	$red_query="update customer set customer_status='0' where c_id='$n_id'";
-                                         	$run=mysqli_query($con,$red_query);
-                                         	//header('location:manage_users.php');
-                                            //echo "<script>window.location('manage_users.php'_self);</script>";}
-                                         }
-
 										$query ="select *from customer";
 
 										$query2="select * from customer where customer_status=1";
@@ -45,29 +36,14 @@
                                         $count =mysqli_num_rows($run);
 										?>
 
-											<li id="menu-academico" ><a href="manage_users.php"><i class="fa fa-users" aria-hidden="true"></i><span> Manage users <?php if($count > 0){ echo "(".$count.")";}?></span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+											<li id="menu-academico" ><a href="#"><i class="fa fa-users" aria-hidden="true"></i><span> Manage users <?php if($count > 0){ echo "(".$count.")";}?></span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										   <ul id="menu-academico-sub" >
 										   	<?php
 										   	   while ($row=mysqli_fetch_array($run)) {
 										   	 
 										   	?>
-
+										   <li id="menu-academico-avaliacoes" ><a href="manage_users.php" class="btn btn-info"><span>&nbsp;</span><?php echo $row['c_email']?></a></li>
 										   <?php
-										       if ($row['customer_status']=='1') {
-										       	$id=$row['c_id']
-										   ?>
-
-                                           <li id="menu-academico-avaliacoes" class="alert-danger"><a href="manage_users.php?notf=<?php echo $row['c_id']; ?>" class="btn btn-info" style="color: red"><span>&nbsp;</span><?php echo $row['c_email']?></a></li>
-
-										   <?php
-										       }else{
-
-										   ?>
-
-										   <li id="menu-academico-avaliacoes"><a href="manage_users.php" class="btn btn-info"><span>&nbsp;</span><?php echo $row['c_email']?></a></li>
-										   <?php
-
-										}
 										   }
 										   ?>
 										  </ul>

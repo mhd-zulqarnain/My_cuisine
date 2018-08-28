@@ -20,31 +20,39 @@ include("../admin/includes/db.php");
         <div class="row">
           <div class="signup_wrap">
             <div class="col-md-12 col-sm-6">
-              <form action="" method="post" enctype="multipart/form-data">
+              <form action="" method="post" enctype="multipart/form-data" id="comment_form">
+
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Full Name" required="required" style="color:black;">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" required="required"  style="color:black;">
                 </div>
+
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="emailid" onBlur="checkAvailability()" placeholder="Email Address" required="required">
+                  <input type="email" class="form-control" name="email" id="email" onBlur="checkAvailability()" placeholder="Email Address" required="required">
                    <span id="user-availability-status" style="font-size:12px;"></span> 
                 </div>
+
                 <div class="form-group">
-                  <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="required">
                 </div>
+
                  <div class="form-group">
-                  <input type="text" class="form-control" name="city" placeholder="Your City" required="required" style="color:black;">
+                  <input type="text" class="form-control" name="city" id="city" placeholder="Your City"  required="required" style="color:black;">
                 </div>
+
                  <div class="form-group">
-                  <input type="text" class="form-control" name="contact" placeholder="Mobile No." required="required" style="color:black;">
+                  <input type="text" class="form-control" name="contact" id="contact"placeholder="Mobile No." required="required" style="color:black;">
                 </div>
+
                  <div class="form-group">
-                  <input type="text" class="form-control" name="address" placeholder="Address" required="required" style="color:black;">
+                  <input type="text" class="form-control" name="address"  ide="address" placeholder="Address" required="required" style="color:black;">
                 </div>
+
                   <div class="form-group">
-                  <input type="file" class="form-control" name="img" placeholder="User Image" required="required">
+                  <input type="file" class="form-control" name="img" id="img"placeholder="User Image" required="required">
                 </div>
+
                 <div class="form-group">
-                  <input type="submit" value="Sign Up" name="c_signup" id="submit" class="btn btn-block">
+                  <input type="submit" value="Sign Up" name="c_signup" id="c_signup" class="btn btn-block">
                 </div>
               </form>
             </div>
@@ -68,6 +76,7 @@ $password=$_POST['password'];
 $city=$_POST['city'];
 $address=$_POST['address'];
 $contact=$_POST['contact'];
+$status="1";
 
 $img =$_FILES['img']['name'];
 $tmp_name=$_FILES['img']['tmp_name'];
@@ -77,7 +86,7 @@ $tmp_name=$_FILES['img']['tmp_name'];
 
 
 
-$query="INSERT INTO customer(c_name,c_email,c_pass,c_city,c_contact,c_address,c_image) VALUES('$name','$email','$password','$city','$contact','$address','$img')";
+$query="INSERT INTO customer(c_name,c_email,c_pass,c_city,c_contact,c_address,c_image,customer_status) VALUES('$name','$email','$password','$city','$contact','$address','$img','$status')";
 $run=mysqli_query($con,$query);
 if($run)
 {
@@ -91,3 +100,32 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 ?>
 </body>
 </html>
+
+ <!-- <script>
+$(document).ready(function(){
+
+ $('#comment_form').on('submit', function(event){
+  event.preventDefault();
+  if( $('#name').val() != '' && $('#email').val() != '' && $('#password').val() != '' && $('#city').val() != '' && $('#contact').val() != '' && $('#address').val() != '' && $('#img').val() != '')
+  {
+   var form_data = $(this).serialize();
+   $.ajax({
+    url:"insert.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     $('#comment_form')[0].reset();
+     load_unseen_notification();
+    }
+   });
+  }
+  else
+  {
+   alert("All Fields are Required");
+  }
+ });
+ 
+
+ });
+</script> -->
