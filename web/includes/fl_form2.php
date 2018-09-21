@@ -205,6 +205,10 @@ div.containerr {
     <label >Your Email</label>
     <input type="email"  name="email" placeholder="Your Email..">
 
+    <label >Yor Kitchen Name</label>
+    <input type="text" name="name" placeholder="Your kitchen name..">
+
+
     <label>Your Contact No.</label>
     <input type="text"  name="email" placeholder="Your Contact number..">
 

@@ -9,7 +9,10 @@
 			    </div><br><br>
 			   <center><button  onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large button" style="vertical-align:middle"><span> Register Now </span></button></center>
 				
- <style>		
+
+		   </div>
+		<!-- //Services -->
+     <style>    
   .button {
   display: inline-block;
   border-radius: 2px;
@@ -25,5 +28,3 @@
   margin: 5px;
 }
 </style>
-		   </div>
-		<!-- //Services -->

@@ -29,7 +29,7 @@
 												</div>				
 											</div>
 									 </div>	
-									 <?php
+	 <?php
 	     }
 	    ?>
 									<!-- <div class="col-md-6 w3l-agile-team-grid">

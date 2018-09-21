@@ -46,7 +46,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     display: block;
   }
 }
-	</style>
+img:hover{
+	cursor: pointer;
+	
+}
+li img:hover{
+ cursor: pointer;
+}
+.auto{ cursor: auto; }
+</style>
 </head>
 
 <body>
@@ -54,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- background-color:#a51c21-->
 	<div style="background-color:#a51c21;height:100px">
 		<ul class="nav navbar-nav">
-				<li><h1><a href="home.php"><img src="images/logo.png" class="img-responsive" alt="" style="width: 80px;height: 70px;margin-top: 10px;margin-left: 15px"/></a></h1></li>
+				<li class="auto"><a href="../home.php"><img src="images/logo.png" alt="" style="width:80px;height:70px;margin-left:15px;"/></a></li>
 
 				<li><h1 style="margin-top: 28px;margin-left: 20px;font-size: 40px"><a href="../home.php" style="color: white">MY CUISINE</a></h1>
 				</li>

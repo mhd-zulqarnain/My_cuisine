@@ -20,7 +20,7 @@ $name=$row['c_name'];
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a  href="index.html"><span>M</span>Y <span>C</span>UISINE</a></h1>
+						<h1><a  href="index.php"><span>M</span>Y <span>C</span>UISINE</a></h1>
 					</div>
 					<!-- navbar-header -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,6 +28,7 @@ $name=$row['c_name'];
 							<li><a href="home.php." class="hvr-underline-from-center active">Home</a></li>
 							<li><a href="#about" class="hvr-underline-from-center scroll">About</a></li>
 							<li><a href="menu/index.php" >Menu</a></li>
+							<li><a href="menu/kitchen.php" >Our kitchens</a></li>
 						<!--<li><a href="#team" class="hvr-underline-from-center scroll">Chefs</a></li> -->
 						<!--<li><a href="#gallery" class="hvr-underline-from-center scroll">Gallery</a></li> -->
 							<li><a href="#contact" class="hvr-underline-from-center scroll">Contact Us</a></li>
@@ -38,7 +39,7 @@ $name=$row['c_name'];
                               <li onclick="myFunction()" class="dropbtn hvr-underline-from-center scroll"><a href="#" data-toggle="dropdown"><?php if(!isset($_SESSION['c_email'])){?> <i class="fa fa-user"" style="color:white;"></i>
                               <i class="fa fa-angle-down" style="color:white;">
                               </i> <?php } else { ?>
-                              	<i class="fa fa-user"" style="color:white;"></i> <?php echo "<b>". "<span style='color:white'>".$_SESSION['c_email']."</span>"."</b>";?>
+                              	<i class="fa fa-user"" style="color:white;"></i> <?php echo "<b>". "<span style='color:white'>".$name."</span>"."</b>";?>
                                 <i class="fa fa-angle-down" style="color:white;"></i>&nbsp;
 
                           <?php }?>
@@ -92,7 +93,7 @@ window.onclick = function(event) {
 
 					<div class="clearfix"> </div>	
 				</nav>
-				<div class="search">
+				<!--<div class="search">
 							<input class="search_box" type="checkbox" id="search_box">
 							<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
 							<div class="search_form">
@@ -102,7 +103,7 @@ window.onclick = function(event) {
 									<input type="submit" value="Send">
 								</form>
 							</div>
-						</div>
+						</div>-->
 			</div> 
 		</div>
 		<!-- //header -->
