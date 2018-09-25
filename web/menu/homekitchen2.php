@@ -33,6 +33,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="css3/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css3/style2.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<style type="text/css">
 		.navbar a {
   float: right;
@@ -61,7 +63,7 @@ li img:hover{
 /* The navigation bar */
 .bgg-img {
   /* The image used */
-  background-image: url("../kitchen.jpg");
+  background-image: url("../ki_home2.jpg");
 
   min-height: 380px;
 
@@ -102,10 +104,11 @@ li img:hover{
   background-color: #ddd;
   color: black;
 }
-/*rating*/
-.checked {
-    color: orange;
-}
+
+/*side bar */
+
+
+
 </style>
 </head>
 
@@ -121,153 +124,47 @@ li img:hover{
     </div>
   </div>
 </div>
+<!-- Sidebar -->
+<div style="height: auto">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%;height: auto;position: absolute;">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
 
-	<div class="menu-agileits_w3layouts section">
-		<div class="container" style="width: 1150px;">
-			<div class="load_more">
-				<h3 class="w3layouts-title" style="font-size: 50px;color: #a51c21;text-transform: capitalize;margin-left:20px;padding: 0;font-family: 'Rancho', cursive;">
-					<img src="images/menu1.png" class="img-responsive" alt="" />Featured Kitchens</h3>
-				<ul id="myList">
-					<li>
-						<div class="l_g">
-							<div class="l_g_r">
+<!-- Page Content -->
+<div style="margin-left:25%">
 
-								<div class="col-md-6 menu-grids">
-										<?php 
- include('includes/db.php');
- $query ="select * from fl_info";
- $run=mysqli_query($con,$query);
- while ($row=mysqli_fetch_array($run)) {
- 	/*$fl_iid=$row["id"];*/
+<div class="w3-container w3-teal">
+  <h1>My Page</h1>
+</div>
 
-?>		
-   							
-									<div class="w3l-menu-text" style="width: 600px;margin-left: 150px">
-										<div class="menu-text-left">
-											<img src="images/m1.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4><?php echo $row["fl_kitchen_name"]?> </h4>
+<div class="w3-container" style="background-color: grey">
+<h2>Sidebar Navigation Example</h2>
+<p>The sidebar with is set with "style="width:25%".</p>
+<p>The left margin of the page content is set to the same value.</p>
 
-											</div>
-											<div class="clearfix"> </div>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
-											<div class="menu-price">
-												<h4 class="price-clr"><a href="homekitchen3.php?flid=<?php echo $row["id"];?>" style="color:green">open</a></h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> <?php echo $row["fl_address"]?></p>
+<p>The left margin of the page content is set to the same value.</p>
+<p>The left margin of the page content is set to the same value.</p>
+</div>
+<div class="clearfix"> </div>
 
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<?php
-}
-	?>
-							
-								</div> 
-								<!--<div class="col-md-6 menu-grids"> 
-									
-									
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m7.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor.. </h4>
+</div>
+<div class="clearfix"> </div>
+</div>
+<div class="clearfix"> </div>
 
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-	
-									
-								</div> -->
 
-								<div class="clearfix"> </div>
-							</div>
-						</div>
 
-					</li>
-					<li>
-
-					<!--	<div class="l_g">
-							<div class="l_g_r">
-
-								 <div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m5.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-
-								<div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m2.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Congue oluptate </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div> 
-								</div> 
-								<div class="clearfix"> </div>
-							</div>
-						</div> -->
-					</li>
-				</ul>
-
-			<div class="nav-menu text-center">
-					<div id="loadMore">Load more</div>
-					<div id="showLess">Show less</div>
-				</div> 
-			</div>
-		</div>
-
-	</div>
-	<!--//menu-->
+  <!--//menu-->
+  	      
 	
 	<!-- slid -->
 
 	<!-- //slid -->
-
-
-	<!--footer-->
-
-	
 	<div class="footer-cpy text-center">
 		<div class="social_banner">
 			<ul class="social_list">
@@ -298,8 +195,7 @@ li img:hover{
 				<a href="http://w3layouts.com">...</a>
 			</p>
 		</div>
-	</div>
-	<!--//footer-->
+	</div> 
 
 
 
@@ -324,7 +220,7 @@ li img:hover{
 			</div>
 		</div>
 	</div>
-</div>/
+</div>
 	<!-- //Tooltip -->
 
 	<!-- js -->

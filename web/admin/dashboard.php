@@ -93,7 +93,7 @@ $count_users =mysqli_num_rows($run);
 								<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
 							</div>
 							<div class="four-text">
-								<h3>Enquiries</h3>
+								<h3>Orders</h3>
 												
 								<!--<h4><?php ?></h4>-->
 								

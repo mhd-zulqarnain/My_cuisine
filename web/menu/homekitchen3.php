@@ -33,8 +33,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="css3/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css3/style2.css">
+
 	<style type="text/css">
-		.navbar a {
+.navbar a {
   float: right;
   padding: 30px;
   color: white;
@@ -61,7 +63,7 @@ li img:hover{
 /* The navigation bar */
 .bgg-img {
   /* The image used */
-  background-image: url("../kitchen.jpg");
+  background-image: url("../ki_home2.jpg");
 
   min-height: 380px;
 
@@ -84,13 +86,13 @@ li img:hover{
 /* The navbar */
 .topnav {
   overflow: hidden;
-  /*background-color: #333;*/
-  background-color: #a51c21;
+  background-color:black;
+  /*background-color: #a51c21;*/
 }
 
 /* Navbar links */
 .topnav a {
-  float: left;
+  float: right;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -102,173 +104,59 @@ li img:hover{
   background-color: #ddd;
   color: black;
 }
-/*rating*/
-.checked {
-    color: orange;
-}
+
+/*side bar */
+
+
+
 </style>
 </head>
 
 <body>
 	<div id="menu">
 	<div class="bgg-img">
-  <div class="cantainer">
-    <div class="topnav">
-   
+		  <div class="topnav">
+		  	 <a href="login_signup.php">Login & Signup</a>
+		  	  <a href="#contact">Contact</a>
       <a href="../home.php">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="login_signup.php">Login & Signup</a>
+     
+     
     </div>
-  </div>
-</div>
+  <div class="cantainer">
+  <?php 
+  include("includes/db.php");
+  if(isset($_GET['flid'])){ 
 
-	<div class="menu-agileits_w3layouts section">
-		<div class="container" style="width: 1150px;">
-			<div class="load_more">
-				<h3 class="w3layouts-title" style="font-size: 50px;color: #a51c21;text-transform: capitalize;margin-left:20px;padding: 0;font-family: 'Rancho', cursive;">
-					<img src="images/menu1.png" class="img-responsive" alt="" />Featured Kitchens</h3>
-				<ul id="myList">
-					<li>
-						<div class="l_g">
-							<div class="l_g_r">
-
-								<div class="col-md-6 menu-grids">
-										<?php 
- include('includes/db.php');
- $query ="select * from fl_info";
- $run=mysqli_query($con,$query);
+	$fid = $_GET['flid'];
+    $query ="select * from fl_info where id ='$fid'";
+    $run=mysqli_query($con,$query);
  while ($row=mysqli_fetch_array($run)) {
- 	/*$fl_iid=$row["id"];*/
 
-?>		
-   							
-									<div class="w3l-menu-text" style="width: 600px;margin-left: 150px">
-										<div class="menu-text-left">
-											<img src="images/m1.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4><?php echo $row["fl_kitchen_name"]?> </h4>
+  ?>
+   <div style="float: left;text-align: center;">
+ <h1 style="color: white;font-size:50px;text-align: center;margin-top: 100px;margin-right:530px"><?php echo $row["fl_kitchen_name"]; ?></h1>
+ <h1 style="color: white;font-size:25px;text-align: center;margin-top: 30px;margin-right:530px"><?php echo $row["fl_address"]; ?></h1>
+</div>
+<?php 
 
-											</div>
-											<div class="clearfix"> </div>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
-											<div class="menu-price">
-												<h4 class="price-clr"><a href="homekitchen3.php?flid=<?php echo $row["id"];?>" style="color:green">open</a></h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> <?php echo $row["fl_address"]?></p>
+}}?>
 
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<?php
-}
-	?>
-							
-								</div> 
-								<!--<div class="col-md-6 menu-grids"> 
-									
-									
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m7.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor.. </h4>
+  </div>
+  
 
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-	
-									
-								</div> -->
+</div>
+<!-- Sidebar -->
+<?php include("includes/sidebr.php");?>
+<!-- //sidebar --->
 
-								<div class="clearfix"> </div>
-							</div>
-						</div>
 
-					</li>
-					<li>
-
-					<!--	<div class="l_g">
-							<div class="l_g_r">
-
-								 <div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m5.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-
-								<div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m2.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Congue oluptate </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div> 
-								</div> 
-								<div class="clearfix"> </div>
-							</div>
-						</div> -->
-					</li>
-				</ul>
-
-			<div class="nav-menu text-center">
-					<div id="loadMore">Load more</div>
-					<div id="showLess">Show less</div>
-				</div> 
-			</div>
-		</div>
-
-	</div>
-	<!--//menu-->
+  <!--//menu-->
+  	      
 	
 	<!-- slid -->
 
 	<!-- //slid -->
-
-
-	<!--footer-->
-
-	
-	<div class="footer-cpy text-center">
+	<div class="footer-cpy text-center" style="background-color: black">
 		<div class="social_banner">
 			<ul class="social_list">
 				<li>
@@ -298,8 +186,7 @@ li img:hover{
 				<a href="http://w3layouts.com">...</a>
 			</p>
 		</div>
-	</div>
-	<!--//footer-->
+	</div> 
 
 
 
@@ -324,7 +211,7 @@ li img:hover{
 			</div>
 		</div>
 	</div>
-</div>/
+</div>
 	<!-- //Tooltip -->
 
 	<!-- js -->
