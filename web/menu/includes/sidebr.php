@@ -59,6 +59,18 @@
 		       <div id="sidebar_title">Menu</div>
 		       <br>
 		         <ul id='cats'>
+		         	<!--  <?php 
+		              $query="select * from Categories";
+		              $run=mysqli_query($db,$query);
+		              while ($row=mysqli_fetch_array($run)) {
+		              	$cat_id=$row['cat_id'];
+		              	$cat_title=$row['cat_title'];
+
+    		     	 echo "<li><a href='index.php?cat=$cat_id'>$cat_title</a></li>";
+    		     	  #<li><a href="">Laptops</a></li>
+
+    		     	}
+    		     	?> -->
 
                      <li><a href="my_account.php?my_orders">Daily Menu</a></li> 
 		             <li><a href="my_account.php?edit_account">Monthy Menu</a></li>
