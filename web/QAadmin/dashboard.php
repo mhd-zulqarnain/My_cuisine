@@ -19,7 +19,7 @@ else{
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Car Rental Portal | Admin Dashboard</title>
+	<title>QA team | Admin Dashboard</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -85,7 +85,7 @@ $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $totalvehicle=$query1->rowCount();
 ?>
 													<div class="stat-panel-number h1 "><?php echo htmlentities($totalvehicle);?></div>
-													<div class="stat-panel-title text-uppercase">Listed Vehicles</div>
+													<div class="stat-panel-title text-uppercase">Food lancer details</div>
 												</div>
 											</div>
 											<a href="manage-vehicles.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
@@ -104,7 +104,7 @@ $bookings=$query2->rowCount();
 ?>
 
 													<div class="stat-panel-number h1 "><?php echo htmlentities($bookings);?></div>
-													<div class="stat-panel-title text-uppercase">Total Bookings</div>
+													<div class="stat-panel-title text-uppercase">Total Visits</div>
 												</div>
 											</div>
 											<a href="manage-bookings.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
@@ -122,7 +122,7 @@ $results3=$query3->fetchAll(PDO::FETCH_OBJ);
 $brands=$query3->rowCount();
 ?>												
 													<div class="stat-panel-number h1 "><?php echo htmlentities($brands);?></div>
-													<div class="stat-panel-title text-uppercase">Listed Brands</div>
+													<div class="stat-panel-title text-uppercase">Approved Chefs</div>
 												</div>
 											</div>
 											<a href="manage-brands.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
