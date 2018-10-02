@@ -2,6 +2,41 @@
 session_start();
 include('../admin/includes/db.php');
 
+if(isset($_POST['fl_register'])) {
+  
+  $name =$_POST['name'];
+  $email =$_POST['email'];
+  $kname =$_POST['kname'];
+  $contact =$_POST['contct_no'];
+  $city =$_POST['city'];
+  $address =$_POST['address'];
+  $servce=$_POST['service'];
+
+  //login details
+  $l_email=$_POST['log_email'];
+  $l_pass=$_POST['log_pass'];
+
+  $val='0';
+
+
+
+  $query="INSERT INTO fl_info(fl_name,fl_email,fl_kitchen_name,fl_contact,fl_address,fl_city,fl_service) values ('$name','$email','$kname','$contact','$city','$address','$servce')";
+  $run=mysqli_query($con, $query);
+
+  if ($run) {
+
+    echo "<script>alert('You have successfully registered your self for foodlancer!')</script>";
+  }
+    else {
+   # echo "Error: " . $query . "<br>" . mysqli_error($con);
+    echo "<script type='text/javascript'> document.location = 'fl_form2.php'; </script>";
+   }
+
+   $query2="INSERT INTO fl_login(email,pass,status) values ('$l_email','$l_pass','$val')";
+$run=mysqli_query($con, $query2);
+      
+  }
+
 
 
 ?>
@@ -198,39 +233,48 @@ div.containerr {
      <h3><b>Registration Form</b></h3><br>
 
 <div class="containerr">
-  <form action="">
+  <form action="" method="post">
     <label >Yor Name</label>
-    <input type="text" name="name" placeholder="Your name..">
+    <input type="text" name="name" placeholder="Your name.." required>
 
     <label >Your Email</label>
-    <input type="email"  name="email" placeholder="Your Email..">
+    <input type="email"  name="email" placeholder="Your Email.." required>
 
     <label >Yor Kitchen Name</label>
-    <input type="text" name="name" placeholder="Your kitchen name..">
+    <input type="text" name="kname" placeholder="Your kitchen name.." required>
 
 
     <label>Your Contact No.</label>
-    <input type="text"  name="email" placeholder="Your Contact number..">
+    <input type="text"  name="contct_no" placeholder="Your Contact number.." required>
 
     <label for="lname">Your Address</label>
-    <input type="text"  name="email" placeholder="Your Address..">
+    <input type="text"  name="address" placeholder="Your Address.." required>
 
     <label for="lname">Your City</label>
-    <input type="text"  name="email" placeholder="Your City..">
+    <input type="text"  name="city" placeholder="Your City.." required>
 
 
-    <label >Services Pick Up or Delivery?</label>
-    <select  name="service-select">
-      <option value="1">Delivry & Pickup</option>
-      <option value="2">Delivery Only</option>
-      <option value="3">Pickup Only</option>
-      <option value="4">Delivery / Pickup /Dinein</option>
-      <option value="5">Delivery & Dinein</option>
-      <option value="6">Pickup & Dinein</option>
-        <option value="7">Dinein Only</option>
+    <label required >Services Pick Up or Delivery?</label>
+    <select  name="service">
+      <option >Delivry & Pickup</option>
+      <option >Delivery Only</option>
+      <option >Pickup Only</option>
+      <option >Delivery / Pickup /Dinein</option>
+      <option >Delivery & Dinein</option>
+      <option >Pickup & Dinein</option>
+      <option >Dinein Only</option>
     </select>
+<br>
+    <h3><b>Login Information</b></h3>
+<br>
+     <label >Email</label>
+    <input type="email"  name="log_email" placeholder="Your Email Address.." required>
+
+    <label > Password</label>
+    <input type="text" name="log_pass" placeholder="Your Password.." required>
+    <span style="font-size: 18px; color: grey"><b>Note:</b> Rember login informtion for later use.You will need this.</span>
   
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" name="fl_register">
   </form>
 </div>
 
@@ -357,4 +401,5 @@ include('short_footer.php');
   
 </body>
 </html>
+
 

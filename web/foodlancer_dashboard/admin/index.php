@@ -1,12 +1,15 @@
 <?php
 session_start();
+error_reporting(0);
 include('includes/db.php');
 if(isset($_POST['login']))
 {
 $name=$_POST['username'];
 $pass=$_POST['password'];
 
- $query = "SELECT * FROM fl_login where name='$name' and pass='$pass'";
+$val='1';
+
+ $query = "SELECT * FROM fl_login where email='$name' and pass='$pass' and status='$val'";
       $run=mysqli_query($con, $query);
 
  
@@ -17,7 +20,7 @@ $pass=$_POST['password'];
 
       }
       else{
-      	echo "<script>alert('Invalid Details');</script>";
+      	echo "<script>alert('Invalid Details or you are not approved as foodlancer  yet..');</script>";
       }
 
 
