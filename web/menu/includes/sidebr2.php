@@ -171,7 +171,7 @@
                                 <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 533px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="#" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <a href="ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
                               </div>
                            </div>
                            

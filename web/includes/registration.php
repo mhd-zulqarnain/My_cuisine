@@ -2,6 +2,7 @@
 // Turn off all error reporting
 //error_reporting(0);
 include("../admin/includes/db.php");
+include("../function/function.php");
 ?>
 
 <!Doctype HTML>
@@ -80,13 +81,15 @@ $status="1";
 
 $img =$_FILES['img']['name'];
 $tmp_name=$_FILES['img']['tmp_name'];
+$c_ip= getRealIpAddr();
 
   //uploading images to its folder
     move_uploaded_file($tmp_name, "customer_images/$img");
 
 
 
-$query="INSERT INTO customer(c_name,c_email,c_pass,c_city,c_contact,c_address,c_image,customer_status) VALUES('$name','$email','$password','$city','$contact','$address','$img','$status')";
+
+$query="INSERT INTO customer(c_name,c_email,c_pass,c_city,c_contact,c_address,c_image,customer_status,customer_ip) VALUES('$name','$email','$password','$city','$contact','$address','$img','$status','$c_ip')";
 $run=mysqli_query($con,$query);
 if($run)
 {
