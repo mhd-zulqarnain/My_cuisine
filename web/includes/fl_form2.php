@@ -233,14 +233,14 @@ div.containerr {
      <h3><b>Registration Form</b></h3><br>
 
 <div class="containerr">
-  <form action="" method="post">
-    <label >Yor Name</label>
+  <form name="register" action="connect1.php" method="post">
+    <label >Your Name</label>
     <input type="text" name="name" placeholder="Your name.." required>
 
     <label >Your Email</label>
     <input type="email"  name="email" placeholder="Your Email.." required>
 
-    <label >Yor Kitchen Name</label>
+    <label >Your Kitchen Name</label>
     <input type="text" name="kname" placeholder="Your kitchen name.." required>
 
 
@@ -256,13 +256,10 @@ div.containerr {
 
     <label required >Services Pick Up or Delivery?</label>
     <select  name="service">
-      <option >Delivry & Pickup</option>
-      <option >Delivery Only</option>
-      <option >Pickup Only</option>
-      <option >Delivery / Pickup /Dinein</option>
-      <option >Delivery & Dinein</option>
-      <option >Pickup & Dinein</option>
-      <option >Dinein Only</option>
+      <option value="Delivry & Pickup">Delivry & Pickup</option>
+      <option value="delivery only">Delivery Only</option>
+      <option value="pickup only">Pickup Only</option>
+   
     </select>
 <br>
     <h3><b>Login Information</b></h3>
