@@ -11,13 +11,9 @@
 </ul>
 </li> -->
 
-<li><a href="#"><i class="fa fa-sitemap"></i> Post Menu</a>
+<li><a href="#"><i class="fa fa-sitemap"></i> Menu</a>
 					<ul>
-						<li><a href="post-dailymenu.php">Daily Menu</a></li>
-						<li><a href="post-monthlymenu.php">Monthly Menu</a></li>
-						<li><a href="post-partymenu.php">Party Menu</a></li>
-						<li><a href="post-dietmenu.php">Diet Menu</a></li>
-						<li><a href="post-weektrialmenu.php">Weekly Trial</a></li>
+						<li><a href="post-menu.php">Post Menu</a></li>
 						<li><a href="manage-vehicles.php">Manage Menu</a></li>
 					</ul>
 				</li>
