@@ -170,8 +170,8 @@
                               <div class="row even">
                                 <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 533px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
                               </div>
                            </div>
                            
@@ -195,20 +195,187 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <h3>Monthly Menu</h3>
-  <p>Paris is the capital of France.</p> 
+  
+   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default">
+                       <div class="panel-heading"><h3><b>Monthly Menu</b></h3></div>
+                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
+                      
+                           <p>full month deals</p>
+                            <?php 
+     if (isset($_GET['flid'])) {
+      $id=$_GET['flid'];
+     }
+    $val='Monthly menu';
+    $query ="select * from food_items where category='$val' and fl_id='$id'";
+    $run=mysqli_query($con,$query);
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+ 
+                            <div class="panel-body">
+                              <div class="row even">
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                              </div>
+                           </div>
+                           
+                           
+                    </div>
+                     <?php
+} 
+?>
+ 
+                       
+                     </div>
+
+                  
+                     
+               </div>
+  <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+   
 </div>
 <div id="Tokyo" class="tabcontent">
-  <h3>Party Menu</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default">
+                       <div class="panel-heading"><h3><b>Party Menu</b></h3></div>
+                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
+                      
+                           <p>event catering service</p>
+                            <?php 
+     if (isset($_GET['flid'])) {
+      $id=$_GET['flid'];
+     }
+    $val='Party menu';
+    $query ="select * from food_items where category='$val' and fl_id='$id'";
+    $run=mysqli_query($con,$query);
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+ 
+                            <div class="panel-body">
+                              <div class="row even">
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                              </div>
+                           </div>
+                           
+                           
+                    </div>
+                     <?php
+} 
+?>
+ 
+                       
+                     </div>
+
+                  
+                     
+               </div>
+  <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
 </div>
+
 <div id="Pariss" class="tabcontent">
-  <h3>Diet Menu</h3>
-  <p>qwertyuiokjhgfdszxcvbnm.</p> 
+   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default">
+                       <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
+                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
+                      
+                           <p>gain heath with our diet menu</p>
+                            <?php 
+     if (isset($_GET['flid'])) {
+      $id=$_GET['flid'];
+     }
+    $val='Diet menu';
+    $query ="select * from food_items where category='$val' and fl_id='$id'";
+    $run=mysqli_query($con,$query);
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+ 
+                            <div class="panel-body">
+                              <div class="row even">
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                              </div>
+                           </div>
+                           
+                           
+                    </div>
+                     <?php
+} 
+?>
+ 
+                       
+                     </div>
+
+                  
+                     
+               </div>
+  <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
 </div>
 <div id="Tokyoo" class="tabcontent">
-  <h3>Weekly Trial</h3>
-  <p>asdfghjkpoiuytre.</p>
+   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default">
+                       <div class="panel-heading"><h3><b>Weekly Trial Menu</b></h3></div>
+                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
+                      
+                           <p>Weekly Menu</p>
+                            <?php 
+     if (isset($_GET['flid'])) {
+      $id=$_GET['flid'];
+     }
+    $val='Weekly Trial menu';
+    $query ="select * from food_items where category='$val' and fl_id='$id'";
+    $run=mysqli_query($con,$query);
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+ 
+                            <div class="panel-body">
+                              <div class="row even">
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                              </div>
+                           </div>
+                           
+                           
+                    </div>
+                     <?php
+} 
+?>
+ 
+                       
+                     </div>
+
+                  
+                     
+               </div>
+  <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
 </div>
 <div id="Tokyooo" class="tabcontent">
   <h3>Special Deals</h3>
