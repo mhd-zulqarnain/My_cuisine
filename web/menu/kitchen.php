@@ -158,7 +158,7 @@ li img:hover{
 <span class="fa fa-star"></span>
 <span class="fa fa-star"></span>
 											<div class="menu-price">
-												<h4 class="price-clr"><a href="homekitchen4.php?flid=<?php echo $row["id"];?>" style="color:green">open</a></h4>
+												<h4 class="price-clr"><a href="homekitchen5.php?flid=<?php echo $row["id"]."pid=-1";?>" style="color:green">open</a></h4>
 					
 											</div>
 											<div class="clearfix"></div>
@@ -172,29 +172,7 @@ li img:hover{
 	?>
 							
 								</div> 
-								<!--<div class="col-md-6 menu-grids"> 
-									
-									
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m7.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor.. </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-	
-									
-								</div> -->
+								
 
 								<div class="clearfix"> </div>
 							</div>
@@ -203,51 +181,7 @@ li img:hover{
 					</li>
 					<li>
 
-					<!--	<div class="l_g">
-							<div class="l_g_r">
-
-								 <div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m5.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Mauris tortor </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-
-								<div class="col-md-6 menu-grids">
-									<div class="w3l-menu-text">
-										<div class="menu-text-left">
-											<img src="images/m2.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4>Congue oluptate </h4>
-
-											</div>
-											<div class="menu-price">
-												<h4 class="price-clr">$ 50</h4>
-											</div>
-											<div class="clearfix"></div>
-											<p> Nam libero tempore cum soluta nobis.</p>
-										</div>
-										<div class="clearfix"> </div>
-									</div> 
-								</div> 
-								<div class="clearfix"> </div>
-							</div>
-						</div> -->
+					
 					</li>
 				</ul>
 
