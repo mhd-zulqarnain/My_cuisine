@@ -10,16 +10,16 @@ else{
 // Code for change password	
 if(isset($_POST['submit']))
 {
-$brand=$_POST['brand'];
+$name=$_POST['name'];
 $id=$_GET['id'];
-$sql="update  tblbrands set BrandName=:brand where id=:id";
+$sql="update  register set name=:name where id=:id";
 $query = $dbh->prepare($sql);
-$query->bindParam(':brand',$brand,PDO::PARAM_STR);
+$query->bindParam(':name',$name,PDO::PARAM_STR);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 
-$msg="Brand updted successfully";
+$msg="Name updated successfully";
 
 }
 ?>
@@ -85,7 +85,7 @@ $msg="Brand updted successfully";
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Create Brand</h2>
+						<h2 class="page-title">Change name</h2>
 
 						<div class="row">
 							<div class="col-md-10">
@@ -100,7 +100,7 @@ $msg="Brand updted successfully";
 
 <?php	
 $id=$_GET['id'];
-$ret="select * from tblbrands where id=:id";
+$ret="select * from register where id=:id";
 $query= $dbh -> prepare($ret);
 $query->bindParam(':id',$id, PDO::PARAM_STR);
 $query-> execute();
@@ -113,7 +113,7 @@ foreach($results as $result)
 ?>
 
 											<div class="form-group">
-												<label class="col-sm-4 control-label">Brand Name</label>
+												<label class="col-sm-4 control-label">Name</label>
 												<div class="col-sm-8">
 													<input type="text" class="form-control" value="<?php echo htmlentities($result->BrandName);?>" name="brand" id="brand" required>
 												</div>
