@@ -149,6 +149,10 @@ li img:hover{
   if(isset($_GET['flid'])){ 
 
 	$fid = $_GET['flid'];
+	$prd_id = $_GET['prd_id'];
+
+	echo " product id is".$prd_id;
+
     $query ="select * from fl_info where id ='$fid'";
 
     $run=mysqli_query($con,$query);

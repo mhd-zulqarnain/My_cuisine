@@ -152,10 +152,11 @@
                        <div class="panel-heading"><h3><b>Daily Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
-                           <p>Daily regular deals</p>
+                           <p>Daily regular deals </p>
                             <?php 
      if (isset($_GET['flid'])) {
       $id=$_GET['flid'];
+
      }
     $val='Daily menu';
     $query ="select * from food_items where category='$val' and fl_id='$id'";
@@ -171,7 +172,7 @@
                                 <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>
                               </div>
                            </div>
                            
