@@ -14,6 +14,7 @@
 <li><a href="#"><i class="fa fa-sitemap"></i> Menu</a>
 					<ul>
 						<li><a href="post-menu.php">Post Menu</a></li>
+						<li><a href="post-diet(trail).php">Post a diet menu</a></li>
 						<li><a href="manage-vehicles.php">Manage Menu</a></li>
 					</ul>
 				</li>
