@@ -159,7 +159,7 @@ li img:hover{
 <span class="fa fa-star"></span>
 											<div class="menu-price">
 												<h4 class="price-clr"><a
-                                                                href="homekitchen4.php?flid=<?php echo $row["id"]."&prd_id=-1"; ?>"
+                                                                href="homekitchen4.php?flid=<?php echo $row["id"]/*."&prd_id=-1"*/; ?>"
                                                                 style="color:green">open</a></h4>
 					
 											</div>

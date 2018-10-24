@@ -159,7 +159,7 @@ li img:hover{
   if(isset($_GET['flid'])){ 
 
 	$fid = $_GET['flid'];
-	$pid = $_GET['prd_id'];
+	//$pid = $_GET['prd_id'];
 	//echo $pid;
     $query ="select * from fl_info where id ='$fid'";
 

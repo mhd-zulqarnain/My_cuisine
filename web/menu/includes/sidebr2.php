@@ -1,49 +1,58 @@
 <?php
+
 session_start();
 
-if(isset($_POST['add_to_cart'])){
+if(isset($_POST['add_to_cart']))
+{
 
-  if (isset($_SESSSION["shopping_cart"])) {
-    $item_array_id = array_column($_SESSSION['shopping_cart'], "item_id");
+  if (isset($_SESSION["shopping_cart"]))
+  {
+    $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
 
     if (!in_array($_GET['prd_id'], $item_array_id)) {
 
-      /* $count =count($_SESSSION['shopping_cart']);
-        $item_array =array(
+       $count = count($_SESSION["shopping_cart"]); 
+      $item_array =array(
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
       'item_quantity' =>$_POST['qty']
-    );*/
-       // $_SESSSION['shopping_cart'][$count]=$item_array;
-        array_push($_SESSION['shopping_cart'], $item_array);
+    );
+       $_SESSION["shopping_cart"][$count]= $item_array;
+       // array_push($_SESSION['shopping_cart'], $item_array);
     }
     else{
-             echo "<script>slert('Item alredy added')</script>";
+             echo '<script>alert("Item already added")</script>';
             // echo "<script>window.location('homekitchen4.php')</script>";
             //  echo "<script>window.location='homekitchen4.php?<?php echo 'flid='.$_GET['flid']
-             echo "<script>header('index.php')</script>";
+            // echo "<script>header('index.php')</script>";
     }
   }
     
   else{
+
     $item_array =array(
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
       'item_quantity' =>$_POST['qty']
     );
-    $_SESSSION['shopping_cart'][0] =$item_array;
+    $_SESSION["shopping_cart"][0] = $item_array;
 
   }
 
 }
-if (isset($_GET["acction2"])) {
-  if ($_GET["action2"] =="delete") {
-    foreach ($_SESSSION["shopping_cart"] as $key => $values) {
-      if ($values["item_id"] == $Get["prd_id"]) { 
+if(isset($_GET["action2"]))
+ {
+  if($_GET["action2"] == "delete")
+   {
 
-        unset($_GET["shopping_cart"][$keys]);
+    foreach($_SESSION["shopping_cart"] as $keys => $values)
+     {
+      if($values["item_id"] == $_GET['idd'])
+       { 
+
+        unset($_SESSION["shopping_cart"][$keys]);
 
         echo "<script>alert('Item Removed')</script>";
         //echo "<script>window.location='homekitchen4.php?<?php echo 'flid='.$_GET['flid'];
@@ -171,7 +180,95 @@ if (isset($_GET["acction2"])) {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.close{
+  position: absolute;
+  top:0;
+  right: 14px;
+  font-size: 38px;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+}
+.bg-modal1 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.close1{
+  position: absolute;
+  top:0;
+  right: 14px;
+  font-size: 38px;
+  transform: rotate(45deg);
+  cursor: pointer;
+
+}
+html
+{
+  height:100%;
+  width:100%;
+}
+body{    
+  background:url('images/jurassic-coast-1089035_1920.jpg') no-repeat;
+  background-size: cover;
+  height:100%;
+
+}
+
+.form-top{
+  margin-top: 30px;
+
+}
+.panel{
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
+  border-radius: 6px;
+    border: 0;
+
+}
+@-moz-document url-prefix() {
+    .form-control{
+      height: auto;
+    }
+}
+.panel-primary{
+  background-color: #2c3e50;
+  color: #fff;
+
+}
+.panel-primary>.panel-heading {
+    color: #fff;
+    font-size: 20px;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    position: relative;
+}
+.btn-warning{
+  background-color: transparent;
+  border-color: #bdc3c7;
+}
+
+
+
+
 </style>
+
 <body>
 
    <div >
@@ -195,6 +292,10 @@ if (isset($_GET["acction2"])) {
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
+                 <a id="complain" class="btn" data-placement="bottom"  style="float: right;color: red;margin-right: 1230px">
+                  Complain</a>
+                 <a id="review" class="btn" data-placement="bottom" style="float: right;color: green;">
+                  Review</a>
               </li>
             </ul>
           </div>
@@ -206,6 +307,7 @@ if (isset($_GET["acction2"])) {
         <div align="right">
           <div align="left">
             <h3>Order Details</h3>
+
             <div class="table-responsive">
               <table class="table table-bordered">
                 <tr>
@@ -216,25 +318,27 @@ if (isset($_GET["acction2"])) {
                   <th width="5%">Action</th>
                 </tr>
                 <?php
-                if (!empty($_SESSSION["shopping_cart"])) {
-                   $total=0;
-                   foreach ($_SESSSION["shopping_cart"] as $key => $values)
+                if(!empty($_SESSION["shopping_cart"])) 
+                {
+                   $total = 0;
+                   foreach ($_SESSION["shopping_cart"] as $keys => $values)
                    {
                 ?>
                 <tr>
                   <td><?php echo $values["item_name"]; ?></td>
                   <td><?php echo $values["item_quantity"]; ?></td>
                   <td>Rs <?php echo $values["item_price"]; ?></td>
-                  <td><?php echo number_format ($values["item_quantity"] * $values["item_price"] ,2); ?></td>
-                  <td><a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'].'&action2='.'delete'.'&idd='.$values["item_id"]/*.'&pid='.$row['idd']*/;?>">Delete</a></td>
+                  <td><?php echo number_format($values["item_quantity"] * $values["item_price"] ,2); ?></td>
+                  <td><a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid']/*.'&prd_id='.$row['idd']*/.'&action2=delete'.'&idd='.$values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
                 </tr>
                 <?php
-                   $total=$total+($values["item_quantity"] * $values["item_price"]); 
+
+                   $total = $total + ($values["item_quantity"] * $values["item_price"]); 
                    }
                  ?>
                  <tr>
-                   <td colspan="3" align="right">Toatal</td>
-                   <td align="right">$ <?php echo number_format($total,2); ?></td>
+                   <td colspan="3" align="right">Total</td>
+                   <td align="right">Rs: <?php echo number_format($total, 2); ?></td>
                    <td></td>
                  </tr> 
                  <?php 
@@ -298,6 +402,7 @@ if (isset($_GET["acction2"])) {
     $val='Daily menu';
     $query ="select * from food_items where category='$val' and fl_id='$id'";
     $run=mysqli_query($con,$query);
+	
  while ($row=mysqli_fetch_array($run)) {
                     
 
@@ -306,7 +411,7 @@ if (isset($_GET["acction2"])) {
                       
                             <div class="panel-body">
                               <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php echo $row['idd']?>"> -->
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
                                 <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
@@ -324,7 +429,7 @@ if (isset($_GET["acction2"])) {
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
 
                               </div>
                               </form>
@@ -443,41 +548,18 @@ if (isset($_GET["acction2"])) {
             <div class="clearfix"> </div>
 </div>
 
+
+
+
+
 <div id="Pariss" class="tabcontent">
-   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+  <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
-                           <p>gain heath with our diet menu</p>
-                            <?php 
-     if (isset($_GET['flid'])) {
-      $id=$_GET['flid'];
-     }
-    $val='Diet menu';
-    $query ="select * from food_items where category='$val' and fl_id='$id'";
-    $run=mysqli_query($con,$query);
- while ($row=mysqli_fetch_array($run)) {
+                           <p>Gain health with our diet menu</p>
                     
-
-                         ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
- 
-                            <div class="panel-body">
-                              <div class="row even">
-                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                              </div>
-                           </div>
-                           
-                           
-                    </div>
-                     <?php
-} 
-?>
- 
                        
                      </div>
 
@@ -487,7 +569,10 @@ if (isset($_GET["acction2"])) {
   <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>
+
+  <!-- -->
 </div>
+
 <div id="Tokyoo" class="tabcontent">
    <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -551,7 +636,6 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 </script>
-
 <script type="text/javascript">
  function openCity(evt, cityName) {
     // Declare all variables
@@ -576,6 +660,128 @@ function closeForm() {
 }
 //Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+</script>
+
+<div class="bg-modal1">
+  
+<div class="containerw3layouts-agileits">
+      <div class="w3layoutscontactagileits">
+        
+          <div id="wrapper">
+              <form action="#" method="post">
+                <div id="login" class="animate w3layouts agileits form">
+                  <div class="close1">+</div>
+                <div class="ferry ferry-from">
+                    <label>Your Name :</label>
+                    <input type="text" name="email" placeholder="Enter your name" required=" ">
+                  </div>
+                  <div class="ferry ferry-from">
+                    <label>Your Email :</label>
+                    <input type="text" name="email" placeholder="Enter your email" required=" ">
+                  </div>
+                  <div class="ferry ferry-from">
+                    <label>Kitchen Name :</label>
+                    <input type="text" name="email" placeholder="Enter your email" required=" ">
+                  </div>
+                  <div class="ferry ferry-from">
+                    <label>Rate us :</label>
+                    <select name="from">
+                      <option value="Dover">Poor</option>
+                      <option value="Dover">Average</option>
+                      <option value="Dover">Very good</option>
+                      <option value="Dover">Excellent</option>
+                    </select>
+                  </div>
+                  <div class="ferry ferry-from">
+                    <label>Any Comments or Suggestions?</label>
+                    <textarea id="message" name="message" placeholder="Your Queries" title="Please enter your suggestions here"></textarea>
+                  </div>
+                  <div class="wthreesubmitaits">
+                    <input type="submit" name="submit" value="Post Review">
+                  </div>
+                </div>
+                </form>
+            </div>
+      </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<div class="bg-modal">
+   <!-- Form Started -->
+            <div class="container form-top">
+              
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <form id="reused_form">
+                                  <div class="close">+</div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> Kitchen Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Kitchen Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-raised btn-block btn-danger">Submit Complain &rarr;</button>
+                                    </div>
+                                </form>
+                                <div id="error_message" style="width:100%; height:100%; display:none; ">
+                                    <h4>
+                                        Error
+                                    </h4>
+                                    Sorry there was an error sending your form. 
+                                </div>
+                                <div id="success_message" style="width:100%; height:100%; display:none; ">
+<h2>Success! Your Message was Sent Successfully.</h2>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Ended -->
+        
+  <!-- <img src="http://getaadhar.in/wp-content/uploads/2015/12/complaints-vector-illustration-complaint-box-39426847.jpg" width="100" height="100"  alt="" >
+  <form action="">
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="E-mail">
+    <textarea name="message" placeholder="Your Message"></textarea>
+    <a href="" class="button">Submit</a>
+  </form> -->
+
+
+</div>
+<script type="text/javascript">
+  document.getElementById('complain').addEventListener('click' , function(){
+document.querySelector('.bg-modal').style.display= "flex";
+  });
+  document.getElementById('review').addEventListener('click' , function(){
+document.querySelector('.bg-modal1').style.display= "flex";
+  });
+  document.querySelector('.close').addEventListener('click',function(){
+    document.querySelector('.bg-modal').style.display="none";
+  });
+   document.querySelector('.close1').addEventListener('click',function(){
+    document.querySelector('.bg-modal1').style.display="none";
+  });
 </script>
 </body>
 </html>
