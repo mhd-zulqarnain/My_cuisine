@@ -38,12 +38,22 @@ include("../function/function.php");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css3/style2.css">
 
+
+ <script src="js3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css3/bootstrap.min.css" />
+    <script src="js3/bootstrap.min.js"></script>
+
 	<style type="text/css">
+	.popover
+		{
+		    width: 100%;
+		    max-width: 800px;
+		}
 .navbar a {
   float: right;
   padding: 30px;
   color: white;
-  text-decoration: none;
+  texidt-decoration: none;
   font-size: 17px;
 }
 
@@ -149,15 +159,8 @@ li img:hover{
   if(isset($_GET['flid'])){ 
 
 	$fid = $_GET['flid'];
-<<<<<<< HEAD
-	$prd_id = $_GET['prd_id'];
-
-	echo " product id is".$prd_id;
-
-=======
-	$pid = $_GET['pid'];
+	//$pid = $_GET['prd_id'];
 	//echo $pid;
->>>>>>> origin/cart_cusine
     $query ="select * from fl_info where id ='$fid'";
 
     $run=mysqli_query($con,$query);
@@ -312,3 +315,16 @@ li img:hover{
 </body>
 
 </html>
+<script>  
+$(document).ready(function(){
+
+	$('#cart-popover').popover({
+		html : true,
+        container: 'body',
+        content:function(){
+        	return $('#popover_content_wrapper').html();
+        }
+	});
+});
+
+</script>

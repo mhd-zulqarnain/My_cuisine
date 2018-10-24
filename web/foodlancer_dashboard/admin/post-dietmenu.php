@@ -12,13 +12,14 @@ if(isset($_POST['submit']))
  {
   $fl_id    =$_POST['fl_id'];
 	$fl_kname =$_POST['fl_k_name'];
-	$d_name   =$_POST['per_head'];
+	$d_name   =$_POST['d_name'];
 	$menu_cat =$_POST['menu_cat'];
 	$meals    = $_POST['meals'];
 	$price    = $_POST['price'];
+	$diet_type    = $_POST['diet_type'];
 
 
-	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price')";
+	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,diet_type) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$diet_type')";
 	$run=mysqli_query($con, $query);
 
 	if ($run) {
@@ -109,7 +110,7 @@ $fl_name=$_SESSION['flname'];
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">Party Menu</div>
+									<div class="panel-heading">Diet Menu</div>
 <!--<div class="errorWrap"><strong>ERROR</strong>: </div>
 		<div class="succWrap"><strong>SUCCESS</strong>:<?php //echo htmlentities($msg ?> </div> -->
 				<div class="panel-body">
@@ -145,21 +146,7 @@ $fl_name=$_SESSION['flname'];
 								</div>
 							</div>
 						</div>
-							<div class="form-group">
-							<label class="col-md-2 control-label">Per Head</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							        <select name="per_head" >
-					<option value="1 meal"> 1 meal</option>
-					
-				</select>
-    
-								</div>
-							</div>
-						</div>
+							
 
 	
 	<div class="form-group">
@@ -177,6 +164,39 @@ $fl_name=$_SESSION['flname'];
 								</div>
 							</div>
 	</div>
+
+<div class="form-group">
+							<label class="col-md-2 control-label">Dish Name</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="d_name" placeholder="Enter Dish Name " required>
+								</div>
+							</div>
+						</div>
+<div class="form-group">
+							<label class="col-md-2 control-label">Diet type</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-book"></i>
+									</span>
+							        <select name="diet_type" >
+					<option value="">Select Category</option>
+					<option>Balanced</option>
+					<option>Less spice</option>
+					<option>More spice</option>	
+					<option>Extra fats </option>
+					<option>Extra salty</option>				
+				</select>
+    
+								</div>
+							</div>
+	</div>
+
+	
 
 	<div class="form-group">
 							<label class="col-md-2 control-label">Meals</label>

@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+include('includes/fl_form2.php');
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -10,7 +11,7 @@ else{
 if(isset($_GET['del']))
 {
 $id=$_GET['del'];
-$sql = "delete from register  WHERE id=:id";
+$sql = "delete from fl_info, fl_login  WHERE id=:id";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
@@ -33,7 +34,7 @@ $msg="Page data updated  successfully";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Car Rental Portal |Admin Manage Brands   </title>
+	<title>QA  |Admin</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -106,6 +107,8 @@ $msg="Page data updated  successfully";
 												<th>log_pass</th>
 											
 										
+											
+											<th>Status</th>
 											<th>Action</th>
 											
 										</tr>
@@ -123,13 +126,18 @@ $msg="Page data updated  successfully";
 												<th>log_email</th>
 												<th>log_pass</th>
 										
+											
+											<th>Status</th>
 											<th>Action</th>
 										</tr>
 										</tr>
 									</tfoot>
 									<tbody>
 
-									<?php $sql = "SELECT * from  register ";
+								
+
+								<?php $sql = "SELECT * from  fl_info, fl_login";
+
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -140,15 +148,16 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->name);?></td>
+											<td><?php echo htmlentities($result->fl_name);?></td>
+											<td><?php echo htmlentities($result->fl_email);?></td>
+											<td><?php echo htmlentities($result->fl_kitchen_name);?></td>
+											<td><?php echo htmlentities($result->fl_contact);?></td>
+											<td><?php echo htmlentities($result->fl_address);?></td>
+											<td><?php echo htmlentities($result->fl_city);?></td>
+											<td><?php echo htmlentities($result->fl_service);?></td>
 											<td><?php echo htmlentities($result->email);?></td>
-											<td><?php echo htmlentities($result->kname);?></td>
-											<td><?php echo htmlentities($result->contct_no);?></td>
-											<td><?php echo htmlentities($result->address);?></td>
-											<td><?php echo htmlentities($result->city);?></td>
-											<td><?php echo htmlentities($result->service);?></td>
-											<td><?php echo htmlentities($result->log_email);?></td>
-											<td><?php echo htmlentities($result->log_pass);?></td>
+											<td><?php echo htmlentities($result->pass);?></td>
+											<td><?php echo htmlentities($result->status);?></td>
 											
 											
 											
@@ -156,7 +165,9 @@ foreach($results as $result)
 <a href="manage-request.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a></td>
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
-										
+
+
+
 									</tbody>
 								</table>
 

@@ -10,11 +10,11 @@ else{
 // Code for change password	
 if(isset($_POST['submit']))
 {
-$name=$_POST['name'];
+$name=$_POST['fl_name'];
 $id=$_GET['id'];
-$sql="update  register set name=:name where id=:id";
+$sql="update  fl_info, fl_login set name=:fl_name where id=:id";
 $query = $dbh->prepare($sql);
-$query->bindParam(':name',$name,PDO::PARAM_STR);
+$query->bindParam(':fl_name',$name,PDO::PARAM_STR);
 $query->bindParam(':id',$id,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
@@ -100,7 +100,7 @@ $msg="Name updated successfully";
 
 <?php	
 $id=$_GET['id'];
-$ret="select * from register where id=:id";
+$ret="select * from fl_info,fl_login where id=:id";
 $query= $dbh -> prepare($ret);
 $query->bindParam(':id',$id, PDO::PARAM_STR);
 $query-> execute();
@@ -115,7 +115,7 @@ foreach($results as $result)
 											<div class="form-group">
 												<label class="col-sm-4 control-label">Name</label>
 												<div class="col-sm-8">
-													<input type="text" class="form-control" value="<?php echo htmlentities($result->BrandName);?>" name="brand" id="brand" required>
+													<input type="text" class="form-control" value="<?php echo htmlentities($result->fl_Name);?>" name="fl_name" id="name" required>
 												</div>
 											</div>
 											<div class="hr-dashed"></div>

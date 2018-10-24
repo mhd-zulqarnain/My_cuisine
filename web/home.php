@@ -3,6 +3,7 @@
 <?php 
 session_start();
 include('./admin/includes/db.php');
+include('function/function.php');
 ?>
 
 <!DOCTYPE html>

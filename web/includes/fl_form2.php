@@ -4,17 +4,17 @@ include('../admin/includes/db.php');
 
 if(isset($_POST['fl_register'])) {
   
-  $name =$_POST['name'];
-  $email =$_POST['email'];
-  $kname =$_POST['kname'];
-  $contact =$_POST['contct_no'];
-  $city =$_POST['city'];
-  $address =$_POST['address'];
-  $servce=$_POST['service'];
+  $name =$_POST['fl_name'];
+  $email =$_POST['fl_email'];
+  $kname =$_POST['fl_kitchen_name'];
+  $contact =$_POST['fl_contact'];
+  $city =$_POST['fl_city'];
+  $address =$_POST['fl_address'];
+  $servce=$_POST['fl_service'];
 
   //login details
-  $l_email=$_POST['log_email'];
-  $l_pass=$_POST['log_pass'];
+  $l_email=$_POST['email'];
+  $l_pass=$_POST['pass'];
 
   $val='0';
 
@@ -233,29 +233,29 @@ div.containerr {
      <h3><b>Registration Form</b></h3><br>
 
 <div class="containerr">
-  <form name="register" action="connect1.php" method="post">
+  <form name="fl_register" action="" method="post">
     <label >Your Name</label>
-    <input type="text" name="name" placeholder="Your name.." required>
+    <input type="text" name="fl_name" placeholder="Your name.." required>
 
     <label >Your Email</label>
-    <input type="email"  name="email" placeholder="Your Email.." required>
+    <input type="email"  name="fl_email" placeholder="Your Email.." required>
 
     <label >Your Kitchen Name</label>
-    <input type="text" name="kname" placeholder="Your kitchen name.." required>
+    <input type="text" name="fl_kitchen_name" placeholder="Your kitchen name.." required>
 
 
     <label>Your Contact No.</label>
-    <input type="text"  name="contct_no" placeholder="Your Contact number.." required>
+    <input type="text"  name="fl_contact" placeholder="Your Contact number.." required>
 
     <label for="lname">Your Address</label>
-    <input type="text"  name="address" placeholder="Your Address.." required>
+    <input type="text"  name="fl_address" placeholder="Your Address.." required>
 
     <label for="lname">Your City</label>
-    <input type="text"  name="city" placeholder="Your City.." required>
+    <input type="text"  name="fl_city" placeholder="Your City.." required>
 
 
     <label required >Services Pick Up or Delivery?</label>
-    <select  name="service">
+    <select  name="fl_service">
       <option value="Delivry & Pickup">Delivry & Pickup</option>
       <option value="delivery only">Delivery Only</option>
       <option value="pickup only">Pickup Only</option>
@@ -265,10 +265,10 @@ div.containerr {
     <h3><b>Login Information</b></h3>
 <br>
      <label >Email</label>
-    <input type="email"  name="log_email" placeholder="Your Email Address.." required>
+    <input type="email"  name="email" placeholder="Your Email Address.." required>
 
     <label > Password</label>
-    <input type="text" name="log_pass" placeholder="Your Password.." required>
+    <input type="text" name="pass" placeholder="Your Password.." required>
     <span style="font-size: 18px; color: grey"><b>Note:</b> Rember login informtion for later use.You will need this.</span>
   
     <input type="submit" value="Submit" name="fl_register">

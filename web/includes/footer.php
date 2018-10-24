@@ -13,6 +13,7 @@
                             <li><a href="pagee.php?type=terms" style="color: white"> <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Terms of use</a></li>
                             <li><a href="../web/admin" style="color: white"><span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Admin Login</a></li>
                               <li><a href="../web/foodlancer_dashboard/admin" style="color: white"><span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> Foodlancer Login</a></li>
+                              <li><a href="../web/QAadmin" style="color: white"><span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span> QA admin Login</a></li>
 							<li>Telephone : +92 123-4567</li>
 							<li>Email : <a class="mail" href="mailto:mail@example.com">mycuisine@gmail.com</a></li>
 						</ul>
