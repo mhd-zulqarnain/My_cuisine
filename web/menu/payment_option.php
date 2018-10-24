@@ -184,7 +184,26 @@ li img:hover{
 </div>
 <!-- Sidebar -->
 <?php
- include("includes/sidebr2.php");?>
+// include("includes/sidebr2.php");
+
+?>
+ <div align="center" style="padding: 20px">
+	<h2>Payment Options For You</h2>
+
+	<?php
+	$ip =getRealIpAddr();
+
+	$query ="select * from customer where customer_ip='$ip'";
+	$run=mysqli_query($con,$query);
+	$row =mysqli_fetch_array($run);
+	$c_id=$row['c_id'];
+
+	?>
+	<center><b><h2>PAY WITH</h2></b></center><br>
+	<a href="http://www.hbl.com/paypak"><img src="images/pay_pak.png" style="width: 750px"></a></div><br>
+	<center><b><h2> OR </h2><a href="order.php?c_id=<?php echo $c_id; ?>">Pay_Offline</a></b><br><br><br></center>
+	<center><b>If You Select "PAY OFFLINE" option then please check your email or account to find Invoice No. for your Order</b></center>
+ </div>
 <!-- //sidebar --->
 
 

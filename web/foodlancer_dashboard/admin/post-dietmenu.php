@@ -10,7 +10,24 @@ else{
 
 if(isset($_POST['submit']))
  {
- 	
+  $fl_id    =$_POST['fl_id'];
+	$fl_kname =$_POST['fl_k_name'];
+	$d_name   =$_POST['per_head'];
+	$menu_cat =$_POST['menu_cat'];
+	$meals    = $_POST['meals'];
+	$price    = $_POST['price'];
+
+
+	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price')";
+	$run=mysqli_query($con, $query);
+
+	if ($run) {
+
+		echo "<script>alert('Food Item inserted successfully!')</script>";
+	}
+    else {
+    echo "Error: " . $query . "<br>" . mysqli_error($con);
+   }		
 
 }
 
@@ -105,7 +122,7 @@ $fl_name=$_SESSION['flname'];
 									<span class="input-group-addon">
 										<i class="fa fa-book"></i>
 									</span>
-							        <select name="fl-id" disabled>
+							        <select name="fl_id">
 					<option value="<?php echo $fid;?>"><?php echo $fid;?></option>
 					
 				</select>
@@ -120,7 +137,7 @@ $fl_name=$_SESSION['flname'];
 									<span class="input-group-addon">
 										<i class="fa fa-book"></i>
 									</span>
-							        <select name="fl-k_name" disabled>
+							        <select name="fl_k_name" >
 					<option value="<?php echo $kname;?>"><?php echo $kname;?></option>
 					
 				</select>
@@ -135,7 +152,7 @@ $fl_name=$_SESSION['flname'];
 									<span class="input-group-addon">
 										<i class="fa fa-book"></i>
 									</span>
-							        <select name="fl-k_name" disabled>
+							        <select name="per_head" >
 					<option value="1 meal"> 1 meal</option>
 					
 				</select>
@@ -154,7 +171,7 @@ $fl_name=$_SESSION['flname'];
 									</span>
 							        <select name="menu_cat" >
 					<option value="">Select Category</option>
-					<option>Party Menu</option>					
+					<option>Diet Menu</option>					
 				</select>
     
 								</div>
@@ -168,7 +185,10 @@ $fl_name=$_SESSION['flname'];
 									<span class="input-group-addon">
 										<i class="fa fa-book"></i>
 									</span>
-									<input type="text" class="form-control1" name="meals" placeholder="Enter No of Meals" required="">
+									 <select name="meals" >
+					<option value="">Select No of Meal</option>
+					<option>1 meal</option>					
+				</select>
 								</div>
 							</div>
 						</div>

@@ -16,7 +16,10 @@ if(isset($_POST['fl_register'])) {
   $l_email=$_POST['log_email'];
   $l_pass=$_POST['log_pass'];
 
+//status value
   $val='0';
+  //read status
+  $rstatus="1";
 
 
 
@@ -32,7 +35,7 @@ if(isset($_POST['fl_register'])) {
     echo "<script type='text/javascript'> document.location = 'fl_form2.php'; </script>";
    }
 
-   $query2="INSERT INTO fl_login(email,pass,status) values ('$l_email','$l_pass','$val')";
+   $query2="INSERT INTO fl_login(email,pass,status,r_status) values ('$l_email','$l_pass','$val','$rstatus')";
 $run=mysqli_query($con, $query2);
       
   }
