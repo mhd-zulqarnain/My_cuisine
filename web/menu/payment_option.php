@@ -4,6 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+include("../function/function.php");
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -33,12 +36,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<link href="css3/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css3/style2.css">
+
+
+ <script src="js3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css3/bootstrap.min.css" />
+    <script src="js3/bootstrap.min.js"></script>
+
 	<style type="text/css">
-		.navbar a {
+	.popover
+		{
+		    width: 100%;
+		    max-width: 800px;
+		}
+.navbar a {
   float: right;
   padding: 30px;
   color: white;
-  text-decoration: none;
+  texidt-decoration: none;
   font-size: 17px;
 }
 
@@ -61,7 +76,7 @@ li img:hover{
 /* The navigation bar */
 .bgg-img {
   /* The image used */
-  background-image: url("../kitchen.jpg");
+  background-image: url("../ki_home2.jpg");
 
   min-height: 380px;
 
@@ -84,13 +99,13 @@ li img:hover{
 /* The navbar */
 .topnav {
   overflow: hidden;
-  /*background-color: #333;*/
-  background-color: #a51c21;
+  background-color:black;
+  /*background-color: #a51c21;*/
 }
 
 /* Navbar links */
 .topnav a {
-  float: left;
+  float: right;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -102,110 +117,103 @@ li img:hover{
   background-color: #ddd;
   color: black;
 }
-/*rating*/
-.checked {
-    color: orange;
+
+/*scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
 </style>
 </head>
 
 <body>
 	<div id="menu">
 	<div class="bgg-img">
-  <div class="cantainer">
-    <div class="topnav">
-   
+		  <div class="topnav">
+		  	 <a href="login_signup.php">Login & Signup</a>
+		  	  <a href="#contact">Contact</a>
       <a href="../home.php">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="login_signup.php">Login & Signup</a>
+     
+     
     </div>
-  </div>
+  <div class="cantainer">
+  <?php 
+  include("includes/db.php");
+  if(isset($_GET['flid'])){ 
+
+	$fid = $_GET['flid'];
+	//$pid = $_GET['prd_id'];
+	//echo $pid;
+    $query ="select * from fl_info where id ='$fid'";
+
+    $run=mysqli_query($con,$query);
+ while ($row=mysqli_fetch_array($run)) {
+
+  ?>
+   <div style="float: left;text-align: center;">
+ <h1 style="color: white;font-size:50px;text-align: center;margin-top: 100px;margin-right:530px"><?php echo $row["fl_kitchen_name"]; ?></h1>
+ <h1 style="color: white;font-size:25px;text-align: center;margin-top: 30px;margin-right:530px"><?php echo $row["fl_address"]; ?></h1>
 </div>
 
-	<div class="menu-agileits_w3layouts section">
-		<div class="container" style="width: 1150px;">
-			<div class="load_more">
-				<h3 class="w3layouts-title" style="font-size: 50px;color: #a51c21;text-transform: capitalize;margin-left:20px;padding: 0;font-family: 'Rancho', cursive;">
-					<img src="images/menu1.png" class="img-responsive" alt="" />Featured Kitchens</h3>
-				<ul id="myList">
-					<li>
-						<div class="l_g">
-							<div class="l_g_r">
+<?php 
 
-								<div class="col-md-6 menu-grids">
-										<?php 
- include('includes/db.php');
- $query ="select * from fl_info";
- $run=mysqli_query($con,$query);
- while ($row=mysqli_fetch_array($run)) {
- 	/*$fl_iid=$row["id"];*/
+}}
+?>
 
-?>		
-   							
-									<div class="w3l-menu-text" style="width: 600px;margin-left: 150px">
-										<div class="menu-text-left">
-											<img src="images/m1.jpg" alt="" class="img-responsive" />
-										</div>
-										<div class="menu-text-right">
-											<div class="menu-title">
-												<h4><?php echo $row["fl_kitchen_name"]?> </h4>
 
-											</div>
-											<div class="clearfix"> </div>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span>
-											<div class="menu-price">
-												<h4 class="price-clr"><a
-                                                                href="homekitchen4.php?flid=<?php echo $row["id"]/*."&prd_id=-1"*/; ?>"
-                                                                style="color:green">open</a></h4>
-					
-											</div>
-											<div class="clearfix"></div>
-											<p> <?php echo $row["fl_address"]?></p>
+  </div>
+  
 
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<?php
-}
+</div>
+<!-- Sidebar -->
+<?php
+// include("includes/sidebr2.php");
+
+?>
+ <div align="center" style="padding: 20px">
+	<h2>Payment Options For You</h2>
+
+	<?php
+	$ip =getRealIpAddr();
+
+	$query ="select * from customer where customer_ip='$ip'";
+	$run=mysqli_query($con,$query);
+	$row =mysqli_fetch_array($run);
+	$c_id=$row['c_id'];
+
 	?>
-							
-								</div> 
-								
+	<center><b><h2>PAY WITH</h2></b></center><br>
+	<a href="http://www.hbl.com/paypak"><img src="images/pay_pak.png" style="width: 750px"></a></div><br>
+	<center><b><h2> OR </h2><a href="order.php?c_id=<?php echo $c_id; ?>">Pay_Offline</a></b><br><br><br></center>
+	<center><b>If You Select "PAY OFFLINE" option then please check your email or account to find Invoice No. for your Order</b></center>
+ </div>
+<!-- //sidebar --->
 
-								<div class="clearfix"> </div>
-							</div>
-						</div>
 
-					</li>
-					<li>
-
-					
-					</li>
-				</ul>
-
-			<div class="nav-menu text-center">
-					<div id="loadMore">Load more</div>
-					<div id="showLess">Show less</div>
-				</div> 
-			</div>
-		</div>
-
-	</div>
-	<!--//menu-->
+  <!--//menu-->
+  	      
 	
 	<!-- slid -->
 
 	<!-- //slid -->
-
-
-	<!--footer-->
-
-	
-	<div class="footer-cpy text-center">
+	<div class="footer-cpy text-center" style="background-color: black">
 		<div class="social_banner">
 			<ul class="social_list">
 				<li>
@@ -235,33 +243,12 @@ li img:hover{
 				<a href="http://w3layouts.com">...</a>
 			</p>
 		</div>
-	</div>
-	<!--//footer-->
+	</div> 
 
 
 
-	<!-- Tooltip -->
-	<div class="tooltip-content">
-		<div class="modal fade features-modal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-md">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h3 class="modal-title">
-							<img src="images/logo.png" class="img-responsive img1" alt="" />Spicy Bite</h3>
-					</div>
-					<div class="modal-body">
-						<img src="images/modal.jpg" class="img-responsive" alt="image">
-						<h4>Tasty experience in every bite!</h4>
-						<p>Fusce et congue nibh, ut ullamcorper magna. Donec ac massa tincidunt, fringilla sapien vel, tempus massa. Vestibulum
-							felis leo, tincidunt sit amet tristique accumsan. In vitae dapibus metus. Donec nec massa non nulla mattis aliquam
-							egestas et mi.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>/
+
+</div>
 	<!-- //Tooltip -->
 
 	<!-- js -->
@@ -347,3 +334,23 @@ li img:hover{
 </body>
 
 </html>
+<script>  
+$(document).ready(function(){
+
+	$('#cart-popover').popover({
+		html : true,
+        container: 'body',
+        content:function(){
+        	return $('#popover_content_wrapper').html();
+        }
+	});
+});
+
+</script>
+<?php// include('includes/c_login.php');?>
+<!--/Login-Form --> 
+
+
+<!--Register-Form
+<?php //include('includes/registration.php');?>
+<?php //include('includes/forgotpassword.php');?>  -->

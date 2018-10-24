@@ -28,6 +28,7 @@
 											<li id="menu-academico-avaliacoes" ><a href="manage_chef.php">Manage</a></li>
 										  </ul>
 										</li>
+										
 										<?php
                                          
                                          if (isset($_GET['notf'])) {

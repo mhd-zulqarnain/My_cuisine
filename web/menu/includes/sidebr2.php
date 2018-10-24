@@ -1,49 +1,70 @@
 <?php
 session_start();
+error_reporting(0);
+//include('../function/function.php');
 
-if(isset($_POST['add_to_cart'])){
+if(isset($_POST['add_to_cart']))
+{
 
-  if (isset($_SESSSION["shopping_cart"])) {
-    $item_array_id = array_column($_SESSSION['shopping_cart'], "item_id");
-
+  if (isset($_SESSION["shopping_cart"]))
+  {
+     //if session has data get it in aarry format 
+    $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+ 
     if (!in_array($_GET['prd_id'], $item_array_id)) {
 
-      /* $count =count($_SESSSION['shopping_cart']);
-        $item_array =array(
+       $count = count($_SESSION["shopping_cart"]); 
+      $item_array =array(
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
       'item_quantity' =>$_POST['qty']
-    );*/
-       // $_SESSSION['shopping_cart'][$count]=$item_array;
-        array_push($_SESSION['shopping_cart'], $item_array);
+    );
+       $_SESSION["shopping_cart"][$count]= $item_array;
+       // array_push($_SESSION['shopping_cart'], $item_array);
     }
     else{
-             echo "<script>slert('Item alredy added')</script>";
+             echo '<script>alert("Item already added")</script>';
             // echo "<script>window.location('homekitchen4.php')</script>";
             //  echo "<script>window.location='homekitchen4.php?<?php echo 'flid='.$_GET['flid']
-             echo "<script>header('index.php')</script>";
+            // echo "<script>header('index.php')</script>";
     }
   }
     
   else{
+    //when session has no data 
+
     $item_array =array(
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
       'item_quantity' =>$_POST['qty']
     );
-    $_SESSSION['shopping_cart'][0] =$item_array;
+    echo "<script>alert('Item Added to the cart')</script>";
+    //storing all details to session from item array
+    $_SESSION["shopping_cart"][0] = $item_array;
+    echo "<script>alert('Item Added to the cart')</script>";
+   // global $db;
+   // $ip_add =getRealIpAddr();
+
+    // $query ="insert into cart (p_id,ip_add) values ('$_SESSION['shopping_cart"][1]','$ip_add')";
+
+   // $run= mysqli_query($db,$query);
 
   }
 
 }
-if (isset($_GET["acction2"])) {
-  if ($_GET["action2"] =="delete") {
-    foreach ($_SESSSION["shopping_cart"] as $key => $values) {
-      if ($values["item_id"] == $Get["prd_id"]) { 
+if(isset($_GET["action2"]))
+ {
+  if($_GET["action2"] == "delete")
+   {
 
-        unset($_GET["shopping_cart"][$keys]);
+    foreach($_SESSION["shopping_cart"] as $keys => $values)
+     {
+      if($values["item_id"] == $_GET['idd'])
+       { 
+
+        unset($_SESSION["shopping_cart"][$keys]);
 
         echo "<script>alert('Item Removed')</script>";
         //echo "<script>window.location='homekitchen4.php?<?php echo 'flid='.$_GET['flid'];
@@ -53,7 +74,75 @@ if (isset($_GET["acction2"])) {
    
   }
 }
+/*if (isset($_GET["action"])) {
 
+    if(!isset($_SESSION["c_email"])){
+
+      echo "<script>alert('Please Login First or Register to Place order')</script>";
+        //include("customer/customer_login.php");
+            //echo "<script>window.open('c_login.php')</script>";
+           // echo "<a href="#loginform"  data-toggle="modal" data-dismiss="modal">Profile Settings</a>";        
+}else
+{
+  echo "<script>window.open('payment_option.php')</script>";
+}
+
+}*/ 
+
+if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
+
+  
+  $c_ip= getRealIpAddr();
+
+  $query="select * from customer where customer_ip ='$c_ip'";
+  $run =mysqli_query($con,$query);
+
+  $row=mysqli_fetch_array($run);
+  $cid=$row['c_id'];
+
+
+  if(!empty($_SESSION["shopping_cart"])) 
+   {
+  $total = 0;
+  foreach ($_SESSION["shopping_cart"] as $keys => $values){
+
+      $item_name= $values["item_name"]; 
+      $qty=$values["item_quantity"];
+      $price=$values["item_price"];
+      $item_price = number_format($values["item_quantity"] * $values["item_price"] ,2);
+
+       $g_total = $total + ($values["item_quantity"] * $values["item_price"]); 
+   
+    $status='Pending'; 
+    $invoice_no=mt_rand();
+
+    $query="insert into customer_orders(c_id,due_amount,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
+   $run=mysqli_query($con,$query);
+
+   // $query2="insert into pending_orders(c_id,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
+   //$run2=mysqli_query($con,$query);
+
+   if($run){
+   echo "<script>alert('order submitted')</script>";
+     unset($_SESSION["shopping_cart"][$keys]);
+   // echo "<script>window.open('payment_option.php')</script>";
+    }
+
+  } 
+
+  }
+else{
+     echo "<script>alert('Your cart is empty .Add some items to procede')</script>";
+}
+/*if (!isset($_SESSION["c_email"])) {
+      echo "<script>alert('Please Login First or Create Account ')</script>";
+    } */
+
+
+}/*else{
+  echo "<script>alert('Please Login First or Create Account ')</script>";
+ 
+}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -206,6 +295,7 @@ if (isset($_GET["acction2"])) {
         <div align="right">
           <div align="left">
             <h3>Order Details</h3>
+
             <div class="table-responsive">
               <table class="table table-bordered">
                 <tr>
@@ -216,25 +306,28 @@ if (isset($_GET["acction2"])) {
                   <th width="5%">Action</th>
                 </tr>
                 <?php
-                if (!empty($_SESSSION["shopping_cart"])) {
-                   $total=0;
-                   foreach ($_SESSSION["shopping_cart"] as $key => $values)
+                if(!empty($_SESSION["shopping_cart"])) 
+                {
+                   $total = 0;
+                   foreach ($_SESSION["shopping_cart"] as $keys => $values)
                    {
                 ?>
                 <tr>
                   <td><?php echo $values["item_name"]; ?></td>
                   <td><?php echo $values["item_quantity"]; ?></td>
                   <td>Rs <?php echo $values["item_price"]; ?></td>
-                  <td><?php echo number_format ($values["item_quantity"] * $values["item_price"] ,2); ?></td>
-                  <td><a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'].'&action2='.'delete'.'&idd='.$values["item_id"]/*.'&pid='.$row['idd']*/;?>">Delete</a></td>
+                  <td><?php echo number_format($values["item_quantity"] * $values["item_price"] ,2); ?></td>
+                  <td><a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid']/*.'&prd_id='.$row['idd']*/.'&action2=delete'.'&idd='.$values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
                 </tr>
+
                 <?php
-                   $total=$total+($values["item_quantity"] * $values["item_price"]); 
+
+                   $total = $total + ($values["item_quantity"] * $values["item_price"]); 
                    }
                  ?>
                  <tr>
                    <td colspan="3" align="right">Toatal</td>
-                   <td align="right">$ <?php echo number_format($total,2); ?></td>
+                   <td align="right">Rs: <?php echo number_format($total, 2); ?></td>
                    <td></td>
                  </tr> 
                  <?php 
@@ -246,8 +339,10 @@ if (isset($_GET["acction2"])) {
             </div>
           </div>
          
-
-          <a href="#" class="btn btn-primary" id="check_out_cart">
+ 
+         <!--  <a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&action='.'checkout';?>" class="btn btn-primary" id="check_out_cart"> <a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&action='.'checkout';?>" class="btn btn-primary" id="check_out_cart"> <span class="glyphicon glyphicon-shopping-cart"></span> Check out
+          </a>--->
+           <a  href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&action='.'checkout';?>" class="btn btn-primary" id="check_out_cart" class="btn btn-primary" >
           <span class="glyphicon glyphicon-shopping-cart"></span> Check out
           </a>
           <a href="#" class="btn btn-default" id="clear_cart">
@@ -306,7 +401,7 @@ if (isset($_GET["acction2"])) {
                       
                             <div class="panel-body">
                               <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php echo $row['idd']?>"> -->
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
                                 <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
@@ -324,7 +419,7 @@ if (isset($_GET["acction2"])) {
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
 
                               </div>
                               </form>

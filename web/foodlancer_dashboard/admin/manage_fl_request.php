@@ -1,13 +1,13 @@
 <?php
-session_start();
+include("includes/db.php");
+//session_start();
 error_reporting(0);
-include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-	{	
-header('location:index.php');
-}
-else{
-if(isset($_REQUEST['eid']))
+//if(strlen($_SESSION['flname'])==0)
+//	{	
+//header('location:index.php');
+//}
+//else{
+/*if(isset($_REQUEST['eid']))
 	{
 $eid=intval($_GET['eid']);
 $status="2";
@@ -18,25 +18,21 @@ $query-> bindParam(':eid',$eid, PDO::PARAM_STR);
 $query -> execute();
 
 $msg="Booking Successfully Cancelled";
-}
+} */
 
 
-if(isset($_REQUEST['aeid']))
+if(isset($_GET['a_email']))
 	{
-$aeid=intval($_GET['aeid']);
+$email=$_GET['a_email'];
 $status=1;
 
-$sql = "UPDATE tblbooking SET Status=:status WHERE  id=:aeid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':aeid',$aeid, PDO::PARAM_STR);
-$query -> execute();
-
-$msg="Booking Successfully Confirmed";
+$sql = "UPDATE fl_login SET status='$status' WHERE  email='$email'";
+$run=mysqli_query($con,$sql);
+//$msg="Foodlancer  Successfully Approved";
+echo "<script>alert('Foodlancer  Successfully Approved')</script>";
 }
 
-
- ?>
+?>
 
 <!doctype html>
 <html lang="en" class="no-js">
@@ -49,7 +45,7 @@ $msg="Booking Successfully Confirmed";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Car Rental Portal |Admin Manage testimonials   </title>
+	<title>My CUISINE | FOOD LANCER REQUEST   </title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -99,44 +95,81 @@ $msg="Booking Successfully Confirmed";
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Manage Bookings</h2>
+						<h2 class="page-title">FOOD LANCER REQUEST</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">Bookings Info</div>
+							<div class="panel-heading">FOOD LANCER REQUEST</div>
 							<div class="panel-body">
-							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+						<!--<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php //echo htmlentities($error); ?> </div><?php }  
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php //echo htmlentities($msg); ?> </div><?php }?> -->
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-										<th>#</th>
+										<th>S.NO</th>
 											<th>Name</th>
-											<th>Vehicle</th>
-											<th>From Date</th>
-											<th>To Date</th>
-											<th>Message</th>
-											<th>Status</th>
-											<th>Posting date</th>
+											<th>Email</th>
+											<th>Kitchen Name</th>
+											<th>Contact No</th>
+											<th>Address</th>
+											<th>Service</th>
+											
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-										<th>#</th>
-										<th>Name</th>
-											<th>Vehicle</th>
-											<th>From Date</th>
-											<th>To Date</th>
-											<th>Message</th>
-											<th>Status</th>
-											<th>Posting date</th>
+										<th>S.NO</th>
+										    <th>Name</th>
+											<th>Email</th>
+											<th>Kitchen Name</th>
+											<th>Contact No</th>
+											<th>Address</th>
+											<th>Service</th>
+										  
 											<th>Action</th>
+											
 										</tr>
 									</tfoot>
 									<tbody>
 
-									<?php $sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.FromDate,tblbooking.ToDate,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id  ";
+										<?php 
+
+	    $query = "select *from fl_info";
+	    $run= mysqli_query($con,$query);
+	    //for ssrial
+	    $i=0;
+
+	    while ($row=mysqli_fetch_array($run)) 
+	    	{
+	 
+	    	$id=$row['id'];
+	    	$name=$row['fl_name'];
+	    	$email=$row['fl_email'];
+	    	$kname=$row['fl_kitchen_name'];
+	    	$contact=$row['fl_contact'];
+	    	$address=$row['fl_address'];
+	    	$service=$row['fl_service'];
+
+	    	$i++;
+            echo "
+	    	<tr align='center'>
+	    	<td>$i</td>
+	    	<td>$name</td>
+	    	<td>$email</td>
+	    	<td>$kname</td>
+	    	<td>$contact</td>
+	    	<td>$address</td>
+	    	<td>$service</td>
+	    	<td><a href='manage_fl_request.php?a_email=$email'>Approved</a></td>
+	    	</tr>
+
+	    	";
+	    }
+
+	   ?>
+
+									<!-- <?php /*$sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.FromDate,tblbooking.ToDate,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id  ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -144,15 +177,15 @@ $cnt=1;
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-{				?>	
-										<tr>
-											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->FullName);?></td>
-											<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid);?>"><?php echo htmlentities($result->BrandName);?> , <?php echo htmlentities($result->VehiclesTitle);?></td>
-											<td><?php echo htmlentities($result->FromDate);?></td>
-											<td><?php echo htmlentities($result->ToDate);?></td>
-											<td><?php echo htmlentities($result->message);?></td>
-											<td><?php 
+{				*/?>	 -->
+									<!--	<tr>
+											<td><? //php echo htmlentities($cnt);?></td>
+											<td><?php //echo htmlentities($result->FullName);?></td>
+											<td><a href="edit-vehicle.php?id=<?php //echo htmlentities($result->vid);?>"><?php //echo htmlentities($result->BrandName);?> , <?php //echo htmlentities($result->VehiclesTitle);?></td>
+											<td><?php //echo htmlentities($result->FromDate);?></td>
+											<td><?php //echo htmlentities($result->ToDate);?></td>
+											<td><?php //echo htmlentities($result->message);?></td>
+											<td><?php /*
 if($result->Status==0)
 {
 echo htmlentities('Not Confirmed yet');
@@ -162,16 +195,16 @@ echo htmlentities('Confirmed');
  else{
  	echo htmlentities('Cancelled');
  }
-										?></td>
-											<td><?php echo htmlentities($result->PostingDate);?></td>
-										<td><a href="manage-bookings.php?aeid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Confirm this booking')"> Confirm</a> /
+										*/?></td>
+											<td><?php// echo htmlentities($result->PostingDate);?></td>
+										<td><a href="manage-bookings.php?aeid=<?php //echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Confirm this booking')"> Confirm</a> /
 
 
-<a href="manage-bookings.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Cancel this Booking')"> Cancel</a>
+<a href="manage-bookings.php?eid=<?php //echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Cancel this Booking')"> Cancel</a>
 </td>
 
-										</tr>
-										<?php $cnt=$cnt+1; }} ?>
+										</tr> -->
+										<?php// $cnt=$cnt+1; }} ?>
 										
 									</tbody>
 								</table>
@@ -202,4 +235,4 @@ echo htmlentities('Confirmed');
 	<script src="js/main.js"></script>
 </body>
 </html>
-<?php } ?>
+<?php //} ?>
