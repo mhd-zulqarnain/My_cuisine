@@ -87,9 +87,354 @@ if(isset($_GET["action2"]))
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <style type="text/css">
-	
+  
  /* w3 */
     /* Style the tab */
+
+input[type="button"], input[type="submit"] {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+}
+
+h1 {
+  font-size: 47px;
+    font-weight: 600;
+    color: #FFF;
+    letter-spacing: 2px;
+    margin: 40px auto;
+  text-align:center;
+}
+
+.containerw3layouts-agileits {
+  width: 40%;
+  margin: 0 auto;
+  background: #f5ededde;
+  padding: 1em 2em;
+  margin-top: 100px;
+}
+
+.w3layoutscontactagileits h2 {
+  font-size: 25px;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 25px;
+}
+
+a.hiddenanchor{
+    display: none;
+}
+
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+/*--w3layouts--*/
+input[type="text"]{
+  width: 100%;
+    padding: 7px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    color: #000;
+    background-color:#fff;
+    margin-top: 12px;
+    margin-bottom: 30px;
+  border-bottom:1px solid #fff;
+  box-sizing:border-box;
+}
+textarea#message {
+    height: 150px;
+     padding: 7px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    color: #000;
+    background-color:#fff;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    width: 100%;
+  border-bottom:1px solid #fff;
+  resize:none;
+  box-sizing:border-box;
+   
+}
+/*--agileits--*/
+#register, #login{
+  width: 100%;
+}
+
+#toregister:target ~ #wrapper #register, #tologin:target ~ #wrapper #login{
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -ms-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -o-animation-delay: .1s;
+  -ms-animation-delay: .1s;
+  animation-delay: .1s;
+}
+
+#toregister:target ~ #wrapper #login, #tologin:target ~ #wrapper #register{
+  -webkit-animation-name: fadeOutLeftBig;
+  -moz-animation-name: fadeOutLeftBig;
+  -ms-animation-name: fadeOutLeftBig;
+  -o-animation-name: fadeOutLeftBig;
+  animation-name: fadeOutLeftBig;
+}
+
+.animate{
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;    
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;    
+  -o-animation-duration: 1s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;    
+  -ms-animation-duration: 1s;
+  -ms-animation-timing-function: ease;
+  -ms-animation-fill-mode: both;    
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+/*--w3layouts--*/
+/*--agileits--*/
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #EEE;
+  padding: 10px 0;
+  border-bottom: 1px solid #CCC;
+}
+
+.ferry {
+    padding: 0px 0px 0px;
+    text-align: left;
+}
+
+h4 {
+  font-size: 15px;
+  text-align: left;
+  color: #EEE;
+}
+
+form {
+  margin-top: 0px;
+}
+
+select, .tickets input[type="number"] {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  color: #000;
+  background-color:#fff;
+  margin-top: 12px;
+  margin-bottom: 30px;
+  Border-bottom:1px solid #fff;
+  box-sizing:border-box;
+}
+
+select.dropdown, input#datepicker, input#datepicker1, input#datepicker2 {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 12px;
+    margin-bottom: 30px;
+    outline: none;
+    border: none;
+    color: #000;
+    background-color:#fff;
+  Border-bottom:1px solid #fff;
+  box-sizing:border-box;
+}
+ ::-webkit-input-placeholder {
+color:#000 !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+color:#000 !important;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+color:#000 !important;
+}
+:-ms-input-placeholder {  
+color:#000 !important;
+}
+
+.book-pag {
+  text-align: left;
+}
+
+.book-pag h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#register .book-pag-frm1, #register .book-pag-frm2 {
+  width: 100%;
+  float: left;
+}
+
+.date {
+  background: url(../images/date-icon.png) no-repeat 95.5% 45% #fff;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.book-pag-frm1 {
+  padding-top: 0px;
+}
+
+label {
+    font-size: 15px;
+    color: #083072;
+    float: left;
+    width: 100%;
+  letter-spacing: 1px;
+    text-transform: capitalize;
+      font-style: italic;
+}
+
+.tickets {
+  text-align: left;
+}
+
+
+.tickets input[type="number"] {
+  width: 100%;
+}
+
+.wthreesubmitaits {
+    padding: 0px 0px 30px;
+    text-align: center;
+}
+
+.wthreesubmitaits input[type="submit"] {
+    padding: 15px 30px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #a50057;
+    color: #fff;
+  letter-spacing: 3px;
+}
+
+.wthreesubmitaits input[type="submit"]:hover {
+  background-color:#000;
+}
+
+p.change_link {
+  color: #EEE;
+  width: 100%;
+  font-size: 15px;
+  padding: 0 0 40px;
+}
+
+#wrapper p.change_link a {
+  color: #FFEB3B;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  border-bottom: 3px solid #FFEB3B;
+}
+
+#wrapper p.change_link a:hover {
+  color: #FFC107;
+  border-bottom: 3px solid #FFC107;
+}
+
+
+
+.w3lsfooteragileits p a {
+  color: #FFF;
+}
+
+.w3lsfooteragileits p {
+  line-height: 25px;
+  margin: 40px 0;
+  text-align:center;
+  color:#fff;
+      font-size: 15px;
+}
+
+.w3lsfooteragileits p a:hover {
+  color:#a50057;
+}
+
+/*-- Index-Page-Styling --*/
+
+/** Responsive **/
+@media screen and (max-width: 1080px){
+.containerw3layouts-agileits {
+    width: 35%;
+} 
+}
+@media screen and (max-width: 991px){
+.containerw3layouts-agileits {
+    width: 40%;
+} 
+}
+@media screen and (max-width: 768px){
+.containerw3layouts-agileits {
+    width: 45%;
+} 
+}
+@media screen and (max-width: 667px){
+.containerw3layouts-agileits {
+    width: 55%;
+} 
+}
+@media screen and (max-width: 600px){
+h1 {
+    font-size: 40px;
+    margin: 30px auto;
+} 
+}
+@media screen and (max-width: 568px){
+.containerw3layouts-agileits {
+    width: 60%;
+} 
+}
+
+@media screen and (max-width: 480px){
+h1 {
+    font-size: 34px;
+}
+.containerw3layouts-agileits {
+    width: 70%;
+} 
+}
+
+@media screen and (max-width: 414px){
+h1 {
+    font-size: 28px;
+    margin: 25px auto;
+}
+  
+}
+@media screen and (max-width: 384px){
+.w3lsfooteragileits p {
+    margin: 20px 0;
+    font-size: 14px;
+} 
+}
+@media screen and (max-width: 320px){
+.wthreesubmitaits input[type="submit"] {
+    padding: 15px;
+} 
+}  
 
 
 .tab {
@@ -227,7 +572,8 @@ if(isset($_GET["action2"]))
 .close1{
   position: absolute;
   top:0;
-  right: 14px;
+  margin-top: -20px;
+  right: 16px;
   font-size: 38px;
   transform: rotate(45deg);
   cursor: pointer;
@@ -285,7 +631,7 @@ body{
 <body>
 
    <div >
-	 <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
+   <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
    
      <div class="container" style="width: 100%;padding-right: 0px;padding-left: 0px;">
       <nav class="navbar navbar-default" role="navigation">
@@ -305,9 +651,9 @@ body{
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-                 <a id="complain" class="btn" data-placement="bottom"  style="float: right;color: red;margin-right: 1230px">
+                 <a id="complain" class="btn" data-placement="bottom"  style="float: right;color: black;margin-right: 1230px">
                   Complain</a>
-                 <a id="review" class="btn" data-placement="bottom" style="float: right;color: green;">
+                 <a id="review" class="btn" data-placement="bottom" style="float: right;color: black;">
                   Review</a>
               </li>
             </ul>
@@ -403,7 +749,7 @@ body{
   </form>
 </div> -->
 
-<div id="London" class="tabcontent" style="margin-top: 0px;">
+<div id="London" class="tabcontent" style="margin-top: 0px; color: black;">
   <!--<h3 style="margin-left: 12px">Daily Menu</h3> -->
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -418,7 +764,7 @@ body{
     $val='Daily menu';
     $query ="select * from food_items where category='$val' and fl_id='$id'";
     $run=mysqli_query($con,$query);
-	
+  
  while ($row=mysqli_fetch_array($run)) {
                     
 
@@ -667,7 +1013,7 @@ body{
 </div>
 
                 <div class="clearfix"> </div>
-	
+  
 </div>
 
 <script>
@@ -825,6 +1171,11 @@ document.querySelector('.bg-modal1').style.display= "flex";
    document.querySelector('.close1').addEventListener('click',function(){
     document.querySelector('.bg-modal1').style.display="none";
   });
+   window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 </script>
 </body>
 </html>
