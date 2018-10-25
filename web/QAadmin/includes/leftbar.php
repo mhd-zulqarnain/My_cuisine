@@ -4,11 +4,8 @@
 				<li class="ts-label">Main</li>
 				<li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 			
-<li><a href="#"><i class="fa fa-files-o"></i> Chefs</a>
-<ul>
-<li><a href="create-brand.php">Create Brand</a></li>
-<li><a href="manage-brands.php">Manage Brands</a></li>
-</ul>
+<li><a href="manage-request.php"><i class="fa fa-files-o"></i>Foodlancer Request</a>
+
 </li>
 
 <li><a href="#"><i class="fa fa-sitemap"></i> foodlancer request</a>
