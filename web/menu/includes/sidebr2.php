@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 error_reporting(0);
 //include('../function/function.php');
@@ -75,7 +74,75 @@ if(isset($_GET["action2"]))
    
   }
 }
+/*if (isset($_GET["action"])) {
 
+    if(!isset($_SESSION["c_email"])){
+
+      echo "<script>alert('Please Login First or Register to Place order')</script>";
+        //include("customer/customer_login.php");
+            //echo "<script>window.open('c_login.php')</script>";
+           // echo "<a href="#loginform"  data-toggle="modal" data-dismiss="modal">Profile Settings</a>";        
+}else
+{
+  echo "<script>window.open('payment_option.php')</script>";
+}
+
+}*/ 
+
+if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
+
+  
+  $c_ip= getRealIpAddr();
+
+  $query="select * from customer where customer_ip ='$c_ip'";
+  $run =mysqli_query($con,$query);
+
+  $row=mysqli_fetch_array($run);
+  $cid=$row['c_id'];
+
+
+  if(!empty($_SESSION["shopping_cart"])) 
+   {
+  $total = 0;
+  foreach ($_SESSION["shopping_cart"] as $keys => $values){
+
+      $item_name= $values["item_name"]; 
+      $qty=$values["item_quantity"];
+      $price=$values["item_price"];
+      $item_price = number_format($values["item_quantity"] * $values["item_price"] ,2);
+
+       $g_total = $total + ($values["item_quantity"] * $values["item_price"]); 
+   
+    $status='Pending'; 
+    $invoice_no=mt_rand();
+
+    $query="insert into customer_orders(c_id,due_amount,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
+   $run=mysqli_query($con,$query);
+
+   // $query2="insert into pending_orders(c_id,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
+   //$run2=mysqli_query($con,$query);
+
+   if($run){
+   echo "<script>alert('order submitted')</script>";
+     unset($_SESSION["shopping_cart"][$keys]);
+   // echo "<script>window.open('payment_option.php')</script>";
+    }
+
+  } 
+
+  }
+else{
+     echo "<script>alert('Your cart is empty .Add some items to procede')</script>";
+}
+/*if (!isset($_SESSION["c_email"])) {
+      echo "<script>alert('Please Login First or Create Account ')</script>";
+    } */
+
+
+}/*else{
+  echo "<script>alert('Please Login First or Create Account ')</script>";
+ 
+}*/
 ?>
 
 
@@ -631,11 +698,10 @@ body{
 
 
 </style>
-
 <body>
 
    <div >
-   <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
+	 <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
    
      <div class="container" style="width: 100%;padding-right: 0px;padding-left: 0px;">
       <nav class="navbar navbar-default" role="navigation">
@@ -915,10 +981,6 @@ body{
             <div class="clearfix"> </div>
 </div>
 
-
-
-
-
 <div id="Pariss" class="tabcontent">
    <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -963,10 +1025,7 @@ body{
   <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>
-
-  <!-- -->
 </div>
-
 <div id="Tokyoo" class="tabcontent">
    <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -1030,6 +1089,7 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 </script>
+
 <script type="text/javascript">
  function openCity(evt, cityName) {
     // Declare all variables
@@ -1055,6 +1115,7 @@ function closeForm() {
 //Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
+
 
 <div class="bg-modal1">
   
@@ -1184,5 +1245,6 @@ document.querySelector('.bg-modal1').style.display= "flex";
     }
 }
 </script>
+
 </body>
 </html>

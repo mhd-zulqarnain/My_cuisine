@@ -118,39 +118,9 @@ $fl_name=$_SESSION['flname'];
 				<div class="panel-body">
 
 					<form method="post" action="" class="form-horizontal">
-						<div class="form-group">
-							<label class="col-md-2 control-label">Your Id</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							        <select name="fl_id">
-			       <option value="">Select Id</option>				        	
-					<option ><?php echo $fid;?></option>
-					
-				</select>
-    
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label">Your Kitchen Name</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							        <select name="fl_k_name" >
-					<option value="">Select Kitchen Name</option>
-					<option><?php echo $kname;?></option>
-					
-				</select>
-    
-								</div>
-							</div>
-						</div>
 						
+						 <input type="hidden" name="fl_id" class="form-control" value="<?php echo $fid ;?>"/>
+						  <input type="hidden" name="fl_k_name" class="form-control" value="<?php echo $kname ;?>"/>
 
 	<div class="form-group">
 							<label class="col-md-2 control-label">Dish Name</label>
@@ -203,27 +173,6 @@ $fl_name=$_SESSION['flname'];
 								</div>
 							</div>
 						</div>
-						<!--<div class="form-group">
-							<label class="col-md-2 control-label">Services Pick Up or Delivery?</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							
-    <select  name="service_pro">
-      <option >Delivry & Pickup</option>
-      <option >Delivery Only</option>
-      <option >Pickup Only</option>
-      <option >Delivery / Pickup /Dinein</option>
-      <option >Delivery & Dinein</option>
-      <option >Pickup & Dinein</option>
-      <option >Dinein Only</option>
-    </select>
-								</div>
-							</div>
-						</div> -->
-	
 
 						<div class="col-sm-8 col-sm-offset-2">
 				<button type="submit" name="submit" class="btn-primary btn">Submit</button>

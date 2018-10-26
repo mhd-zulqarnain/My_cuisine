@@ -115,7 +115,7 @@ $fl_name=$_SESSION['flname'];
 				<div class="panel-body">
 
 					<form method="post" action="" class="form-horizontal">
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label class="col-md-2 control-label">Your Id</label>
 							<div class="col-md-8">
 								<div class="input-group">
@@ -144,7 +144,10 @@ $fl_name=$_SESSION['flname'];
     
 								</div>
 							</div>
-						</div>
+						</div> -->
+						 <input type="hidden" name="fl_id" class="form-control" value="<?php echo $fid ;?>"/>
+						  <input type="hidden" name="fl_k_name" class="form-control" value="<?php echo $kname ;?>"/>
+							
 							<div class="form-group">
 							<label class="col-md-2 control-label">Per Head</label>
 							<div class="col-md-8">

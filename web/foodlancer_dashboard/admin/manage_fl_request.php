@@ -1,7 +1,7 @@
 <?php
 include("includes/db.php");
 //session_start();
-error_reporting(0);
+//error_reporting(0);
 //if(strlen($_SESSION['flname'])==0)
 //	{	
 //header('location:index.php');
