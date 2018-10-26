@@ -84,7 +84,7 @@ $msg="Page data updated  successfully";
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Foodlancer Request</h2>
+						<h2 class="page-title">Foodlancer Requests</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
@@ -101,10 +101,9 @@ $msg="Page data updated  successfully";
 												<th>kname</th>
 												<th>contct_no</th>
 												<th>address</th>
-												<th>city</th>
+											
 												<th>service</th>
-												<th>log_email</th>
-												<th>log_pass</th>
+												
 											
 										
 											
@@ -121,10 +120,9 @@ $msg="Page data updated  successfully";
 												<th>kname</th>
 												<th>contct_no</th>
 												<th>address</th>
-												<th>city</th>
+											
 												<th>service</th>
-												<th>log_email</th>
-												<th>log_pass</th>
+												
 										
 											
 											<th>Status</th>
@@ -136,12 +134,13 @@ $msg="Page data updated  successfully";
 
 								
 
-								<?php $sql = "SELECT * from  fl_info, fl_login";
+								<?php $sql = "SELECT * from  fl_info";
 
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
+$status='Pending';
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
@@ -153,11 +152,10 @@ foreach($results as $result)
 											<td><?php echo htmlentities($result->fl_kitchen_name);?></td>
 											<td><?php echo htmlentities($result->fl_contact);?></td>
 											<td><?php echo htmlentities($result->fl_address);?></td>
-											<td><?php echo htmlentities($result->fl_city);?></td>
+											
 											<td><?php echo htmlentities($result->fl_service);?></td>
-											<td><?php echo htmlentities($result->email);?></td>
-											<td><?php echo htmlentities($result->pass);?></td>
-											<td><?php echo htmlentities($result->status);?></td>
+											
+											<td><?php echo htmlentities($status);?></td>
 											
 											
 											

@@ -116,36 +116,9 @@ $fl_name=$_SESSION['flname'];
 				<div class="panel-body">
 
 					<form method="post" action="" class="form-horizontal">
-						<div class="form-group">
-							<label class="col-md-2 control-label">Your Id</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							        <select name="fl_id">
-					<option value="<?php echo $fid;?>"><?php echo $fid;?></option>
 					
-				</select>
-    
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-2 control-label">Your Kitchen Name</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
-									</span>
-							        <select name="fl_k_name" >
-					<option value="<?php echo $kname;?>"><?php echo $kname;?></option>
-					
-				</select>
-    
-								</div>
-							</div>
-						</div>
+						 <input type="hidden" name="fl_id" class="form-control" value="<?php echo $fid ;?>"/>
+						  <input type="hidden" name="fl_k_name" class="form-control" value="<?php echo $kname ;?>"/>
 							
 
 	

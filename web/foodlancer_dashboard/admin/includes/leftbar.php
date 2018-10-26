@@ -10,7 +10,7 @@
 <li><a href="manage-brands.php">Manage</a></li>
 </ul>
 </li> -->
-<?php
+<!--<?php
                                          
                                          if (isset($_GET['notf'])) {
                                          	$n_id=$_GET['notf'];
@@ -30,7 +30,7 @@
 										   <ul id="menu-academico-sub" >
 
 <!--<li><a href="manage_fl_request.php"><i class="fa fa-users"></i><span>Food Lancer Request<?php if($count > 0){ echo "(".$count.")";}?></span><span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-	 <ul > -->
+	 <ul > 
 										   	<?php
 										   	   while ($row=mysqli_fetch_array($run)) {
 										   	 
@@ -55,7 +55,7 @@
 										   }
 										   ?>
 										  </ul>
-</li>
+</li> -->
 
 <li><a href="#"><i class="fa fa-sitemap"></i> Post Menu</a>
 					<ul>

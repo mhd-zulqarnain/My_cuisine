@@ -85,10 +85,10 @@ $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $totalvehicle=$query1->rowCount();
 ?>
 													<div class="stat-panel-number h1 "><?php echo htmlentities($totalvehicle);?></div>
-													<div class="stat-panel-title text-uppercase">Food lancer details</div>
+													<div class="stat-panel-title text-uppercase">Food Lancer Requests</div>
 												</div>
 											</div>
-											<a href="manage-vehicles.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="manage-request.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-md-3">
