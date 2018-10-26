@@ -77,6 +77,10 @@ if(isset($_GET["action2"]))
 }
 
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
@@ -653,6 +657,7 @@ body{
                 </a>
                  <a id="complain" class="btn" data-placement="bottom"  style="float: right;color: black;margin-right: 1230px">
                   Complain</a>
+
                  <a id="review" class="btn" data-placement="bottom" style="float: right;color: black;">
                   Review</a>
               </li>
@@ -1057,12 +1062,12 @@ document.getElementById("defaultOpen").click();
       <div class="w3layoutscontactagileits">
         
           <div id="wrapper">
-              <form action="#" method="post">
+              <form action="includes/connectreviews.php" method="post">
                 <div id="login" class="animate w3layouts agileits form">
                   <div class="close1">+</div>
                 <div class="ferry ferry-from">
                     <label>Your Name :</label>
-                    <input type="text" name="email" placeholder="Enter your name" required=" ">
+                    <input type="text" name="name" placeholder="Enter your name" required=" ">
                   </div>
                   <div class="ferry ferry-from">
                     <label>Your Email :</label>
@@ -1070,11 +1075,11 @@ document.getElementById("defaultOpen").click();
                   </div>
                   <div class="ferry ferry-from">
                     <label>Kitchen Name :</label>
-                    <input type="text" name="email" placeholder="Enter your email" required=" ">
+                    <input type="text" name="k_name" placeholder="Enter your email" required=" ">
                   </div>
                   <div class="ferry ferry-from">
                     <label>Rate us :</label>
-                    <select name="from">
+                    <select name="rating">
                       <option value="Dover">Poor</option>
                       <option value="Dover">Average</option>
                       <option value="Dover">Very good</option>
@@ -1083,7 +1088,7 @@ document.getElementById("defaultOpen").click();
                   </div>
                   <div class="ferry ferry-from">
                     <label>Any Comments or Suggestions?</label>
-                    <textarea id="message" name="message" placeholder="Your Queries" title="Please enter your suggestions here"></textarea>
+                    <textarea id="message" name="suggestion" placeholder="Your suggestions!" title="Please enter your suggestions here"></textarea>
                   </div>
                   <div class="wthreesubmitaits">
                     <input type="submit" name="submit" value="Post Review">
@@ -1105,7 +1110,7 @@ document.getElementById("defaultOpen").click();
 <div class="bg-modal">
    <!-- Form Started -->
             <div class="container form-top">
-              
+               <form action="includes/connectcomplain.php" method="post">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
                         <div class="panel panel-danger">
@@ -1122,14 +1127,14 @@ document.getElementById("defaultOpen").click();
                                     </div>
                                     <div class="form-group">
                                         <label><i class="fa fa-user" aria-hidden="true"></i> Kitchen Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Kitchen Name">
+                                        <input type="text" name="k_name" class="form-control" placeholder="Enter Kitchen Name">
                                     </div>
                                     <div class="form-group">
-                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                        <label><i class="fa fa-comment" name="message" aria-hidden="true"></i> Message</label>
                                         <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-raised btn-block btn-danger">Submit Complain &rarr;</button>
+                                        <button class="btn btn-raised btn-block btn-danger" type="submit" value="Submit" name="submit">Submit Complain &rarr;</button>
                                     </div>
                                 </form>
                                 <div id="error_message" style="width:100%; height:100%; display:none; ">
@@ -1141,8 +1146,10 @@ document.getElementById("defaultOpen").click();
                                 <div id="success_message" style="width:100%; height:100%; display:none; ">
 <h2>Success! Your Message was Sent Successfully.</h2>
 </div>
+                            </form>
                             </div>
                         </div>
+                      
                     </div>
                 </div>
             </div>

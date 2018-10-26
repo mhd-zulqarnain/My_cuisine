@@ -162,6 +162,12 @@ foreach($results as $result)
 											
 											
 <td><a href="edit-request.php?id=<?php echo $result->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+	<?php
+		if($result->status=='1'){
+			echo '<a href="edit-request.php?"><i class="fa fa-edit"></i></a>';
+		}
+
+	?>
 <a href="manage-request.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a></td>
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>

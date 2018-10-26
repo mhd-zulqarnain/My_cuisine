@@ -113,8 +113,9 @@ $msg="Testimonial Successfully Active";
 										<th>#</th>
 											<th>Name</th>
 											<th>Email</th>
-											<th>Testimonials</th>
-											<th>Posting date</th>
+											<th>Kitchen Name</th>
+											<th>Rating</th>
+											<th>Suggestions</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -123,14 +124,15 @@ $msg="Testimonial Successfully Active";
 										<th>#</th>
 											<th>Name</th>
 											<th>Email</th>
-											<th>Testimonials</th>
-											<th>Posting date</th>
+											<th>Kitchen Name</th>
+											<th>Rating</th>
+											<th>Suggestions</th>
 											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
 
-									<?php $sql = "SELECT tblusers.FullName,tbltestimonial.UserEmail,tbltestimonial.Testimonial,tbltestimonial.PostingDate,tbltestimonial.status,tbltestimonial.id from tbltestimonial join tblusers on tblusers.Emailid=tbltestimonial.UserEmail";
+									<?php $sql = "SELECT * from reviews";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -141,16 +143,17 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->FullName);?></td>
-											<td><?php echo htmlentities($result->UserEmail);?></td>
-											<td><?php echo htmlentities($result->Testimonial);?></td>
-											<td><?php echo htmlentities($result->PostingDate);?></td>
+											<td><?php echo htmlentities($result->name);?></td>
+											<td><?php echo htmlentities($result->email);?></td>
+											<td><?php echo htmlentities($result->k_name);?></td>
+											<td><?php echo htmlentities($result->rating);?></td>
+											<td><?php echo htmlentities($result->suggestion);?></td>
 										<td><?php if($result->status=="" || $result->status==0)
 {
-	?><a href="testimonials.php?aeid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Active')"> Inactive</a>
+	?><a href="reviews.php?aeid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Active')"> Inactive</a>
 <?php } else {?>
 
-<a href="testimonials.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Inactive')"> Active</a>
+<a href="reviews.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to Inactive')"> Active</a>
 </td>
 <?php } ?></td>
 										</tr>

@@ -10,7 +10,7 @@ else{
 if(isset($_GET['del']))
 {
 $id=$_GET['del'];
-$sql = "delete from tblbooking  WHERE id=:id";
+$sql = "delete from complains  WHERE id=:id";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
@@ -33,7 +33,7 @@ $msg="Page data updated  successfully";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Car Rental Portal |Admin Manage testimonials   </title>
+	<title>QA |Admin</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -101,10 +101,10 @@ $msg="Page data updated  successfully";
 										<tr>
 										<th>#</th>
 												<th>Name</th>
-											<th>Applied Date</th>
-											<th>Messages</th>
-										
-											<th>Status</th>
+											<th>Email</th>
+											<th>Kitchen_name</th>
+											<th>Complain</th>
+											
 											
 										</tr>
 									</thead>
@@ -112,16 +112,16 @@ $msg="Page data updated  successfully";
 										<tr>
 										<th>#</th>
 												<th>Name</th>
-											<th>Applied Date</th>
-											<th>Messages</th>
-										
-											<th>Status</th>
+											<th>Email</th>
+											<th>Kitchen_name</th>
+											<th>Complain</th>
+											
 										</tr>
 										</tr>
 									</tfoot>
 									<tbody>
 
-									<?php $sql = "SELECT * from  tblbooking ";
+									<?php $sql = "SELECT * from  complains ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -132,11 +132,11 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->Name);?></td>
-											<td><?php echo htmlentities($result->Applieddate);?></td>
-											<td><?php echo htmlentities($result->Messages);?></td>
-<td><a href="edit-bookings.php?id=<?php echo $result->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-<a href="manage-bookings.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete this chef');"><i class="fa fa-close"></i></a></td>
+											<td><?php echo htmlentities($result->name);?></td>
+											<td><?php echo htmlentities($result->email);?></td>
+											<td><?php echo htmlentities($result->k_name);?></td>
+											<td><?php echo htmlentities($result->message);?></td>
+
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
 										

@@ -61,7 +61,7 @@ li img:hover{
 /* The navigation bar */
 .bgg-img {
   /* The image used */
-  background-image: url("../kitchen.jpg");
+  background-image: url("../ki_home4.jpg");
 
   min-height: 380px;
 
