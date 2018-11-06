@@ -1,27 +1,30 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('includes/db.php');
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
 }
 else{
-// Code for change password	
+
 if(isset($_POST['submit']))
 {
-$name=$_POST['fl_name'];
 $id=$_GET['id'];
-$sql="update  fl_info, fl_login set name=:fl_name where id=:id";
-$query = $dbh->prepare($sql);
-$query->bindParam(':fl_name',$name,PDO::PARAM_STR);
-$query->bindParam(':id',$id,PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
 
-$msg="Name updated successfully";
+$name=$_POST['fl_name'];
+$email=$_POST['fl_email'];
+$stp1=$_POST['form_fill'];
+$stp2=$_POST['k_snaps'];
+$stp3=$_POST['f_test'];
+$stp_final=$_POST['qfy'];
 
-}
+
+//$sql="insert into  fl_process set id='$id', name='$name', email='$email', form_fill='$stp1', kitchen_snaps='$stp2', food_test='$stp3', qualified='$stp_final'";
+$sql="insert into  fl_process (id,name,email,form_fill,kitchen_snaps,food_test,qualified) values('$id','$name','$email','$stp1','$stp2','$stp3','$stp_final')";
+$run =mysqli_query($con,$sql);
+$msg="Record updated successfully";
+} 
 ?>
 
 <!doctype html>
@@ -35,7 +38,7 @@ $msg="Name updated successfully";
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Car Rental Portal | Admin Create Brand</title>
+	<title>My Cuisine | QA Admin </title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -85,42 +88,131 @@ $msg="Name updated successfully";
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Change name</h2>
+						<h2 class="page-title">Update Information</h2>
 
 						<div class="row">
 							<div class="col-md-10">
 								<div class="panel panel-default">
-									<div class="panel-heading">Form fields</div>
+									<div class="panel-heading">Foodlancer Processing Information</div>
 									<div class="panel-body">
-										<form method="post" name="chngpwd" class="form-horizontal" onSubmit="return valid();">
+		<form method="post" class="form-horizontal" >
 										
 											
-  	        	  <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
-				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+  	        	 <?php 
+				if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?> 
 
 <?php	
 $id=$_GET['id'];
-$ret="select * from fl_info,fl_login where id=:id";
-$query= $dbh -> prepare($ret);
-$query->bindParam(':id',$id, PDO::PARAM_STR);
-$query-> execute();
-$results = $query -> fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query -> rowCount() > 0)
-{
-foreach($results as $result)
-{
+$query="select * from fl_info where id='$id'";
+$run=mysqli_query($con,$query);
+$row=mysqli_fetch_array($run);
+       
+		$flname     =$row['fl_name'];
+		$flemail    =$row['fl_email'];
+
 ?>
 
-											<div class="form-group">
+
+<?php 
+if(isset($_GET['id'])){
+$id=$_GET['id'];
+$ret="select * from fl_process where id='$id'";
+$run =mysqli_query($con,$ret);
+
+$row=mysqli_fetch_array($run);
+       
+		$name     =$row['name'];
+		$email    =$row['email'];
+		$f_fill   =$row['form_fill'];
+		$k_snaps  =$row['kitchen_snaps'];
+		$f_test   =$row['food_test'];
+		$qualify  =$row['qualified'];
+
+
+	}	
+?>
+
+											<!-- <div class="form-group">
 												<label class="col-sm-4 control-label">Name</label>
 												<div class="col-sm-8">
 													<input type="text" class="form-control" value="<?php echo htmlentities($result->fl_Name);?>" name="fl_name" id="name" required>
 												</div>
-											</div>
+											</div> -->
+<div class="form-group">
+	 <input type="hidden" name="fl_name" class="form-control" value="<?php echo $flname ;?>"/>
+	  <input type="hidden" name="fl_email" class="form-control" value="<?php echo $flemail ;?>"/>
+
+<div class="col-sm-3">
+<?php if($f_fill==1)
+{?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="form_fill" checked value="1">
+<label for="inlineCheckbox1"> Form Filling </label>
+</div>
+<?php } else { ?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="form_fill" value="1">
+<label for="inlineCheckbox1"> Form Filling </label>
+</div>
+<?php } ?>
+</div>
+
+<div class="col-sm-3">
+<?php if($k_snaps==1)
+{?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="k_snaps" checked value="1">
+<label for="inlineCheckbox1">Kitchen snaps  </label>
+</div>
+<?php } else { ?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="k_snaps" value="1">
+<label for="inlineCheckbox1">Kitchen snaps  </label>
+</div>
+<?php } ?>
+</div>
+
+<div class="col-sm-3">
+<?php if($f_test==1)
+{?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="f_test" checked value="1">
+<label for="inlineCheckbox1">Food Test  </label>
+</div>
+<?php } else { ?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="f_test" value="1">
+<label for="inlineCheckbox1">Food Test  </label>
+</div>
+<?php } ?>
+</div>
+
+<div class="col-sm-3">
+<?php if($qualify==1)
+{?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="qfy" checked value="1">
+<label for="inlineCheckbox1">Approved  </label>
+</div>
+<?php } else { ?>
+<div class="checkbox checkbox-inline">
+<input type="checkbox" id="inlineCheckbox1" name="qfy" value="1">
+<label for="inlineCheckbox1">Approved ?</label>
+</div>
+<?php } ?>
+</div>
+
+
+
+
+
+
+</div>
+
+
 											<div class="hr-dashed"></div>
 											
-										<?php }} ?>
+										
 								
 											
 											<div class="form-group">

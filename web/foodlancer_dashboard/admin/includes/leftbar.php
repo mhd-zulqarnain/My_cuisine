@@ -67,7 +67,7 @@
 						<li><a href="manage-vehicles.php">Manage Menu</a></li>
 					</ul>
 				</li>
-				<li><a href="manage-bookings.php"><i class="fa fa-users"></i> Manage Orders</a></li>
+				<li><a href="manage-orders.php"><i class="fa fa-files-o"></i> Your Orders</a></li>
 
 		
 			<li><a href="update-contactinfo.php"><i class="fa fa-files-o"></i> Update Contact Info</a></li>

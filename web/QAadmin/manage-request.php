@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
-include('includes/fl_form2.php');
+//include('includes/config.php');
+//include('includes/fl_form2.php');
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -19,6 +19,54 @@ $msg="Page data updated  successfully";
 
 }
 
+if(isset($_GET['eemail']))
+	{
+$eemail=$_GET['eemail'];
+$status="0";
+$sql = "UPDATE fl_login SET status=:status WHERE  email=:eemail";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query-> bindParam(':eemail',$eemail, PDO::PARAM_STR);
+$query -> execute();
+
+$msg="FooodLancer Successfully Disapproved";
+
+$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:eemail";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query-> bindParam(':eemail',$eemail, PDO::PARAM_STR);
+$query -> execute();
+
+}
+
+
+if(isset($_GET['aeemail']))
+	{
+$aeemail=$_GET['aeemail'];
+$status=1;
+
+$sql = "UPDATE fl_login SET status=:status WHERE  email=:aeemail";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
+$query -> execute();
+
+$msg="FoodLancer Successfully Approved";
+
+$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:aeemail";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':status',$status, PDO::PARAM_STR);
+$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
+$query -> execute();
+
+//echo "<script type='text/javascript'> document.location = 'mailtest/index.php'; </script>";
+
+//$url='mailtest/index.php/?=';
+
+//echo "<script type='text/javascript'> window.location.href = $url + $aeemail; </script>";
+
+
+}
 
 
  ?>
@@ -88,7 +136,7 @@ $msg="Page data updated  successfully";
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">Interested chefs</div>
+							<div class="panel-heading">FoodLancer Information</div>
 							<div class="panel-body">
 							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
@@ -96,39 +144,38 @@ $msg="Page data updated  successfully";
 									<thead>
 										<tr>
 										<th>#</th>
-												<th>name</th>
-												<th>email</th>
-												<th>kname</th>
-												<th>contct_no</th>
-												<th>address</th>
+												<th>Name</th>
+												<th>Email</th>
+												<th>kitechen Name</th>
+												<th>Contct No</th>
+												<th>Address</th>
 											
-												<th>service</th>
+												<th>Service</th>
 												
-											
-										
-											
-											<th>Status</th>
 											<th>Action</th>
+											<!--<th>Action</th>-->
+											<th>Approved/Disapproved</th>
 											
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
 										<th>#</th>
-											<th>name</th>
-												<th>email</th>
-												<th>kname</th>
-												<th>contct_no</th>
-												<th>address</th>
+											<th>Name</th>
+												<th>Email</th>
+												<th>kitchen Name</th>
+												<th>Contct No</th>
+												<th>Address</th>
 											
-												<th>service</th>
+												<th>Service</th>
 												
 										
 											
-											<th>Status</th>
 											<th>Action</th>
+											<!--<th>Action</th>-->
+											<th>Approved/Disapproved</th>
 										</tr>
-										</tr>
+										
 									</tfoot>
 									<tbody>
 
@@ -140,7 +187,7 @@ $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
-$status='Pending';
+$status='0';
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
@@ -155,18 +202,27 @@ foreach($results as $result)
 											
 											<td><?php echo htmlentities($result->fl_service);?></td>
 											
-											<td><?php echo htmlentities($status);?></td>
+										<!--<td><?php //echo htmlentities($status);?></td> -->
 											
 											
 											
 <td><a href="edit-request.php?id=<?php echo $result->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 	<?php
-		if($result->status=='1'){
-			echo '<a href="edit-request.php?"><i class="fa fa-edit"></i></a>';
-		}
+		//if($result->status=='1'){
+		//	echo '<a href="edit-request.php?"><i class="fa fa-edit"></i></a>';
+		//}
 
 	?>
-<a href="manage-request.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a></td>
+<a href="manage-request.php?del=<?php echo $result->fl_email;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a></td>
+
+<td><?php if($result->status=="" || $result->status==0)
+{
+	?><a href="manage-request.php?aeemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Approved')"> Disapproved</a>
+<?php } else {?>
+
+<a href="manage-request.php?eemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Disapproved')"> Approved</a>
+</td>
+<?php } ?></td>
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
 

@@ -18,7 +18,8 @@ if(isset($_POST['add_to_cart']))
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
-      'item_quantity' =>$_POST['qty']
+      'item_quantity' =>$_POST['qty'],
+      'id'            =>$_POST['hd_flid']
     );
        $_SESSION["shopping_cart"][$count]= $item_array;
        // array_push($_SESSION['shopping_cart'], $item_array);
@@ -38,7 +39,8 @@ if(isset($_POST['add_to_cart']))
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
       'item_price'    =>$_POST['hd_price'],
-      'item_quantity' =>$_POST['qty']
+      'item_quantity' =>$_POST['qty'],
+      'id'            =>$_POST['hd_flid']
     );
     echo "<script>alert('Item Added to the cart')</script>";
     //storing all details to session from item array
@@ -99,6 +101,7 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
 
   $row=mysqli_fetch_array($run);
   $cid=$row['c_id'];
+  $cname=$row['c_name'];
 
 
   if(!empty($_SESSION["shopping_cart"])) 
@@ -109,6 +112,7 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
       $item_name= $values["item_name"]; 
       $qty=$values["item_quantity"];
       $price=$values["item_price"];
+      $fid=$values["id"];
       $item_price = number_format($values["item_quantity"] * $values["item_price"] ,2);
 
        $g_total = $total + ($values["item_quantity"] * $values["item_price"]); 
@@ -116,7 +120,8 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
     $status='Pending'; 
     $invoice_no=mt_rand();
 
-    $query="insert into customer_orders(c_id,due_amount,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
+    $query="insert into customer_orders(c_id,c_name,fl_id,due_amount,item_name, invoice_no, total_fooditems, order_date,
+    order_status) values('$cid','$cname','$fid','$g_total','$item_name','$invoice_no','$qty',NOW(),'$status')";
    $run=mysqli_query($con,$query);
 
    // $query2="insert into pending_orders(c_id,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
@@ -591,7 +596,7 @@ h1 {
 /* Set a style for the submit/send button */
 .form-container .btn {
   background-color: #4CAF50;
-  color: white;
+  text-color: black;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -693,7 +698,16 @@ body{
   background-color: transparent;
   border-color: #bdc3c7;
 }
-
+.color{
+  color: black;
+}
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #003366;
+    padding: 10px 0;
+    border-bottom: 1px solid #CCC;
+}
 
 
 
@@ -716,15 +730,15 @@ body{
           <div id="navbar-cart" class="navbar-collapse collapse" style="float: right;color: black">
             <ul class="nav navbar-nav">
               <li>
-                <a id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
+                <a  class="color" id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
                   <span class="glyphicon glyphicon-shopping-cart"></span>
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-                 <a id="complain" class="btn" data-placement="bottom"  style="float: right;color: black;margin-right: 1230px">
+                 <a id="complain" class="btn"  >
                   Complain</a>
 
-                 <a id="review" class="btn" data-placement="bottom" style="float: right;color: black;">
+                 <a id="review" class="btn">
                   Review</a>
               </li>
             </ul>
@@ -736,7 +750,7 @@ body{
         <span id="cart_details"></span>
         <div align="right">
           <div align="left">
-            <h3>Order Details</h3>
+            <h3 style="color: black">Order Details</h3>
 
             <div class="table-responsive">
               <table class="table table-bordered">
@@ -824,10 +838,10 @@ body{
   <!--<h3 style="margin-left: 12px">Daily Menu</h3> -->
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
-                       <div class="panel-heading"><h3><b>Daily Menu</b></h3></div>
+                       <div class="panel-heading"><h3 style="color: black"><b>Daily Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
-                           <p>Daily regular deals</p>
+                           <p style="color: black">Daily regular deals</p>
                             <?php 
      //if (isset($_GET['flid'])){
       $id=$_GET['flid'];
@@ -840,7 +854,7 @@ body{
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 130px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
                       
                             <div class="panel-body">
                               <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
@@ -856,6 +870,7 @@ body{
 
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                                <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
 
                                  <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
@@ -890,7 +905,7 @@ body{
 
 <div id="Paris" class="tabcontent">
   
-   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Monthly Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
@@ -907,15 +922,33 @@ body{
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
  
                             <div class="panel-body">
+                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+
+                               
+
+                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
+                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
+
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+
+
+                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+
                               </div>
+                              </form>
+                             
                            </div>
                            
                            
@@ -936,7 +969,7 @@ body{
    
 </div>
 <div id="Tokyo" class="tabcontent">
-  <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+  <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Party Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
@@ -953,15 +986,33 @@ body{
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
  
                             <div class="panel-body">
+                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+
+                               
+
+                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
+                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
+
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+
+
+                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+
                               </div>
+                              </form>
+                             
                            </div>
                            
                            
@@ -982,7 +1033,7 @@ body{
 </div>
 
 <div id="Pariss" class="tabcontent">
-   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
@@ -999,15 +1050,33 @@ body{
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
  
                             <div class="panel-body">
+                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+
+                               
+
+                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
+                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
+
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+
+
+                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+
                               </div>
+                              </form>
+                              
                            </div>
                            
                            
@@ -1027,7 +1096,7 @@ body{
             <div class="clearfix"> </div>
 </div>
 <div id="Tokyoo" class="tabcontent">
-   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Weekly Trial Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
@@ -1044,15 +1113,33 @@ body{
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
  
                             <div class="panel-body">
+                             
+                                <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
-                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+
+                               
+
+                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
+                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
+
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+
+
+                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
+                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
+
                               </div>
+                              </form>
                            </div>
                            
                            

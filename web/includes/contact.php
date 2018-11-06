@@ -29,14 +29,17 @@ include('./admin/includes/db.php');
 .containerr{
 	width: 100%;
 	height: 600px;
-	padding:150px 0px;
-	margin:0px;
+	/*padding:150px 0px;
+	/*margin:0px;*/
+	margin-bottom: 0px;
 	background-image: url(contactt.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat; 
 }
 .card{
+	margin-top: 50px;
+	padding-top: 40px;
 	width: 80%;
 	box-sizing: 0px 0px 1px 1px #cc;
 	position:relative;
@@ -47,7 +50,7 @@ include('./admin/includes/db.php');
 }
 .box{
 	width: 70%;
-	height: 350px;
+	height: 370px;
 	padding: 10px;
 	background:black;
 	opacity: .2;
@@ -131,7 +134,7 @@ font-size: 1.5em;
 			</div>
 			<div class="content">
 				<div class="">
-			<div class="">
+			<div class="">&nbsp;
 				<h4 >GET IN TOUCH</h4> 
 				<form action="index.php" method="post">
 					<input  class="text" type="text" name="name" placeholder="Name" required="">
