@@ -328,7 +328,14 @@ $(document).ready(function(){
 });
 
 </script>
-<?php// include('includes/c_login.php');?>
+<?php include('includes/comp.php');
+include('includes/review.php');
+include('includes/calories_male.php');
+include('includes/calories_female.php');
+include('includes/fats.php');
+include('includes/carb.php');
+include('includes/protein.php');
+?>
 <!--/Login-Form --> 
 
 
