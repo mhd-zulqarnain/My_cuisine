@@ -82,7 +82,7 @@ include('includes/db.php');
 													<div class="stat-panel-title text-uppercase">Total Orders</div>
 												</div>
 											</div>
-											<a href="manage-bookings.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="manage-orders.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 								

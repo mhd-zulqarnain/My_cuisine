@@ -71,11 +71,11 @@ else{
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Foodlancer Requests</h2>
+						<h2 class="page-title">Order Details</h2>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">FoodLancer Information</div>
+							<div class="panel-heading">Order Details</div>
 							<div class="panel-body">
 							<!--<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>  -->
@@ -144,13 +144,13 @@ else{
 	    	//$i++;
 
 	    	//<td><a href='confirm.php?order_id=$order_id' target='_blank'>Confirm</a></td>
-	    	if ($status=='Pending') {
+	    	//if ($status=='Pending') {
 
-	    	 	$status ='Unpaid';
-	    	 }
-	    	 else{
-	    	 	$status ='Paid';
-	    	 }
+	    	 //	$status ='Unpaid';
+	    //	 }
+	    	// else{
+	    	 //	$status ='Paid';
+	    //	 }
 
             echo "
 	    	<tr align='center'>

@@ -1,6 +1,5 @@
 <?php 
 session_start();
-//error_reporting(0);
 include('../admin/includes/db.php');
 
 if(isset($_POST['fl_register'])) {
@@ -281,18 +280,17 @@ div.containerr {
 </div> 
  <div class="modal-footer text-center">
        <center><p>Do you already registered? <a href="#signupform" data-toggle="modal" data-dismiss="modal"></a></p>
-        <p><a href="#status" data-toggle="modal" data-dismiss="modal">Check Status Here</a></p> 
          </center> 
       </div>
      
-     <!-- <form  method="post" action="status.php">
+      <form  method="post" action="status.php">
          <label >Email:</label>
       <input type="email"  name="email" placeholder="Enter Your Email Address to see your status.." required style="width: 1050px; display: inline;">
 
-       <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Check</a></p> 
+      <!--  <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal">Check</a></p> -->
         <input type="submit" value="Check" name="check_status" style="width: 200px;display: inline;">
 
-        </form> -->
+        </form>
        
     </div>
     
@@ -406,7 +404,6 @@ include('short_footer.php');
 
 <!--Forgot-password-Form -->
 <?php include('../includes/forgotpassword.php');?>
-<?php include('status_m.php');?>
 <?php include('post_testimonial.php');?>
 
 <!--/Forgot-password-Form -->

@@ -119,9 +119,10 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
    
     $status='Pending'; 
     $invoice_no=mt_rand();
+    $rstatus='1';
 
     $query="insert into customer_orders(c_id,c_name,fl_id,due_amount,item_name, invoice_no, total_fooditems, order_date,
-    order_status) values('$cid','$cname','$fid','$g_total','$item_name','$invoice_no','$qty',NOW(),'$status')";
+    order_status,r_status) values('$cid','$cname','$fid','$g_total','$item_name','$invoice_no','$qty',NOW(),'$status','$rstatus')";
    $run=mysqli_query($con,$query);
 
    // $query2="insert into pending_orders(c_id,invoice_no,total_fooditems,order_date,order_status) values('$cid','$price','$invoice_no','$qty',NOW(),'$status')";
