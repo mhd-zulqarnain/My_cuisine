@@ -192,12 +192,12 @@ $row=mysqli_fetch_array($run);
 {?>
 <div class="checkbox checkbox-inline">
 <input type="checkbox" id="inlineCheckbox1" name="qfy" checked value="1">
-<label for="inlineCheckbox1">Approved  </label>
+<label for="inlineCheckbox1">Qualified  </label>
 </div>
 <?php } else { ?>
 <div class="checkbox checkbox-inline">
 <input type="checkbox" id="inlineCheckbox1" name="qfy" value="1">
-<label for="inlineCheckbox1">Approved ?</label>
+<label for="inlineCheckbox1">Qualified ?</label>
 </div>
 <?php } ?>
 </div>

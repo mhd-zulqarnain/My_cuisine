@@ -194,7 +194,6 @@ include('function/function.php');
 
 <!--Forgot-password-Form -->
 <?php include('./includes/forgotpassword.php');?>
-<?php include('./includes/status_m.php');?>
 <!--/Forgot-password-Form --> 
  
  <?php include('./includes/post_testimonial.php');?>

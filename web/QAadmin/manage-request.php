@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-//include('includes/config.php');
-//include('includes/fl_form2.php');
+include('includes/config.php');
+include('includes/fl_form2.php');
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -40,32 +40,24 @@ $query -> execute();
 }
 
 
-if(isset($_GET['aeemail']))
+if(isset($_REQUEST['aeemail']))
 	{
-$aeemail=$_GET['aeemail'];
+$aeemail=intval($_GET['aeemail']);
 $status=1;
 
 $sql = "UPDATE fl_login SET status=:status WHERE  email=:aeemail";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
+$query-> bindParam(':aeemail',$aemail, PDO::PARAM_STR);
 $query -> execute();
 
 $msg="FoodLancer Successfully Approved";
 
-$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:aeemail";
+$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:eemail";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
+$query-> bindParam(':eemail',$eemail, PDO::PARAM_STR);
 $query -> execute();
-
-//echo "<script type='text/javascript'> document.location = 'mailtest/index.php'; </script>";
-
-//$url='mailtest/index.php/?=';
-
-//echo "<script type='text/javascript'> window.location.href = $url + $aeemail; </script>";
-
-
 }
 
 
@@ -152,6 +144,9 @@ $query -> execute();
 											
 												<th>Service</th>
 												
+											
+										
+											
 											<th>Action</th>
 											<!--<th>Action</th>-->
 											<th>Approved/Disapproved</th>
@@ -175,7 +170,7 @@ $query -> execute();
 											<!--<th>Action</th>-->
 											<th>Approved/Disapproved</th>
 										</tr>
-										
+										</tr>
 									</tfoot>
 									<tbody>
 

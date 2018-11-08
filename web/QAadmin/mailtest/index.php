@@ -7,7 +7,6 @@ $mail = new PHPMailer(); // create a new object
     echo('found');
 };
 
-
 exit;*/
 $mail->IsSMTP(); // Use SMTP
 $mail->Host        = "smtp.gmail.com"; // Sets SMTP server

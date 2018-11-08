@@ -716,7 +716,7 @@ h3 {
 <body>
 
    <div >
-	 <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
+   <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
    
      <div class="container" style="width: 100%;padding-right: 0px;padding-left: 0px;">
       <nav class="navbar navbar-default" role="navigation">
