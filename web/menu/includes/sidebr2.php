@@ -168,6 +168,306 @@ else{
  /* w3 */
     /* Style the tab */
 
+   /*html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}*/
+/*body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #673774;
+  color: #fff;
+}*/
+
+body {
+  font: 15px/1.4 Arial, Sans-Serif;
+  color: #252525;
+  background: url(https://subtlepatterns.com/patterns/gradient_squares.png) repeat;
+}
+
+#contact-form { width: 600px; padding: 15px; background: #252525; margin: 0 auto; }
+
+ul { margin: 0 auto; padding: 0px; }
+
+li { list-style: none; display: inline-block; margin: 0px; padding: 0px;}
+
+li button { width: 297px; padding: 5px; }
+
+h2 { color: #fff; margin-top: 0px; padding-top: 0px;}
+
+form { 
+  margin: 0 auto; 
+  padding: 15px;
+}
+
+form p {
+  color: #fff;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+form label {
+  font: normal 18px Arial, Helvetica; text-align: center;
+}
+
+form textarea {
+  padding: 10px;
+  width: 550px;
+  height: 150px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+input, select {
+  padding: 10px;
+  width: 300px;
+}
+select { width: 324px; }
+
+label span { color: #BA8Df0; }
+
+input, textarea, select {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  outline: none;
+  font: normal 18px Arial, Helvetica;  
+}
+ 
+input:focus, textarea:focus {
+  -webkit-box-shadow: 0 0 4px 3px #BA8DF0;
+  -moz-box-shadow: 0 0 4px 3px #BA8DF0;
+  box-shadow: 0 0 4px 3px #BA8DF0;
+  border: 1px solid #BA8DF0;
+}
+
+.button {
+    -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  display: block;
+  margin: 0 auto;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  background: #BA8Df0;
+  color:#252525;
+  border: none;
+  font: bold 18px Arial, Helvetica; text-align: center;
+}
+
+.button:hover {
+  box-shadow: inset 0 0px 10px 3px #7617eb;
+}
+
+.button:active {
+  color: #fff;
+  background: #7617eb;
+}
+.wrapper {
+  width: 90%;
+  margin: 1em auto;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5em 2em 0.5em 2em;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.wrapper h1 {
+  font-family: Calibri, sans-serif;
+  font-weight: 500;
+  line-height: 1em;
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+.wrapper h1 span {
+  font-size: 0.2em;
+  background: rgb(81, 206, 129);
+  padding: 0.2em 0.5em;
+}
+.profiling-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.question {
+  margin: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+.question select {
+  border: rgb(0,0,0,0.5);
+  height: 2.2em;
+  width: 20em;
+  font-size: 0.9em;
+  box-sizing: 1px 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  
+   width: 150px;
+  text-align: center;
+  margin:0 auto;
+}
+.submit-button input {
+  padding: 0.5em 4em;
+  margin: 1em 0;
+  font-size: 1em;
+  background: rgb(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  outline: none;
+  transition: all 0.2s;
+}
+.submit-button input:active {
+  background: black;
+  box-shadow: none;
+  color: blue;
+
+}
+
+.display {
+  margin: 1em;
+  /* background: rgba(0, 0, 0, 0.2); */
+}
+.result-container {
+  margin: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+.pill {
+  color: #000;
+  height: min-content;
+  width: min-content;
+  display: flex;
+  float:left;
+  flex-direction: column;
+  background: #f0f9f9;
+  padding: 1em;
+  margin: 1em;
+  
+  border: 10px #a5cce2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+   white-space: nowrap;
+}
+.pill > * {
+  margin: 0;
+  text-align: center;
+  list-style: none;
+  display: inline;
+
+}
+.pill p {
+  margin-bottom: 1em;
+}
+.pill p.calories {
+  margin: 1em 0 0 0;
+}
+.pill .title {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+.pill span {
+  margin: 1em auto;
+  padding: 0.2em 0.5em;
+  background: rgb(11, 45, 97);
+  color: white;
+  text-align: center;
+  width: fit-content;
+}
+.pill .tags span {
+  margin: 0.5em auto;
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.7em 0 0 0.7em;
+}
+.pill btn {
+  text-decoration: none;
+  padding: 0.4em 1em 0.5em 1em;
+  background: #26f393;
+  width: fit-content;
+  margin: 0 auto;
+  color: white;
+  border-radius: 10px;
+  border: black;
+  transition: transform 0.2s ease-in-out;
+  transform: scaleX(0.95);
+}
+.pill btn:hover {
+  transform: scaleX(1);
+}
+.pill ol {
+  margin-bottom: 0.5em;
+  background: rgba(255, 255, 255, 0.9);
+  height: 20vh;
+  overflow: scroll;
+}
+.pill li {
+  text-align: left;
+  padding-top: 0.2em;
+  margin-bottom: 0.2em;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-evenly; */
+}
+@media (min-width: 0px) and (max-width: 370px) {
+  .display {
+    background: none;
+  }
+  .submit-button {
+    justify-content: center;
+  }
+  .wrapper h1 span {
+    display: none;
+  }
+  .pill {
+    min-width: 280px;
+    max-width: 100%;
+  }
+  .pill {
+    font-size: 0.7em;
+  }
+  .pill ol {
+    height: unset;
+  }
+}
+@media (min-width: 800px) {
+  .wrapper {
+    width: 800px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+  }
+
+
+
 input[type="button"], input[type="submit"] {
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -305,6 +605,7 @@ h4 {
 
 form {
   margin-top: 0px;
+
 }
 
 select, .tickets input[type="number"] {
@@ -615,47 +916,7 @@ h1 {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-.bg-modal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.close{
-  position: absolute;
-  top:0;
-  right: 14px;
-  font-size: 38px;
-  transform: rotate(45deg);
-  cursor: pointer;
 
-}
-.bg-modal1 {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.close1{
-  position: absolute;
-  top:0;
-  margin-top: -20px;
-  right: 16px;
-  font-size: 38px;
-  transform: rotate(45deg);
-  cursor: pointer;
-
-}
 html
 {
   height:100%;
@@ -676,6 +937,7 @@ body{
   box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
   border-radius: 6px;
     border: 0;
+
 
 }
 @-moz-document url-prefix() {
@@ -731,15 +993,15 @@ h3 {
           <div id="navbar-cart" class="navbar-collapse collapse" style="float: right;color: black">
             <ul class="nav navbar-nav">
               <li>
-                <a  class="color" id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
+                <a id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
                   <span class="glyphicon glyphicon-shopping-cart"></span>
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-                 <a id="complain" class="btn"  >
+               
+                <a href="#form"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Complain</a>
-
-                 <a id="review" class="btn">
+                 <a href="#form1"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Review</a>
               </li>
             </ul>
@@ -874,7 +1136,7 @@ h3 {
                                 <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
 
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success" value="Add to Cart">
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
@@ -972,6 +1234,7 @@ h3 {
 <div id="Tokyo" class="tabcontent">
   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
+
                        <div class="panel-heading"><h3><b>Party Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
@@ -1034,68 +1297,153 @@ h3 {
 </div>
 
 <div id="Pariss" class="tabcontent">
-   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
-                     <div class="panel panel-default">
+  <div class="w3-display-container" style="position: relative;">
+              <div class="w3-padding w3-display-right" style="position: absolute;
+    top: 300px;
+    right: 5px;
+    font-size: 60px;
+   ">
+                 
+                 <p><a href="#formm" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for diabetes</a></p>
+                 <p><a href="#formw" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for weight loss</a></p>
+                 <p><a href="#formf" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calories chart for gaining weight</a></p>
+                  <p><a href="#formcarb" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for sugar person</a></p>
+                 <p><a href="#formpro" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for cholestrol level</a></p>
+            </div>
+            </div>
+   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;" >
+                     <div class="panel panel-default" >
                        <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
                            <p>gain heath with our diet menu</p>
-                            <?php 
-     if (isset($_GET['flid'])) {
-      $id=$_GET['flid'];
-     }
-    $val='Diet menu';
-    $query ="select * from food_items where category='$val' and fl_id='$id'";
+                            
+                           <?php
+include("function/function.php");
+include("includes/db.php");
+
+$hostname="localhost";
+$username="root";
+$password="";
+$databaseName="cuisine_data";
+$connect=mysqli_connect($hostname,$username,$password,$databaseName);
+$query="SELECT DISTINCT calories FROM `food_items` where category='diet menu'";
+$query1="SELECT DISTINCT fats FROM `food_items` where category='diet menu'";
+$query2="SELECT DISTINCT carb FROM `food_items` where category='diet menu'";
+$query3="SELECT DISTINCT proteins FROM `food_items` where category='diet menu'"; 
+
+//$result1=mysqli_query($connect,$query);
+$result=mysqli_query($connect,$query);
+$result1=mysqli_query($connect,$query1);
+$result2=mysqli_query($connect,$query2);
+$result3=mysqli_query($connect,$query3);
+$options="";
+ if($result->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result))
+        {
+         $options=$options."<option>$row2[0]</option>";
+        }
+}
+$options1="";
+ if($result1->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result1))
+        {
+         $options1=$options1."<option>$row2[0]</option>";
+        }
+}
+$options2="";
+ if($result2->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result2))
+        {
+         $options2=$options2."<option>$row2[0]</option>";
+        }
+}
+$options3="";
+ if($result3->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result3))
+        {
+         $options3=$options3."<option>$row2[0]</option>";
+        }
+}
+
+//ERROR IN QUERY
+?>
+<form  method="POST" action="" style="background-color:#eed5d5;">
+        
+          
+            <div>
+              <p><label for="name">Enter number of calories! <span>*</span></label></p>
+              <input type="text" id="calories" name="calories" required="">
+        </div>
+         <div>
+              <p><label for="name">Enter number of Fats! <span>*</span></label></p>
+              <input type="text" id="fats" name="fats" required="">
+        </div>
+              <div>
+              <p><label for="name">Enter number of Carbohydrate! <span>*</span></label></p>
+              <input type="text" id="carb" name="carb" required="">
+        </div>
+             <div>
+              <p><label for="name">Enter number of Proteins! <span>*</span></label></p>
+              <input type="text" id="proteins" name="proteins" required="">
+             </div>
+        <div class="submit-button" style="text-align:center; display: flex; justify-content: center; ">
+          <input type="submit" name="add_to_cart" class="button" value="Submit">  
+
+          <input type="submit"  href="#formr" data-toggle="modal" data-dismiss="modal" class="button" value="Request For Diet menu" style="margin-left :5px">  
+
+         </div>
+        </form>
+    </div>
+
+    <div class="display">
+        <?php 
+
+     if (isset($_POST['calories'])){
+      $ff_calories="'".$_POST['calories']."'";
+      $food_fats="'".$_POST['fats']."'";
+      $food_carb="'".$_POST['carb']."'";
+      $food_proteins="'".$_POST['proteins']."'";
+    $query ="select * from food_items where `calories`=$ff_calories and `fats`=$food_fats and `carb`=$food_carb and `proteins`=$food_proteins and category='diet menu'";
     $run=mysqli_query($con,$query);
+    
  while ($row=mysqli_fetch_array($run)) {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
- 
-                            <div class="panel-body">
-                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
-                              <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+                 <div class="pill" style="width:400px">        
+                <p class="title"><?php echo $row["f_title"]; ?></p> 
+                <span class="label">Cal:&nbsp;<?php echo $row["calories"]; ?> kcal</span>
+                <span class="label">Fats:&nbsp;<?php echo $row["fats"]; ?> g</span>
+                <span class="label">Carb:&nbsp;<?php echo $row["carb"]; ?></span>
+                <span class="label">Proteins:&nbsp;<?php echo $row["proteins"]; ?> kcal</span>
+               
+                <p class="title"> Rs: <?php echo $row['f_price'];?> </p> 
+                <span class="label"><?php echo $row["kitchen_name"]; ?></span>
+                <input type="submit" name="add_to_cart" class="btn" value="Add to cart">
+                                </div>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
-
-                               
-
-                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
-                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
-                              </div>
-                              </form>
-                              
-                           </div>
-                           
-                           
-                    </div>
-                     <?php
-} 
+            
+<?php 
+}
+}
 ?>
- 
-                       
-                     </div>
 
-                  
-                     
-               </div>
-  <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-</div>
+        <div class="result-container">
+            <ul class="ingredients">
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+              
 <div id="Tokyoo" class="tabcontent">
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -1114,31 +1462,17 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
  
                             <div class="panel-body">
                              
                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
                                 <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
-
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
-
-                               
-
-                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
-                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
                               </div>
                               </form>
                            </div>
@@ -1159,6 +1493,7 @@ h3 {
             </div>
             <div class="clearfix"> </div>
 </div>
+
 <div id="Tokyooo" class="tabcontent">
   <h3>Special Deals</h3>
   <p>asdfghjkpoiuytre.</p>
@@ -1167,6 +1502,7 @@ h3 {
                 <div class="clearfix"> </div>
   
 </div>
+
 
 <script>
 function openForm() {
@@ -1204,135 +1540,7 @@ function closeForm() {
 document.getElementById("defaultOpen").click();
 </script>
 
-
-<div class="bg-modal1">
-  
-<div class="containerw3layouts-agileits">
-      <div class="w3layoutscontactagileits">
-        
-          <div id="wrapper">
-              <form action="includes/connectreviews.php" method="post">
-                <div id="login" class="animate w3layouts agileits form">
-                  <div class="close1">+</div>
-                <div class="ferry ferry-from">
-                    <label>Your Name :</label>
-                    <input type="text" name="name" placeholder="Enter your name" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Your Email :</label>
-                    <input type="text" name="email" placeholder="Enter your email" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Kitchen Name :</label>
-                    <input type="text" name="k_name" placeholder="Enter your email" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Rate us :</label>
-                    <select name="rating">
-                      <option value="Dover">Poor</option>
-                      <option value="Dover">Average</option>
-                      <option value="Dover">Very good</option>
-                      <option value="Dover">Excellent</option>
-                    </select>
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Any Comments or Suggestions?</label>
-                    <textarea id="message" name="suggestion" placeholder="Your suggestions!" title="Please enter your suggestions here"></textarea>
-                  </div>
-                  <div class="wthreesubmitaits">
-                    <input type="submit" name="submit" value="Post Review">
-                  </div>
-                </div>
-                </form>
-            </div>
-      </div>
-    </div>
-
-
-
-</div>
-
-
-
-
-
-<div class="bg-modal">
-   <!-- Form Started -->
-            <div class="container form-top">
-               <form action="includes/connectcomplain.php" method="post">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-danger">
-                            <div class="panel-body">
-                                <form id="reused_form">
-                                  <div class="close">+</div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
-                                        <input type="email" name="email" class="form-control" placeholder="Enter Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Kitchen Name</label>
-                                        <input type="text" name="k_name" class="form-control" placeholder="Enter Kitchen Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-comment" name="message" aria-hidden="true"></i> Message</label>
-                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-raised btn-block btn-danger" type="submit" value="Submit" name="submit">Submit Complain &rarr;</button>
-                                    </div>
-                                </form>
-                                <div id="error_message" style="width:100%; height:100%; display:none; ">
-                                    <h4>
-                                        Error
-                                    </h4>
-                                    Sorry there was an error sending your form. 
-                                </div>
-                                <div id="success_message" style="width:100%; height:100%; display:none; ">
-<h2>Success! Your Message was Sent Successfully.</h2>
-</div>
-                            </form>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </div>
-            </div>
-            <!-- Form Ended -->
-        
-  <!-- <img src="http://getaadhar.in/wp-content/uploads/2015/12/complaints-vector-illustration-complaint-box-39426847.jpg" width="100" height="100"  alt="" >
-  <form action="">
-    <input type="text" placeholder="Name">
-    <input type="text" placeholder="E-mail">
-    <textarea name="message" placeholder="Your Message"></textarea>
-    <a href="" class="button">Submit</a>
-  </form> -->
-
-
-</div>
-<script type="text/javascript">
-  document.getElementById('complain').addEventListener('click' , function(){
-document.querySelector('.bg-modal').style.display= "flex";
-  });
-  document.getElementById('review').addEventListener('click' , function(){
-document.querySelector('.bg-modal1').style.display= "flex";
-  });
-  document.querySelector('.close').addEventListener('click',function(){
-    document.querySelector('.bg-modal').style.display="none";
-  });
-   document.querySelector('.close1').addEventListener('click',function(){
-    document.querySelector('.bg-modal1').style.display="none";
-  });
-   window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
+  <script src="main.js"></script>
+ 
 </body>
 </html>

@@ -1,21 +1,39 @@
-<?php 
-session_start();
-include('../admin/includes/db.php');
+<?php
+$servername="localhost";
+$dbusername="root";
+$dbpassword="";
+$dbname="cuisine_data";
 
-if(isset($_POST['submit'])) {
-  
-  $name =$_POST['name'];
-  $email =$_POST['email'];
-  $k_name =$_POST['k_name'];
-  $message =$_POST['message'];
-  $query="INSERT INTO complains(name,email,k_name,message) values ('$name','$email','$k_name','$message')";
-  $run=mysqli_query($con, $query);
+$name=$_POST['name'];
+$email=$_POST['email'];
+$k_name=$_POST['k_name'];
+$message=$_POST['message'];
 
-  if ($run) {
 
-    echo "<script>alert('You have successfully registered your self for foodlancer!')</script>";
+$conn = new mysqli($servername,$dbusername,$dbpassword,$dbname);
+if ($conn->connect_error){
+    die("Connection failed:".$conn->connect_error);
   }
-    else {
-   # echo "Error: " . $query . "<br>" . mysqli_error($con);
-    echo "<script type='text/javascript'> document.location = 'fl_form2.php'; </script>";
-   }
+if (empty($name)){
+  echo "Name can not be blank.";
+  die();
+}
+if (empty($email)){
+  echo "Email name can not be blank.";
+  die();
+}
+if (empty($k_name)){
+  echo "Kitchen name can not be blank.";
+  die();
+}
+if (empty($message)){
+  echo "Message can not be blank.";
+  die();
+}
+$sql= "INSERT INTO complains(name,email,k_name,message) VALUES ('$name','$email','$k_name','$message')";
+if($conn->query($sql)=== TRUE){
+echo "Thank you for your valuable Suggestion!"; }
+else {
+echo "Error:".$sql."<br>".$conn->error; }
+$conn->close();
+?>

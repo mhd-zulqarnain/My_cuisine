@@ -328,7 +328,15 @@ $(document).ready(function(){
 });
 
 </script>
-<?php// include('includes/c_login.php');?>
+<?php include('includes/comp.php');
+include('includes/review.php');
+include('includes/diabetes.php');
+include('includes/cholestrol.php');
+include('includes/sugar.php');
+include('includes/weightgain.php');
+include('includes/weightloss.php');
+include('includes/request_dietmenu.php');
+?>
 <!--/Login-Form --> 
 
 
