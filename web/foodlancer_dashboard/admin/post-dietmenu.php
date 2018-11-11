@@ -16,10 +16,14 @@ if(isset($_POST['submit']))
 	$menu_cat =$_POST['menu_cat'];
 	$meals    = $_POST['meals'];
 	$price    = $_POST['price'];
-	$diet_type    = $_POST['diet_type'];
+	$calories    = $_POST['calories'];
+	$fats    = $_POST['fats'];
+	$carb    = $_POST['carb'];
+	$proteins    = $_POST['proteins'];
+	
 
 
-	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,diet_type) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$diet_type')";
+	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,calories,fats,carb,proteins) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$calories','$fats','$carb','$proteins')";
 	$run=mysqli_query($con, $query);
 
 	if ($run) {
@@ -105,7 +109,7 @@ $fl_name=$_SESSION['flname'];
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Post A Menu</h2>
+						<h2 class="page-title">Post A Menu After Considering Calories Chart</h2>
 
 						<div class="row">
 							<div class="col-md-12">
@@ -149,28 +153,72 @@ $fl_name=$_SESSION['flname'];
 								</div>
 							</div>
 						</div>
-<div class="form-group">
-							<label class="col-md-2 control-label">Diet type</label>
+<!-- <div class="form-group">
+							<label class="col-md-2 control-label">Food Category</label>
 							<div class="col-md-8">
 								<div class="input-group">
 									<span class="input-group-addon">
 										<i class="fa fa-book"></i>
 									</span>
-							        <select name="diet_type" >
-					<option value="">Select Category</option>
-					<option>Balanced</option>
-					<option>Less spice</option>
-					<option>More spice</option>	
-					<option>Extra fats </option>
-					<option>Extra salty</option>				
-				</select>
-    
+							
+    <select  name="food_category">
+      <option >Vegetable</option>
+      <option >Meat</option>
+      <option >Chicken</option>
+      <option >Other</option>
+    </select>
 								</div>
 							</div>
-	</div>
-
+						</div>-->  
 	
 
+<div class="form-group">
+							<label class="col-md-2 control-label">Enter no of calories</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="calories" placeholder="Enter Calories " required>
+								</div>
+							</div>
+						</div>
+
+	
+<div class="form-group">
+							<label class="col-md-2 control-label">Enter no of fats</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="fats" placeholder="Enter Fats " required>
+								</div>
+							</div>
+						</div>
+
+<div class="form-group">
+							<label class="col-md-2 control-label">Enter no of carbohydrates</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="carb" placeholder="Enter carb " required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Enter no of Proteins</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="proteins" placeholder="Enter Proteins " required>
+								</div>
+							</div>
+						</div>
 	<div class="form-group">
 							<label class="col-md-2 control-label">Meals</label>
 							<div class="col-md-8">

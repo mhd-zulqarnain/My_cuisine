@@ -185,7 +185,7 @@ include('function/function.php');
     <!--Login-Form -->
 <?php include('./includes/c_login.php');?>
 <!--/Login-Form --> 
-
+<?php include('./includes/complain.php');?>
 
 <!--Register-Form -->
 <?php include('./includes/registration.php');?>
