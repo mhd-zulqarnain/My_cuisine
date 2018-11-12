@@ -1117,7 +1117,7 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 200px;width: 900px">
                       
                             <div class="panel-body">
                               <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
