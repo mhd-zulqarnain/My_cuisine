@@ -73,7 +73,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     opacity: 1; /* Firefox */
 }
 .form-control {
-  background: #d1d2cc none repeat scroll 0 0;
+ /* background: #d1d2cc none repeat scroll 0 0;*/
+ background: #b8b9b3 none repeat scroll 0 0; 
   border: 0 none;
   border-radius: 3px;
   box-shadow: none;

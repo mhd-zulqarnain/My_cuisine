@@ -104,7 +104,7 @@ else{
 
 		<tr>
 			<td>Chef Image:&nbsp;</td>
-			<td><input type="file" name="c_image" size="80"><img src="chef_images/<?php echo $img;?>" width="70" height="70"</td>
+			<td><input type="file" name="c_image" size="80"><img src="chef_images/<?php echo $img;?>" width="70" height="70"></td>
 		</tr>
 
 		<tr>
@@ -166,3 +166,5 @@ if (isset($_POST['update'])) {
 </body>
 </html>
 <?php } ?>
+
+

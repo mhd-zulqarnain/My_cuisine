@@ -1,30 +1,5 @@
  <?php
-/*if(isset($_POST['update']))
-  {
-$email=$_POST['email'];
-$mobile=$_POST['mobile'];
-$newpassword=md5($_POST['newpassword']);
-  $sql ="SELECT EmailId FROM tblusers WHERE EmailId=:email and ContactNo=:mobile";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':mobile', $mobile, PDO::PARAM_STR);
-$query-> execute();
-$results = $query -> fetchAll(PDO::FETCH_OBJ);
-if($query -> rowCount() > 0)
-{
-$con="update tblusers set Password=:newpassword where EmailId=:email and ContactNo=:mobile";
-$chngpwd1 = $dbh->prepare($con);
-$chngpwd1-> bindParam(':email', $email, PDO::PARAM_STR);
-$chngpwd1-> bindParam(':mobile', $mobile, PDO::PARAM_STR);
-$chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
-$chngpwd1->execute();
-echo "<script>alert('Your Password succesfully changed');</script>";
-}
-else {
-echo "<script>alert('Email id or Mobile no is invalid');</script>"; 
-}
-}
-*/
+
 ?> 
 <style type="text/css">
   table {
@@ -55,31 +30,24 @@ tr:nth-child(even) {
     color: red;
 }
 #myInput {
-    background-image: url('search.png'); /* Add a search icon to input */
+    background-image: url('includes/search.png'); /* Add a search icon to input */
     background-position: 10px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
     width: 50%; /* Full-width */
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    margin-bottom: 12px; /* Add some space below the input   #cecccc #ded7d7*/
     margin-left: 270px;
+    color: black;
 
 }
-
+.textt {
+    color: black;
+    background-color:  #cecccc;
+}
 </style>
-  <script type="text/javascript">
-function valid()
-{
-if(document.chngpwd.newpassword.value!= document.chngpwd.confirmpassword.value)
-{
-alert("New Password and Confirm Password Field do not match  !!");
-document.chngpwd.confirmpassword.focus();
-return false;
-}
-return true;
-}
-</script>
+  
 <div class="modal fade" id="status">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -89,7 +57,7 @@ return true;
         <h3 class="modal-title"><b>Status Information</b></h3>
       </div>
       <!---search bar -->
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for email..">
+      <input  class="textt" type="text" id="myInput" onkeyup="myFunctionn()" placeholder="Search for email..">
       <div class="modal-body">
         <div class="row">
           <div class="forgotpassword_wrap">
@@ -171,7 +139,7 @@ return true;
 </table>
 
 <script>
-function myFunction() {
+function myFunctionn() {
   // Declare variables 
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");

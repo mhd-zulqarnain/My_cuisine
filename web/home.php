@@ -199,6 +199,10 @@ include('function/function.php');
  <?php include('./includes/post_testimonial.php');?>
 
  <?php include('./includes/fl_register.php'); ?>
+ <?php include('./includes/flform.php'); ?>
+  <?php include('./includes/status_m.php');?>
+
+
 	
 </body>
 </html>

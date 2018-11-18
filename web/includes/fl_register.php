@@ -52,20 +52,9 @@
 
       <form class="w3-container" action="">
         <div class="w3-section">
-          <!--<label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-          <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>v<label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required><label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required> -->
-       <center> <button style="margin-top:10px" class="w3-button w3-green w3-large button" type="button"> <a href="includes/fl_form2.php" style="color: white"> Join US</a></button></center>
+        
+      <!-- <center> <button style="margin-top:10px" class="w3-button w3-green w3-large button" type="button"> <a href="includes/fl_form2.php" style="color: white"> Join US</a></button></center> -->
+       <center> <button style="margin-top:10px" class="w3-button w3-green w3-large button" type="button"> <a href="#fl_form"  data-toggle="modal" data-dismiss="modal" style="color: white"> Join US</a></button></center> 
 
          
         </div>

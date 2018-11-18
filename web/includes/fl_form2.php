@@ -238,23 +238,23 @@ div.containerr {
 
 <div class="containerr">
   <form name="fl_register" action="" method="post">
-    <label >Your Name</label>
+    <label >Your Name:</label>
     <input type="text" name="fl_name" placeholder="Your name.." required>
 
-    <label >Your Email</label>
+    <label >Your Email:</label>
     <input type="email"  name="fl_email" placeholder="Your Email.." required>
 
-    <label >Your Kitchen Name</label>
+    <label >Your Kitchen Name:</label>
     <input type="text" name="fl_kitchen_name" placeholder="Your kitchen name.." required>
 
 
-    <label>Your Contact No.</label>
+    <label>Your Contact No:</label>
     <input type="text"  name="fl_contact" placeholder="Your Contact number.." required>
 
-    <label for="lname">Your Address</label>
+    <label for="lname">Your Address:</label>
     <input type="text"  name="fl_address" placeholder="Your Address.." required>
 
-    <label for="lname">Your City</label>
+    <label for="lname">Your City:</label>
     <input type="text"  name="fl_city" placeholder="Your City.." required>
 
 
@@ -263,8 +263,24 @@ div.containerr {
       <option value="Delivry & Pickup">Delivry & Pickup</option>
       <option value="delivery only">Delivery Only</option>
       <option value="pickup only">Pickup Only</option>
-   
     </select>
+    <br>
+  <label for="lname">Upload Your kitchen Images: </label><br>
+
+  <div class="form-group">
+<div class="col-sm-4">
+   <input type="file" class="form-control" name="img1" required="required" >
+</div>
+<div class="col-sm-4">
+    <input type="file" class="form-control" name="img2" required="required" >
+</div>
+<div class="col-sm-4">
+   <input type="file" class="form-control" name="img3"  required="required" >
+</div>
+</div>
+
+<br>
+
 <br>
     <h3><b>Login Information</b></h3>
 <br>
