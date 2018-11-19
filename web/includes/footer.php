@@ -67,9 +67,9 @@
 					<h5>NEWSLETTER</h5>
 
 					<form action="#" method="post" class="newsletter">
-						<input class="email" type="email" placeholder="Your email address..." required="">
+						<input class="email" type="email" name="email" placeholder="Your email address..." required>
 
-						<input type="submit" class="submit" value="">
+						<input type="submit" class="submit" value="" name="submitt">
 					</form>
 				</div>
 				<div class="clearfix"></div>
@@ -79,3 +79,13 @@
 				<p>&copy; 2018 My Cuisine. All Rights Reserved | Design by ...</p>
 			</div>
 	</div>
+<?php
+	if (isset($_POST['submitt'])) {
+		$email=$_POST['email'];
+		$query="INSERT INTO subscribers(email) values ('$email')";
+		$run =mysqli_query($con,$query);
+		if($run){
+			echo "<script>alert('Successfully subcibed')</script>";
+		}
+	}
+	?>

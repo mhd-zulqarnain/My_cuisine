@@ -29,7 +29,10 @@ $mail->AddAddress($email);
 if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    echo "Message has been sent";
+    echo "<script>alert('Message has been sent')</script>";
+    echo "<script type='text/javascript'> document.location = '../manage-request.php'; </script>";
+
+}
 }
 }
 ?>

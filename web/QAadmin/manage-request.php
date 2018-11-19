@@ -328,59 +328,8 @@ foreach($results as $result)
 											<td><?php echo htmlentities($result->fl_address);?></td>
 											<td><?php echo htmlentities($result->fl_service);?></td>
 
-<td>
-	<div class="row">
-		<div class="column"><img id="myImg1" src="../kitchen_images/<?php echo htmlentities($result->img1);?>" style="width:100% ;height: 60px"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor" ></div>
-		<div class="column"><img id="myImg2" src="../kitchen_images/<?php echo htmlentities($result->img2);?>" style="width:100%; height: 60px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor"></div>
-		<div class="column"><img id="myImg3" src="../kitchen_images/<?php echo htmlentities($result->img3);?>" style="width:100%;height: 60px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor"></div>
-	</div>
-</td>
-
-<div id="myModal" class="modall">
-  <span class="closee cursor" onclick="closeModal()">&times;</span>
-  <div class="modall-content">
-
-    <div class="mySlides">
-      <div class="numbertext">1 / 3</div>
-      <img src="../kitchen_images/<?php echo htmlentities($result->img1);?>"  style="width:100% ; height:300px">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">2 / 3</div>
-      <img src="../kitchen_images/<?php echo htmlentities($result->img2);?>" style="width:100%; height:300px">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext">3 / 3</div>
-      <img src="../kitchen_images/<?php echo htmlentities($result->img3);?>"  style="width:100%; height:300px">
-    </div>
-    
-    
-    
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <div class="caption-containerrr">
-      <p id="caption"></p>
-    </div>
-
-
-    <div class="column">
-      <img src="../kitchen_images/<?php echo htmlentities($result->img1);?>" class="demo cursor"  style="width:100% ;height:200px" onclick="currentSlide(1)" alt="kitchen Image 1">
-    </div>
-    <div class="column">
-      <img src="../kitchen_images/<?php echo htmlentities($result->img2);?>" class="demo cursor"  style="width:100%;height:200px" onclick="currentSlide(2)" alt="kitchen Image 2">
-    </div>
-    <div class="column">
-      <img src="../kitchen_images/<?php echo htmlentities($result->img3);?>"  class="demo cursor"  style="width:100%;height:200px" onclick="currentSlide(3)" alt="kitchen Image 3">
-    </div>
-    
-  </div>
-  <br/>
-  <br>
-</div>
-											
-											
+<td><a href="k_images.php?email=<?php echo $result->fl_email;?>">View Images</a></td>
+										
 										<!--<td><?php //echo htmlentities($status);?></td> -->
 											
 											
