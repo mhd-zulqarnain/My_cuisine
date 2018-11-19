@@ -40,23 +40,23 @@ $query -> execute();
 }
 
 
-if(isset($_REQUEST['aeemail']))
+if(isset($_GET['aeemail']))
 	{
-$aeemail=intval($_GET['aeemail']);
+$aeemail=$_GET['aeemail'];
 $status=1;
 
 $sql = "UPDATE fl_login SET status=:status WHERE  email=:aeemail";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':aeemail',$aemail, PDO::PARAM_STR);
+$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
 $query -> execute();
 
 $msg="FoodLancer Successfully Approved";
 
-$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:eemail";
+$sql = "UPDATE fl_info SET status=:status WHERE  fl_email=:aeemail";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':eemail',$eemail, PDO::PARAM_STR);
+$query-> bindParam(':aeemail',$aeemail, PDO::PARAM_STR);
 $query -> execute();
 }
 
@@ -109,6 +109,139 @@ $query -> execute();
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
+
+.row > .column {
+  padding: 0 4px;
+  margin-left: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width:25%;
+}
+/* The Modal (background) */
+.modall {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  margin-top: 80px;
+  left: 250px;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modall-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.closee {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.closee:hover,
+.closee:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-containerrr {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 		</style>
 
 </head>
@@ -136,39 +269,38 @@ $query -> execute();
 									<thead>
 										<tr>
 										<th>#</th>
-												<th>Name</th>
+												<!--<th>Name</th> -->
 												<th>Email</th>
 												<th>kitechen Name</th>
 												<th>Contct No</th>
 												<th>Address</th>
 											
 												<th>Service</th>
-												
-											
-										
+												<th>Kitchen Images</th>
 											
 											<th>Action</th>
 											<!--<th>Action</th>-->
-											<th>Approved/Disapproved</th>
+											<th>Status</th>
+											<th>Email</th>
 											
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
 										<th>#</th>
-											<th>Name</th>
+											<!--<th>Name</th>-->
 												<th>Email</th>
 												<th>kitchen Name</th>
 												<th>Contct No</th>
 												<th>Address</th>
 											
 												<th>Service</th>
-												
-										
+												<th>Kitchen Images</th>
 											
 											<th>Action</th>
 											<!--<th>Action</th>-->
-											<th>Approved/Disapproved</th>
+											<th>Status</th>
+											<th>Email</th>
 										</tr>
 										</tr>
 									</tfoot>
@@ -189,13 +321,65 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->fl_name);?></td>
+											<!--<td><?php echo htmlentities($result->fl_name);?></td>-->
 											<td><?php echo htmlentities($result->fl_email);?></td>
 											<td><?php echo htmlentities($result->fl_kitchen_name);?></td>
 											<td><?php echo htmlentities($result->fl_contact);?></td>
 											<td><?php echo htmlentities($result->fl_address);?></td>
-											
 											<td><?php echo htmlentities($result->fl_service);?></td>
+
+<td>
+	<div class="row">
+		<div class="column"><img id="myImg1" src="../kitchen_images/<?php echo htmlentities($result->img1);?>" style="width:100% ;height: 60px"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor" ></div>
+		<div class="column"><img id="myImg2" src="../kitchen_images/<?php echo htmlentities($result->img2);?>" style="width:100%; height: 60px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor"></div>
+		<div class="column"><img id="myImg3" src="../kitchen_images/<?php echo htmlentities($result->img3);?>" style="width:100%;height: 60px" onclick="openModal();currentSlide(3)" class="hover-shadow cursor"></div>
+	</div>
+</td>
+
+<div id="myModal" class="modall">
+  <span class="closee cursor" onclick="closeModal()">&times;</span>
+  <div class="modall-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 3</div>
+      <img src="../kitchen_images/<?php echo htmlentities($result->img1);?>"  style="width:100% ; height:300px">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="../kitchen_images/<?php echo htmlentities($result->img2);?>" style="width:100%; height:300px">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="../kitchen_images/<?php echo htmlentities($result->img3);?>"  style="width:100%; height:300px">
+    </div>
+    
+    
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-containerrr">
+      <p id="caption"></p>
+    </div>
+
+
+    <div class="column">
+      <img src="../kitchen_images/<?php echo htmlentities($result->img1);?>" class="demo cursor"  style="width:100% ;height:200px" onclick="currentSlide(1)" alt="kitchen Image 1">
+    </div>
+    <div class="column">
+      <img src="../kitchen_images/<?php echo htmlentities($result->img2);?>" class="demo cursor"  style="width:100%;height:200px" onclick="currentSlide(2)" alt="kitchen Image 2">
+    </div>
+    <div class="column">
+      <img src="../kitchen_images/<?php echo htmlentities($result->img3);?>"  class="demo cursor"  style="width:100%;height:200px" onclick="currentSlide(3)" alt="kitchen Image 3">
+    </div>
+    
+  </div>
+  <br/>
+  <br>
+</div>
+											
 											
 										<!--<td><?php //echo htmlentities($status);?></td> -->
 											
@@ -218,6 +402,9 @@ foreach($results as $result)
 <a href="manage-request.php?eemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Disapproved')"> Approved</a>
 </td>
 <?php } ?></td>
+
+<td><a href="mailtest/index.php?email=<?php echo $result->fl_email;?>" onclick="return confirm('Do you want to send an approval email');">Send mail</a></td>
+
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
 
@@ -250,6 +437,47 @@ foreach($results as $result)
 	<script src="js/fileinput.js"></script>
 	<script src="js/chartData.js"></script>
 	<script src="js/main.js"></script>
+
+<!--image modal -->
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+<!-- //image modal -->
 </body>
 </html>
 <?php } ?>

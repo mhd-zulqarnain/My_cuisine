@@ -179,7 +179,7 @@ a{
               <form method="post" action="">
                 <div class="form-group">
                    <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name*" style="background:#gery;">
+                  <input type="text" class="form-control" name="name" placeholder="urooba*" style="background:#gery;">
                 </div>
                   <input type="email" class="form-control" name="email" placeholder="Email address*" style="background:#gery;">
                 </div>

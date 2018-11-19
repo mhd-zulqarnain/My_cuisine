@@ -8,6 +8,10 @@ $mail = new PHPMailer(); // create a new object
 };
 
 exit;*/
+if(isset($_GET['email'])){
+	$email=$_GET['email'];
+	echo "$email";
+
 $mail->IsSMTP(); // Use SMTP
 $mail->Host        = "smtp.gmail.com"; // Sets SMTP server
 $mail->SMTPDebug   = 2; // 2 to enable SMTP debug information
@@ -21,10 +25,11 @@ $mail->SetFrom("Mahranirose@gmail.com");
 $mail->Subject = "Cusine app";
 $mail->Body = "hello from rani xD";
 //yaha body my
-$mail->AddAddress("vozolaxe@pachilly.com");
+$mail->AddAddress($email);
 if(!$mail->Send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
     echo "Message has been sent";
+}
 }
 ?>

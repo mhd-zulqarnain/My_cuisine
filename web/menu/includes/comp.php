@@ -176,22 +176,22 @@ a{
         <div class="row">
           <div class="login_wrap">
             <div class="col-md-12 col-sm-6">
-              <form method="post" action="includes/connectcomplain.php">
+              <form method="post" action="">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name*">
+                  <input type="text" class="form-control" name="name" placeholder="Name*" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Email Address*">
+                  <input type="email" class="form-control" name="email" placeholder="Email Address*" required="">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="k_name" placeholder="Kitchen_name*">
+                  <input type="text" class="form-control" name="k_name" placeholder="Kitchen_name*" required="">
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" placeholder="Your message!*"></textarea>
+                  <textarea class="form-control" name="message" placeholder="Your message!*" required=""></textarea>
                 </div>
               
                 <div class="form-group">
-                <input type="submit" name="submit" value="Complain" class="btn btn-block">
+                <input type="submit" name="c_submit" value="Complain" class="btn btn-block">
                 </div>
               </form>
             </div>
@@ -202,6 +202,25 @@ a{
     </div>
   </div>
 </div>
+<?php
+if(isset($_POST['c_submit']))
+{
+$name=$_POST['name'];
+$email=$_POST['email']; 
+$k_name=$_POST['k_name']; 
+$message=$_POST['message'];
+$query="INSERT INTO complains(name,email,k_name,message) VALUES('$name','$email','$k_name','$message')";
+$run=mysqli_query($con,$query);
+if($run)
+{
+echo "<script>alert('Complain Registered Succesfully..Sorry for the inconvience');</script>";
+}
+else 
+{
+echo "<script>alert('Something went wrong. Please try again');</script>";
+}
+}
+?>
 
 </body>
 </html>

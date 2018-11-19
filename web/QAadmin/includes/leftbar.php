@@ -54,9 +54,9 @@ include("includes/db.php");
 										  </ul>
 </li>
 
-				<li><a href="manage-bookings.php"><i class="fa fa-files-o"></i> Complains</a></li>
+				<li><a href="manage-complains.php"><i class="fa fa-files-o"></i> Complains</a></li>
 
-				<li><a href="manage-bookings.php"><i class="fa fa-users"></i> Reviews</a></li>
+				<li><a href="manage-reviews.php"><i class="fa fa-users"></i> Reviews</a></li>
 
 <!--<li><a href="#"><i class="fa fa-sitemap"></i> foodlancer request</a>
 					<ul>

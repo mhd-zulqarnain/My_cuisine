@@ -151,14 +151,16 @@ else{
 }*/
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
 
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -184,11 +186,7 @@ else{
   color: #fff;
 }*/
 
-body {
-  font: 15px/1.4 Arial, Sans-Serif;
-  color: #252525;
-  background: url(https://subtlepatterns.com/patterns/gradient_squares.png) repeat;
-}
+
 
 #contact-form { width: 600px; padding: 15px; background: #252525; margin: 0 auto; }
 
@@ -1075,7 +1073,7 @@ h3 {
 
   <div>            
 <div class="tab" style="margin-top: 0px;">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Daily Menu</button>
+  <button class="tablinks" onclick="openCity(event, 'London')">Daily Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Monthly Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Party Menu</button>
    <button class="tablinks" onclick="openCity(event, 'Pariss')">Diet Menu</button>
@@ -1316,9 +1314,10 @@ h3 {
                        <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
-                           <p>gain heath with our diet menu</p>
+                         
                             
                            <?php
+                            $id=$_GET['flid'];
 include("function/function.php");
 include("includes/db.php");
 
@@ -1372,7 +1371,7 @@ $options3="";
 
 //ERROR IN QUERY
 ?>
-<form  method="POST" action="" style="background-color:#eed5d5;">
+<form  method="POST"  style="background-color:#eed5d5;">
         
           
             <div>
@@ -1392,9 +1391,9 @@ $options3="";
               <input type="text" id="proteins" name="proteins" required="">
              </div>
         <div class="submit-button" style="text-align:center; display: flex; justify-content: center; ">
-          <input type="submit" name="add_to_cart" class="button" value="Submit">  
+          <input type="submit" name="save" class="button" onclick="openCity(event, 'Pariss')" id="defaultOpen" value="Submit">  
 
-          <input type="submit"  href="#formr" data-toggle="modal" data-dismiss="modal" class="button" value="Request For Diet menu" style="margin-left :5px">  
+          <input type="button"  href="#formr" data-toggle="modal" data-dismiss="modal" class="button" value="Request For Diet menu" style="margin-left :5px">  
 
          </div>
         </form>
@@ -1402,8 +1401,8 @@ $options3="";
 
     <div class="display">
         <?php 
-
-     if (isset($_POST['calories'])){
+$id=$_GET['flid'];
+     if (isset($_POST['save'])){
       $ff_calories="'".$_POST['calories']."'";
       $food_fats="'".$_POST['fats']."'";
       $food_carb="'".$_POST['carb']."'";
@@ -1415,17 +1414,25 @@ $options3="";
                     
 
                          ?>
-                 <div class="pill" style="width:400px">        
-                <p class="title"><?php echo $row["f_title"]; ?></p> 
+                         <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+                 <div class="pill" style="width:500; display: inline-grid;">        
+                <p class="title" style="color: black;"><?php echo $row["f_title"]; ?></p> 
+                
                 <span class="label">Cal:&nbsp;<?php echo $row["calories"]; ?> kcal</span>
                 <span class="label">Fats:&nbsp;<?php echo $row["fats"]; ?> g</span>
                 <span class="label">Carb:&nbsp;<?php echo $row["carb"]; ?></span>
                 <span class="label">Proteins:&nbsp;<?php echo $row["proteins"]; ?> kcal</span>
-               
-                <p class="title"> Rs: <?php echo $row['f_price'];?> </p> 
+               <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+
+                <p class="title" style="color: black;"> Rs: <?php echo $row['f_price'];?> </p> 
                 <span class="label"><?php echo $row["kitchen_name"]; ?></span>
+
+                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
+                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
+                                <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
                 <input type="submit" name="add_to_cart" class="btn" value="Add to cart">
                                 </div>
+                                </form>
 
             
 <?php 
@@ -1433,12 +1440,14 @@ $options3="";
 }
 ?>
 
-        <div class="result-container">
+        <div class="result-container" style="width: 500px;">
             <ul class="ingredients">
             </ul>
         </div>
     </div>
-
+<div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
 
 
 

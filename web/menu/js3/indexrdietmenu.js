@@ -77,6 +77,12 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	return false;
-})
+
+function checkforblank(){
+	if(document.getElementById('name').value=="")
+{
+	alert('please enter your name');
+	document.getElementById('name').style.borderColor="red";
+return false;
+}
+}

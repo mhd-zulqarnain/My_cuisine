@@ -6,356 +6,242 @@ include("../admin/includes/db.php");
 <!Doctype html >
 <html>
 <head>
-<style type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <style type="text/css">
+      
+
+.wizards{
+    overflow: hidden; 
+    position: relative; 
+    margin-top: 20px;
+}
+.progressbar{
+    position: absolute; 
+    top: 24px; 
+    left: 0; 
+    width: 100%; 
+    height: 1px; 
+    background: #ddd;
+}
+.progress-line{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 1px; 
+    background: green;
+}
+.form-wizard{
+    position: relative; 
+    float: left; 
+    width: 20%; 
+    padding: 0 5px; 
+    text-align: center;
+}
+.wizard-icon{
+    display: inline-block; 
+    width: 40px; 
+    height: 40px; 
+    margin-top: 4px; 
+    background: #ddd;
+  font-size: 16px; 
+    color: #fff; 
+    line-height: 40px;
+  -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+}
+.form-wizard.activated .wizard-icon{
+    background: #fff; 
+    border: 1px solid green; 
+    color: green; 
+    line-height: 38px;
+}
+.form-wizard.active .wizard-icon{
+    width: 48px; 
+    height: 48px; 
+    margin-top: 0; 
+    background: green; 
+    font-size: 22px; 
+    line-height: 48px;
+}
+.form-wizard p { 
+    color: #ccc; 
+}
+.form-wizard.activated p { 
+    color: green; 
+}
+.form-wizard.active p { 
+    color: green; 
+}
+fieldset { 
+    display: none; 
+    text-align: left; 
+}
+.wizard-buttons { 
+    text-align: right; 
+}
+.input-error { 
+    border-color: red; 
+}
 /*
-1.10. Modal
---------------------------------*/
-@import url(https://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
 }
-/*custom font*/
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
-/*basic reset*/
-* {margin: 0; padding: 0;}
-
-#msform {
-  width: 400px;
-  margin: 50px auto;
-  text-align: center;
-  position: relative;
+*/
+.btn-previous{
+    background-color: lightgrey;
 }
-#msform fieldset {
-  background: white;
-  border: 0 none;
-  border-radius: 3px;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  padding: 20px 30px;
-  box-sizing: border-box;
-  width: 80%;
-  margin: 0 10%;
-  
-  /*stacking fieldsets above each other*/
-  position: relative;
+.btn-next{
+    background-color: green;
+    color: white;
 }
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-  display: none;
-}
-/*inputs*/
-#msform input, #msform textarea {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: montserrat;
-  color: #2C3E50;
-  font-size: 13px;
-}
-/*buttons*/
-#msform .action-button {
-  width: 100px;
-  background: #27AE60;
-  font-weight: bold;
-  color: white;
-  border: 0 none;
-  border-radius: 1px;
-  cursor: pointer;
-  padding: 10px 5px;
-  margin: 10px 5px;
-}
-#msform .action-button:hover, #msform .action-button:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-}
-/*headings*/
-.fs-title {
-  font-size: 15px;
-  text-transform: uppercase;
-  color: #2C3E50;
-  margin-bottom: 10px;
-}
-.fs-subtitle {
-  font-weight: normal;
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 20px;
-}
-/*progressbar*/
-#progressbar {
-  margin-bottom: 30px;
-  overflow: hidden;
-  /*CSS counters to number the steps*/
-  counter-reset: step;
-}
-#progressbar li {
-  list-style-type: none;
-  color: white;
-  text-transform: uppercase;
-  font-size: 9px;
-  width: 33.33%;
-  float: left;
-  position: relative;
-}
-#progressbar li:before {
-  content: counter(step);
-  counter-increment: step;
-  width: 20px;
-  line-height: 20px;
-  display: block;
-  font-size: 10px;
-  color: #333;
-  background: white;
-  border-radius: 3px;
-  margin: 0 auto 5px auto;
-}
-/*progressbar connectors*/
-#progressbar li:after {
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: white;
-  position: absolute;
-  left: -50%;
-  top: 9px;
-  z-index: -1; /*put it behind the numbers*/
-}
-#progressbar li:first-child:after {
-  /*connector not needed before the first step*/
-  content: none; 
-}
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-  background: #27AE60;
-  color: white;
-}
-
-
-
-
-
-
-.modal-dialog {
-  width: 600px;
-  padding-left: 0 !important;
-  height: 1000px;
-   /*overflow-y: auto;
-   overflow-x:hidden;
-overflow:auto; */padding-right:0 !important ;}
-
-.modal-content {
-  padding: 0 32px 22px;
- 
-}
-.modal-header {
-  padding:10px 0;
-  margin-bottom:20px;
-}
-.modal-body {
-  padding:10px 0;
-}
-.modal .modal-header .close {
-  background: #000000 none repeat scroll 0 0;
-  border-radius: 50%;
-  color: #ffffff;
-  font-size: 17px;
-  height: 29px;
-  line-height: 30px;
-  margin-top: 5px;
-  opacity: 1;
-  text-align: center;
-  text-shadow: none;
-  width: 31px;
-}
-.modal-footer {
-   height: 50px;
-}
-body { padding-right: 0 !important }
-/*-----------------
-  1.5. Form
----------------------------*/
-
-.form-group {
-  margin-bottom: 15px;
-  position: relative;
-}
-.form-label {
-  color: #111111;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0 auto 8px;
-}
-input[placeholder], [placeholder], *[placeholder] {
-    color: black;
-}
-::-webkit-input-placeholder{
-  color: black;
-}
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #636363;
-}
-.form-control ::placeholder {
-    color: red;
-    opacity: 1; /* Firefox */
-}
-.form-control {
-  background: #d1d2cc none repeat scroll 0 0;
-  border: 0 none;
-  border-radius: 3px;
-  box-shadow: none;
-  color: #98918c;
-  font-size: 15px;
-  height: 46px;
-  line-height: 30px;
-  padding: 0 15px;
-}
-
-.form-control:hover, .form-control:focus {
-  box-shadow:none;
-  outline:none  
-}
-.select {
-  position:relative;
-}
-.select select {
-  appearance: none;
-   -moz-appearance: none;
-   -o-appearance: none;
-   -webkit-appearance: none;
-   -ms-appearance: none;
-  
-}
-.select::after {
-  color: #878787;
-  content: "";
-  cursor: pointer;
-  font-family: fontawesome;
-  font-size: 15px;
-  padding: 12px 0;
-  pointer-events: none;
-  position: absolute;
-  right: 15px;
-  top: 0;
-}
-.form-control option {
-  padding: 10px;
-}
-.control-label {
-  color:#555;
-  font-size:15px;
-  font-weight:700;  
-}
-
-
-.black_input .form-control {
-  background:#222;
-  border-radius:3px;
-  color:black;
-  border:#222 solid 1px;
-  font-size:17px;
-}
-
-.form-control.white_bg {
-  background:#fff;
-  border:#e6e5e5 solid 1px; 
-}
-input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
+iframe{
     width: 100%;
+    height: 400px;
+    border: 1px solid #ccc;
 }
-button, html input[type=button], input[type=reset], input[type=submit] {
-    -webkit-appearance: button;
-    cursor: pointer;
-}
-.btn, .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .recent-tab .nav.nav-tabs li.active a, .fun-facts-m, .featured-icon, .owl-pagination .owl-page.active, #testimonial-slider .owl-pagination .owl-page.active, .social-follow.footer-social a:hover, .back-top a, .team_more_info ul li a:hover, .tag_list ul li a:hover, .pagination ul li.current, .pagination ul li:hover, .btn.outline:hover, .btn.outline:focus, .share_article ul li:hover, .nav-tabs > li a:hover, .nav-tabs > li a:focus, .label-icon, .navbar-default .navbar-toggle .icon-bar, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover, .label_icon, .navbar-nav > li > .dropdown-menu, .add_compare .checkbox, .search_other, .vs, .td_divider, .search_other_inventory, #other_info, .main_bg, .slider .slider-handle, .slider .slider-selection, .primary-bg {
-    background: #2dcc70 none repeat scroll 0 0;
-    fill: #2dcc70;
-}
-.btn {
-    border: medium none;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 30px;
-    margin: auto;
-    padding: 7px 36px;
-    transition: all 0.3s linear 0s;
-    -moz-transition: all 0.3s linear 0s;
-    -o-transition: all 0.3s linear 0s;
-    -webkit-transition: all 0.3s linear 0s;
-    -ms-transition: all 0.3s linear 0s;
-}
-a{
-  color: #2dcc70;
-}
-</style>
+
+    </style>
 </head>
 <body>
 <div class="modal fade" id="formr">
-  <div class="modal-dialog" role="document"style="width:600px; height: 680px; background-color: lightslategrey;" >
-    
-      
-      
-       
- <!-- multistep form -->
-<form id="msform">
-  <!-- progressbar -->
-  <ul id="progressbar">
-    <li class="active">Personal Details</li>
-    <li>Request your menu</li>
-    <li>Ingredients not to add</li>
-  </ul>
-  <!-- fieldsets -->
-  <fieldset>
-    <h2 class="fs-title">Enter your information</h2>
-    <h3 class="fs-subtitle">This is step 1</h3>
-    <input type="text" name="name" placeholder="Name" required="" />
-    <input type="email" name="email" placeholder="Email" required="" />
-    <input type="text" name="phone_number" placeholder="Phone Number" required="" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Let us know your requirements</h2>
-    <h3 class="fs-subtitle">This is step 2</h3>
-    <input type="text" name="dishname" placeholder="Dish Name" required="" />
-    <input type="text" name="calories" placeholder="Enter number of calories" required="" />
-     <input type="text" name="fats" placeholder="Enter number of fats" required="" />
-      <input type="text" name="carb" placeholder="Enter number of carbohydrate" required="" />
-       <input type="text" name="proteins" placeholder="Enter number of proteins" required="" />
-    
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h2 class="fs-title">Ingredients not to add</h2>
-    <h3 class="fs-subtitle">This is the last step!</h3>
-  
-    <textarea name="message" placeholder="Message us!" required=""></textarea>
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-  </fieldset>
-</form>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-
-  
-
-    <script  src="js3/indexrdietmenu.js"></script>
-
-
-
-
-          
-       
-      </div>
-    </div>
+  <div class="modal-dialog" role="document"style="width:1200px; height: 680px; background-color: lightslategrey;" >
+   
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="container">
+        <form action="save.php" method="post">
+            <div class="wizards">
+                <div class="progressbar">
+                    <div class="progress-line" data-now-value="12.11" data-number-of-steps="4" style="width: 12.11%;"></div> <!-- 19.66% -->
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-user"></i></div>
+                    <p>About</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-user"></i></div>
+                    <p>Diet menu</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-key"></i></div>
+                    <p>Diet menu</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-globe"></i></div>
+                    <p>Details</p>
+                </div>
+                <div class="form-wizard">
+                    <div class="wizard-icon"><i class="fa fa-check-circle"></i></div>
+                    <p>Finish</p>
+                </div>
+            </div>
+           <fieldset>
+                <h4>Input personal data</h4>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Name"/>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone number"/>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea name="address" class="form-control" placeholder="Address"></textarea>
+                </div>
+                <div class="wizard-buttons">
+                    
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h4>Input Required Diet menu</h4>
+                <div class="form-group">
+                    <label>Dish Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Dish name"/>
+                </div>
+                <div class="form-group">
+                    <label>Enter no of calories</label>
+                    <input type="text" name="calories" class="form-control" placeholder="Enter Calories"/>
+                </div>
+                <div class="form-group">
+                    <label>Enter no of fats</label>
+                    <input type="text" name="fats" class="form-control" placeholder="Enter fats"/>
+                </div>
+                <div class="wizard-buttons">
+                  <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h4>Continue..</h4>
+                 <div class="form-group">
+                    <label>Enter no of carbohydrate</label>
+                    <input type="text" name="carb" class="form-control" placeholder="Enter Carbohydrate"/>
+                </div>
+                  <div class="form-group">
+                    <label>Enter no of proteins</label>
+                    <input type="text" name="proteins" class="form-control" placeholder="Enter Proteins"/>
+                </div>
+                
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                    <h4>Furthur details</h4>
+                   <div class="form-group">
+                    <label>Ingredients to avoid</label>
+                    <textarea name="Ingredients" class="form-control" placeholder="Name the Ingredients"></textarea>
+                </div>
+                    <div class="form-group">
+                        <label>Any Message?</label>
+                        <textarea name="description" class="form-control" placeholder="Deskripsi website"></textarea>
+                    </div>
+                    
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="jumbotron text-center">
+                <h1>click submit button to submit your request for required dietmenu!</h1>
+                </div>
+                <div class="wizard-buttons">
+                    <button type="button" class="btn btn-previous">Previous</button>
+                    <button type="submit" name="save" class="btn btn-primary btn-submit">Submit Request</button>
+                </div>
+            </fieldset>
+        </form>
+   
+</div>  
+ 
   </div>
 </div>
+    
+  
+    <script src="js3/scriptdietmenu1.js"></script>
+      
+
 </body>
 </html>
