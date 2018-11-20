@@ -328,6 +328,8 @@ $(document).ready(function(){
 });
 
 </script>
+<?php// include('includes/c_login.php');
+?>
 <?php include('includes/comp.php');
 include('includes/review.php');
 include('includes/diabetes.php');

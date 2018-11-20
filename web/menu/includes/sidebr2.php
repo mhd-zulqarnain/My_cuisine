@@ -1073,7 +1073,7 @@ h3 {
 
   <div>            
 <div class="tab" style="margin-top: 0px;">
-  <button class="tablinks" onclick="openCity(event, 'London')">Daily Menu</button>
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Daily Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Monthly Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Party Menu</button>
    <button class="tablinks" onclick="openCity(event, 'Pariss')">Diet Menu</button>
@@ -1183,7 +1183,7 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 200px;width: 900px">
  
                             <div class="panel-body">
                                  <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
@@ -1200,7 +1200,7 @@ h3 {
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
+                               <p><a href="#formpro" data-toggle="modal" data-dismiss="modal" style="font-size: 120%;">Details</a></p>
                                  <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
 
 
@@ -1230,60 +1230,100 @@ h3 {
    
 </div>
 <div id="Tokyo" class="tabcontent">
-  <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
-                     <div class="panel panel-default">
+  <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default" style="width:1200px; background-color: #eed5d5;" >
 
-                       <div class="panel-heading"><h3><b>Party Menu</b></h3></div>
-                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
-                      
-                           <p>event catering service</p>
-                            <?php 
-     if (isset($_GET['flid'])) {
-      $id=$_GET['flid'];
-     }
-    $val='Party menu';
-    $query ="select * from food_items where category='$val' and fl_id='$id'";
-    $run=mysqli_query($con,$query);
- while ($row=mysqli_fetch_array($run)) {
+                       <div class="panel-heading" ><h3><b>Reserve us for upcoming event!</b></h3></div>
+                        <div class="container" style="width:600px;margin-top: 10px;margin-left:15px;  ">
+                      <div id="reservation" class="light-wrapper">
+        <section class="ss-style-top"></section>
+        <div class="container inner" >
+            <h2 class="section-title text-center" style="color:  #660000;">Reservation</h2>
+            <p class="lead main text-center">Reserve us for dawat &amp; enjoy.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="form form-table" method="post" name="">
+                        <div class="form-group" 
+                            <h4 style="color: black;">Fill the form for reservation (all fields required)</h4>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="first_name1">Name</label>
+                            <input class="form-control hint" type="text" id="first_name1" name="name" placeholder="Name" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="last_name1">Address</label>
+                            <input class="form-control hint" type="text" id="last_name1" name="address" placeholder="Address" required="">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="email1">email</label>
+                            <input class="form-control hint" type="email" id="email1" name="email" placeholder="Email@domain.com" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="phone1">phone</label>
+                            <input class="form-control hint" type="text" id="phone1" name="phone" placeholder="Phone" required="">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="reserv_date1">reservation date</label>
+                            <input class="form-control datepicker hasDatepicker hint" type="text" id="reserv_date1" name="reservation_date" placeholder="Reservation date" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="numb_guests1">number of guests</label>
+                            <input class="form-control hint" type="text" id="numb_guests1" name="no_of_guest" placeholder="Number of guests" required="">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="alt_reserv_date1">time from</label>
+                            <input class="form-control datepicker hasDatepicker hint" type="text" id="alt_reserv_date1" name="time_from" placeholder="Time from" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="time1">time</label>
+                            <input class="form-control timepicker ui-timepicker-input hint" type="text" id="time1" name="time_to" placeholder="Time to" required="" autocomplete="off">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <p></p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <button type="submit" name="reserve" class="btn btn-danger btn-lg">Reserve!</button>
+                          </div>
+                        </div>
+                      </form>
+                </div><!-- col-md-6 -->
+                <div class="col-md-5 col-md-offset-1">
                     
+                    <h3><i class="fa fa-clock-o fa-fw"></i>Hours</h3>
+                    <h4 style="color:  #660000;">Lunch</h4>
+                    <p>Mon to Fri: 12:00 PM - 5:00 PM</p>
+                    <h4 style="color:  #660000;">Dinner</h4>
+                    <p>Mon to Sat: 6:00 PM -  1:00 AM<br>Sun: 5:30 PM - 12:00 AM</p>
 
-                         ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
- 
-                            <div class="panel-body">
-                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
-                              <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+                    <h3><i class="fa fa-map-marker fa-fw"></i>Directions</h3>
+                    <p>Av das Américas, 4.666, Shopping Barra, Barra da Tijuca, Rio de Janeiro, RJ, Brazil</p>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+                    <h3><i class="fa fa-mobile fa-fw"></i>Contacts</h3>
+                    <p>Email: <a href="mailto:yourname@tastybox.com">tastybox@customerservice.com</a></p>
+                    <p>Phone: +234 3456 678</p>
 
-                               
+                </div><!-- col-md-6 -->
+            </div>
+            <!-- /.services --> 
+        </div>
+        <!-- /.container -->
+        <section class="ss-style-bottom"></section>
+    </div><!-- #reservation -->
 
-                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
-                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
-                              </div>
-                              </form>
-                             
-                           </div>
                            
-                           
-                    </div>
-                     <?php
-} 
-?>
- 
-                       
                      </div>
 
                   
@@ -1293,6 +1333,30 @@ h3 {
             </div>
             <div class="clearfix"> </div>
 </div>
+<?php
+if(isset($_POST['reserve']))
+{
+$name=$_POST['name'];
+$address=$_POST['address']; 
+$email=$_POST['email']; 
+$phone=$_POST['phone'];
+$reservation_date=$_POST['reservation_date'];
+$no_of_guest=$_POST['no_of_guest']; 
+$time_from=$_POST['time_from']; 
+$time_to=$_POST['time_to'];
+$query="INSERT INTO reservation(name,address,email,phone,reservation_date,no_of_guest,time_from,time_to) VALUES('$name','$address','$email','$phone','$reservation_date','$no_of_guest','$time_from','$time_to')";
+$run=mysqli_query($con,$query);
+if($run)
+{
+echo "<script>alert('Request sent to foodlancer');</script>";
+}
+else 
+{
+echo "<script>alert('Something went wrong. Please try again');</script>";
+}
+}
+?>
+
 
 <div id="Pariss" class="tabcontent">
   <div class="w3-display-container" style="position: relative;">
@@ -1391,7 +1455,7 @@ $options3="";
               <input type="text" id="proteins" name="proteins" required="">
              </div>
         <div class="submit-button" style="text-align:center; display: flex; justify-content: center; ">
-          <input type="submit" name="save" class="button" onclick="openCity(event, 'Pariss')" id="defaultOpen" value="Submit">  
+          <input type="submit" name="save" class="button" value="Submit">  
 
           <input type="button"  href="#formr" data-toggle="modal" data-dismiss="modal" class="button" value="Request For Diet menu" style="margin-left :5px">  
 
@@ -1444,8 +1508,9 @@ $id=$_GET['flid'];
             <ul class="ingredients">
             </ul>
         </div>
+        <div class="clearfix"> </div>
     </div>
-<div class="clearfix"> </div>
+
             </div>
             <div class="clearfix"> </div>
 

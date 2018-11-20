@@ -73,6 +73,6 @@
 			<li><a href="update-contactinfo.php"><i class="fa fa-files-o"></i> Update Contact Info</a></li>
 
 			<li><a href="manage-subscribers.php"><i class="fa fa-table"></i> Calorie Chart</a></li>
-
+			<li><a href="manage-reservation.php"><i class="fa fa-table"></i> Reservation Request</a></li>
 			</ul>
 		</nav>
