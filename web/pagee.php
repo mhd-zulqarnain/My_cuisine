@@ -83,17 +83,86 @@ error_reporting(0);
 div {
     display: block;
 }
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    font-family: cursive;
+
+}
+.para{
+	font-size: 25px;
+font-family: cursive;
+font-weight: bold;
+}
 </style>
 
 
 </head>
 <body>
     <?php include('includes/header4.php');?>
-     <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../home.php">Home</a><i class="fa fa-angle-right"></i>Profile <i class="fa fa-angle-right"></i> Change Password</li>
-            </ol>
+   
+            <div class="panel-body">
+            	<h1><center><b>FAQs</b></center></h1><br>
 
-    <?php
+<h4 style="margin-bottom: 5px"><center>If you have an urgent question or feedback do ask/tell us.</center></h4>
+<button class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+            	
+            </div>
+
+    <!--<?php
 if(isset($_GET['about_page'])) {
 
 include('about.php');
@@ -125,7 +194,7 @@ include('contact.php');
 	<?php //include('includes/reviews.php');?>
 	<?php //include('includes/contact.php');?>
 
-	<?php include('includes/footer.php');?>
+	<?php include('includes/footer.php');?> -->
     	
 
 	
