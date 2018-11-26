@@ -126,21 +126,22 @@ font-weight: bold;
             	<h1><center><b>FAQs</b></center></h1><br>
 
 <h4 style="margin-bottom: 5px"><center>If you have an urgent question or feedback do ask/tell us.</center></h4>
-<button class="collapsible">Open Collapsible</button>
+
+<button class="collapsible">What are order placing and cancellation timings?</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p><img src="capture.png" width="1300px"></p>
 </div>
-<button class="collapsible">Open Section 1</button>
+<button class="collapsible">Can I pay for the tiffin offline?</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>We currently offer 2 payment methods: > Online: Credit/Debit Card/Net Banking > Offline: Delivery (payment pick-up).</p>
 </div>
-<button class="collapsible">Open Section 2</button>
+<button class="collapsible">How soon will my tiffin start after I have made the payment for the same?</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>The tiffin will be delivered on the selected order date after your order has been confirmed online.</p>
 </div>
-<button class="collapsible">Open Section 3</button>
+<button class="collapsible">What do I do if my tiffin does not get delivered to me?</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>We put in a lot of effort to ensure that your tiffin reaches you on time consistently and in an ideal condition. However, due to unforeseen events your tiffin may reach you late and in rare cases may be undelivered. In such a circumstance, please contact 9819800305 or mail us at info_mycuisine@gmail.com We assure you that every attempt will be made to rectify the situation or compensate you.</p>
 </div>
 
 <script>
