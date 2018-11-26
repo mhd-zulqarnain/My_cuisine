@@ -337,6 +337,7 @@ include('includes/cholestrol.php');
 include('includes/sugar.php');
 include('includes/weightgain.php');
 include('includes/weightloss.php');
+include('includes/monthlydetails.php');
 include('includes/request_dietmenu.php');
 ?>
 <!--/Login-Form --> 

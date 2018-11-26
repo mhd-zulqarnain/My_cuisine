@@ -151,6 +151,9 @@ else{
 }*/
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
@@ -1071,7 +1074,7 @@ h3 {
     
     </div>
 
-  <div>            
+ <div>            
 <div class="tab" style="margin-top: 0px;">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Daily Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Monthly Menu</button>
@@ -1115,7 +1118,7 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 200px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
                       
                             <div class="panel-body">
                               <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
@@ -1134,7 +1137,7 @@ h3 {
                                 <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
 
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success" value="Add to Cart">
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
@@ -1163,8 +1166,7 @@ h3 {
 
   <!-- -->
 </div>
-
-<div id="Paris" class="tabcontent">
+<div id="Paris" class="tabcontent" style="display:none;">
   
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -1193,15 +1195,15 @@ h3 {
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity"/>
 
                                
 
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-                               <p><a href="#formpro" data-toggle="modal" data-dismiss="modal" style="font-size: 120%;">Details</a></p>
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+                               <a href="#formdetails" data-toggle="modal" data-dismiss="modal" name="view" value="view"  class="view_data" style="font-size: 120%;">Details</a>
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart"/>
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
@@ -1229,7 +1231,7 @@ h3 {
             <div class="clearfix"> </div>
    
 </div>
-<div id="Tokyo" class="tabcontent">
+<div id="Tokyo" class="tabcontent" style="display:none;">
   <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default" style="width:1200px; background-color: #eed5d5;" >
 
@@ -1333,6 +1335,8 @@ h3 {
             </div>
             <div class="clearfix"> </div>
 </div>
+</div>
+</div>
 <?php
 if(isset($_POST['reserve']))
 {
@@ -1358,7 +1362,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 ?>
 
 
-<div id="Pariss" class="tabcontent">
+<div id="Pariss" class="tabcontent" style="display:none;">
   <div class="w3-display-container" style="position: relative;">
               <div class="w3-padding w3-display-right" style="position: absolute;
     top: 300px;
@@ -1438,7 +1442,7 @@ $options3="";
 <form  method="POST"  style="background-color:#eed5d5;">
         
           
-            <div>
+       <div>
               <p><label for="name">Enter number of calories! <span>*</span></label></p>
               <input type="text" id="calories" name="calories" required="">
         </div>
@@ -1446,11 +1450,11 @@ $options3="";
               <p><label for="name">Enter number of Fats! <span>*</span></label></p>
               <input type="text" id="fats" name="fats" required="">
         </div>
-              <div>
+         <div>
               <p><label for="name">Enter number of Carbohydrate! <span>*</span></label></p>
               <input type="text" id="carb" name="carb" required="">
         </div>
-             <div>
+            <div>
               <p><label for="name">Enter number of Proteins! <span>*</span></label></p>
               <input type="text" id="proteins" name="proteins" required="">
              </div>
@@ -1479,14 +1483,14 @@ $id=$_GET['flid'];
 
                          ?>
                          <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                 <div class="pill" style="width:500; display: inline-grid;">        
+    <div class="pill" style="width:500; display: inline-grid;">        
                 <p class="title" style="color: black;"><?php echo $row["f_title"]; ?></p> 
                 
                 <span class="label">Cal:&nbsp;<?php echo $row["calories"]; ?> kcal</span>
                 <span class="label">Fats:&nbsp;<?php echo $row["fats"]; ?> g</span>
                 <span class="label">Carb:&nbsp;<?php echo $row["carb"]; ?></span>
                 <span class="label">Proteins:&nbsp;<?php echo $row["proteins"]; ?> kcal</span>
-               <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+               <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity"/>
 
                 <p class="title" style="color: black;"> Rs: <?php echo $row['f_price'];?> </p> 
                 <span class="label"><?php echo $row["kitchen_name"]; ?></span>
@@ -1494,8 +1498,8 @@ $id=$_GET['flid'];
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
                                 <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
-                <input type="submit" name="add_to_cart" class="btn" value="Add to cart">
-                                </div>
+                <input type="submit" name="add_to_cart" class="btn"  onclick="openCity(event, 'Pariss')" value="Add to cart"/>
+       </div>
                                 </form>
 
             
@@ -1511,14 +1515,17 @@ $id=$_GET['flid'];
         <div class="clearfix"> </div>
     </div>
 
-            </div>
-            <div class="clearfix"> </div>
+  </div>
+</div>
 
+
+            <div class="clearfix"> </div>
+</div>
 
 
 
               
-<div id="Tokyoo" class="tabcontent">
+<div id="Tokyoo" class="tabcontent" style="display:none;">
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Weekly Trial Menu</b></h3></div>
@@ -1563,19 +1570,22 @@ $id=$_GET['flid'];
                   
                      
                </div>
-  <div class="clearfix"> </div>
+  
             </div>
+            
+
             <div class="clearfix"> </div>
 </div>
 
 <div id="Tokyooo" class="tabcontent">
   <h3>Special Deals</h3>
   <p>asdfghjkpoiuytre.</p>
+
 </div>
 
                 <div class="clearfix"> </div>
   
-</div>
+
 
 
 <script>

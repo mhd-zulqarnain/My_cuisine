@@ -10,7 +10,7 @@ $mail = new PHPMailer(); // create a new object
 exit;*/
 if(isset($_GET['email'])){
 	$email=$_GET['email'];
-	echo "$email";
+
 
 $mail->IsSMTP(); // Use SMTP
 $mail->Host        = "smtp.gmail.com"; // Sets SMTP server
@@ -33,6 +33,6 @@ if(!$mail->Send()) {
     echo "<script type='text/javascript'> document.location = '../manage-request.php'; </script>";
 
 }
-}
+
 }
 ?>

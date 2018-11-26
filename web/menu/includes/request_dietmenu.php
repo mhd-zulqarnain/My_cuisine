@@ -123,7 +123,7 @@ iframe{
    
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <div class="container">
-        <form action="save.php" method="post">
+        <form action="" method="post">
             <div class="wizards">
                 <div class="progressbar">
                     <div class="progress-line" data-now-value="12.11" data-number-of-steps="4" style="width: 12.11%;"></div> <!-- 19.66% -->
@@ -152,20 +152,20 @@ iframe{
            <fieldset>
                 <h4>Input personal data</h4>
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Name"/>
+                    
+                    <input type="text" name="name" class="form-control" placeholder="Name" required="" />
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email"/>
+                    
+                    <input type="email" name="email" class="form-control" placeholder="Email" required="" />
                 </div>
                 <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" class="form-control" placeholder="Phone number"/>
+                    
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone number" required="" />
                 </div>
                 <div class="form-group">
-                    <label>Address</label>
-                    <textarea name="address" class="form-control" placeholder="Address"></textarea>
+                    
+                    <textarea name="address" name="address" class="form-control" placeholder="Address" required=""></textarea>
                 </div>
                 <div class="wizard-buttons">
                     
@@ -175,16 +175,23 @@ iframe{
             <fieldset>
                 <h4>Input Required Diet menu</h4>
                 <div class="form-group">
-                    <label>Dish Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Dish name"/>
+                   
+                    <input type="text" name="d_name" class="form-control" placeholder="Dish name" required="" />
                 </div>
                 <div class="form-group">
-                    <label>Enter no of calories</label>
-                    <input type="text" name="calories" class="form-control" placeholder="Enter Calories"/>
+                    
+                    <input type="text" name="calories" class="form-control" placeholder="Enter Calories" required="" />
                 </div>
                 <div class="form-group">
-                    <label>Enter no of fats</label>
-                    <input type="text" name="fats" class="form-control" placeholder="Enter fats"/>
+                    
+                    <input type="text" name="fats" class="form-control" placeholder="Enter fats" required="" />
+                </div>
+                 <div class="form-group">
+                   <input type="text" name="carb" class="form-control" placeholder="Enter Carbohydrate" required="" />
+                </div>
+                  <div class="form-group">
+                    
+                    <input type="text" name="proteins" class="form-control" placeholder="Enter Proteins" required="" />
                 </div>
                 <div class="wizard-buttons">
                   <button type="button" class="btn btn-previous">Previous</button>
@@ -193,14 +200,11 @@ iframe{
             </fieldset>
             <fieldset>
                 <h4>Continue..</h4>
-                 <div class="form-group">
-                    <label>Enter no of carbohydrate</label>
-                    <input type="text" name="carb" class="form-control" placeholder="Enter Carbohydrate"/>
+                <div class="form-group">
+                    <label>Ingredients to avoid</label>
+                    <textarea name="ingredients" class="form-control" placeholder="Name the Ingredients" style="height: 200px;"></textarea>
                 </div>
-                  <div class="form-group">
-                    <label>Enter no of proteins</label>
-                    <input type="text" name="proteins" class="form-control" placeholder="Enter Proteins"/>
-                </div>
+                  
                 
                 <div class="wizard-buttons">
                     <button type="button" class="btn btn-previous">Previous</button>
@@ -209,13 +213,10 @@ iframe{
             </fieldset>
             <fieldset>
                     <h4>Furthur details</h4>
-                   <div class="form-group">
-                    <label>Ingredients to avoid</label>
-                    <textarea name="Ingredients" class="form-control" placeholder="Name the Ingredients"></textarea>
-                </div>
+                   
                     <div class="form-group">
                         <label>Any Message?</label>
-                        <textarea name="description" class="form-control" placeholder="Deskripsi website"></textarea>
+                        <textarea name="message" class="form-control" placeholder="Any message?"></textarea>
                     </div>
                     
                 <div class="wizard-buttons">
@@ -225,7 +226,7 @@ iframe{
             </fieldset>
             <fieldset>
                 <div class="jumbotron text-center">
-                <h1>click submit button to submit your request for required dietmenu!</h1>
+                <h1 style="font-size: 120%;">click submit button to submit your request for required dietmenu!</h1>
                 </div>
                 <div class="wizard-buttons">
                     <button type="button" class="btn btn-previous">Previous</button>
@@ -239,6 +240,36 @@ iframe{
   </div>
 </div>
     
+    <?php
+if(isset($_POST['save']))
+ {
+    $name    =$_POST['name'];
+    $email =$_POST['email'];
+    $phone   =$_POST['phone'];
+    $adress =$_POST['address'];
+    $d_name    = $_POST['d_name'];
+    $calories    = $_POST['calories'];
+    $fats   = $_POST['fats'];
+    $carb    = $_POST['carb'];
+    $proteins    = $_POST['proteins'];
+    $ingredients    = $_POST['ingredients'];
+    $message    = $_POST['message'];
+    $status    = $_POST['status'];
+    
+    $query="INSERT INTO request_dietmenu (name,email,phone,address,d_name,calories,fats,carb,proteins,ingredients,message,status) values ('$name','$email','$phone','$address','$d_name','$calories','$fats','$carb','$proteins','$ingredients','$message','$status')";
+    $run=mysqli_query($con, $query);
+
+    if ($run) {
+
+        echo "<script>alert('Request for diet menu sent successfully!')</script>";
+    }
+    else {
+    echo "Error: " . $query . "<br>" . mysqli_error($con);
+   }
+
+}
+?>
+
   
     <script src="js3/scriptdietmenu1.js"></script>
       

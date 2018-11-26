@@ -74,5 +74,6 @@
 
 			<li><a href="manage-subscribers.php"><i class="fa fa-table"></i> Calorie Chart</a></li>
 			<li><a href="manage-reservation.php"><i class="fa fa-table"></i> Reservation Request</a></li>
+			<li><a href="manage-dietrequest.php"><i class="fa fa-table"></i> Diet-menu Request</a></li>
 			</ul>
 		</nav>
