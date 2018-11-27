@@ -162,6 +162,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 a{
   color: #2dcc70;
 }
+
 </style>
 </head>
 <body>
@@ -177,18 +178,15 @@ a{
           <div class="login_wrap">
             <div class="col-md-12 col-sm-6">
               <form method="post" action="">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name*" required="">
-                </div>
+
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" placeholder="Email Address*" required="">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="k_name" placeholder="Kitchen_name*" required="">
-                </div>
+    
                 <div class="form-group">
                   <textarea class="form-control" name="message" placeholder="Your message!*" required=""></textarea>
                 </div>
+                <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
               
                 <div class="form-group">
                 <input type="submit" name="c_submit" value="Complain" class="btn btn-block">
@@ -205,11 +203,11 @@ a{
 <?php
 if(isset($_POST['c_submit']))
 {
-$name=$_POST['name'];
 $email=$_POST['email']; 
-$k_name=$_POST['k_name']; 
 $message=$_POST['message'];
-$query="INSERT INTO complains(name,email,k_name,message) VALUES('$name','$email','$k_name','$message')";
+$id=$_POST['hd_flid'];
+ $rstatus='1';
+$query="INSERT INTO complains(email,message,fl_id,r_status) VALUES('$email','$message','$id','$rstatus')";
 $run=mysqli_query($con,$query);
 if($run)
 {
