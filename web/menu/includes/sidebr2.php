@@ -1202,7 +1202,8 @@ h3 {
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-                               <a href="#formdetails" data-toggle="modal" data-dismiss="modal" name="view" value="view"  class="view_data" style="font-size: 120%;">Details</a>
+                               <a href="#formdetails" data-toggle="modal" data-dismiss="modal" name="view" value="view"  class="view_data" style="font-size: 120%;" onclick="test(<?php
+                               echo $row['idd'] ?>)">Details</a>
                                  <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart"/>
 
 
@@ -1587,6 +1588,7 @@ $id=$_GET['flid'];
   
 
 
+<input type="hidden" class="myId" value="my test id">
 
 <script>
 function openForm() {
@@ -1595,6 +1597,11 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+}
+
+function test(id){
+  console.log($(".id").val);
+ 
 }
 </script>
 
@@ -1622,6 +1629,8 @@ function closeForm() {
 }
 //Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+
 </script>
 
   <script src="main.js"></script>

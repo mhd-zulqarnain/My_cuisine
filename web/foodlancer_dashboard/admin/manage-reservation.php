@@ -279,10 +279,10 @@ img.hover-shadow {
 												<th>Guest</th>
 												<th>Time from</th>
 												<th>Time to</th>
-											<th>Action</th>
+											
 											<!--<th>Action</th>-->
 											<th>Status</th>
-											<th>Email</th>
+											
 											
 										</tr>
 									</thead>
