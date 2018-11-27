@@ -154,6 +154,9 @@ else{
 
 
 
+
+
+
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
@@ -999,12 +1002,13 @@ h3 {
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-               
+              
                 <a href="#form"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Complain</a>
                  <a href="#form1"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Review</a>
-              </li>
+             
+            </li>
             </ul>
           </div>
           
@@ -1079,7 +1083,7 @@ h3 {
     
     </div>
 
- <div>            
+  <div>            
 <div class="tab" style="margin-top: 0px;">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Daily Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Monthly Menu</button>
@@ -1593,52 +1597,25 @@ $id=$_GET['flid'];
   
 
 
-<input type="hidden" class="myId" value="my test id">
-
-<script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-
-function test(id){
-  console.log($(".id").val);
- 
-}
-</script>
-
 <script type="text/javascript">
- function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+  document.getElementById('complain').addEventListener('click' , function(){
+document.querySelector('.bg-modal').style.display= "flex";
+  });
+  document.getElementById('review').addEventListener('click' , function(){
+document.querySelector('.bg-modal1').style.display= "flex";
+  });
+  document.querySelector('.close').addEventListener('click',function(){
+    document.querySelector('.bg-modal').style.display="none";
+  });
+   document.querySelector('.close1').addEventListener('click',function(){
+    document.querySelector('.bg-modal1').style.display="none";
+  });
+   window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-
 }
-//Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-
-
 </script>
 
-  <script src="main.js"></script>
- 
 </body>
 </html>
