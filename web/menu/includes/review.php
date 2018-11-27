@@ -219,15 +219,11 @@ a{
           <div class="login_wrap">
             <div class="col-md-12 col-sm-6">
               <form method="post" action="">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Name*">
-                </div>
+             
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" placeholder="Email Address*">
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="k_name" placeholder="Kitchen_name*">
-                </div>
+               
                   <h2 style="color: black;">Rate us</h2>
   <div id="rating" name="rating">
     <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve" style="fill: #f39c12;">
@@ -249,6 +245,7 @@ a{
                 <div class="form-group">
                   <textarea class="form-control" name="suggestion" placeholder="Suggestion if any!*"></textarea>
                 </div>
+                <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
               
                 <div class="form-group">
                 <input type="submit" name="cc_submit" value="Post Review" class="btn btn-block">
@@ -265,12 +262,14 @@ a{
 <?php
 if(isset($_POST['cc_submit']))
 {
-$name=$_POST['name'];
+
 $email=$_POST['email']; 
-$k_name=$_POST['k_name']; 
+
 $rating=$_POST['rating'];
 $suggestion=$_POST['suggestion'];
-$query="INSERT INTO reviews(name,email,k_name,rating,suggestion) VALUES('$name','$email','$k_name','$rating','$suggestion')";
+$id=$_POST['hd_flid'];
+ $rstatus='1';
+$query="INSERT INTO reviews(email,rating,suggestion,fl_id,r_status) VALUES('$email','$rating','$suggestion','$id','$rstatus')";
 $run=mysqli_query($con,$query);
 if($run)
 {
