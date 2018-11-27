@@ -225,7 +225,7 @@ a{
         <h3 class="modal-title"><b>Details</b></h3>
       </div>
       <div class="modal-body" id="details">
-
+        <input type="hidden" id= "modelId"  >
 <table>
     
         <t>
@@ -242,8 +242,13 @@ $password="";
 $databaseName="cuisine_data";
 $con=mysqli_connect($hostname,$username,$password,$databaseName);
    $val='Monthly menu';
+   $tid="<script>setTimeout(function(){ $('.myId').val()},1000); </script>";
+   //$test = "value test";
+
+    echo "test id "+$tid;
    $query ="select monday_week1, monday_week2,monday_week3,monday_week4,tuesday_week1,tuesday_week2,tuesday_week3,tuesday_week4,wednesday_week1,wednesday_week2,wednesday_week3,wednesday_week4,thursday_week1,thursday_week2,thursday_week3,thursday_week4,friday_week1,friday_week2,friday_week3,friday_week4,saturday_week1,saturday_week2,saturday_week3,saturday_week4 from food_items where category='$val' and fl_id='$id'";
     $run=mysqli_query($con,$query);
+ 
  while ($row=mysqli_fetch_array($run)) {
                     
 
