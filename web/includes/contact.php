@@ -74,7 +74,7 @@ font-size: 1.5em;
 }
 .text,.emaill{
     width: 48.5%;
-    color: #fff;
+    color: white;
     outline: none;
     font-size: .5em;
     font-weight: 300;
@@ -85,11 +85,14 @@ font-size: 1.5em;
     border: 1px solid #ffffff;
 
 }
+/*input[text], [email], [textarea] {
+    color: white;
+}*/
 
  textarea {
 	resize: none;
 	width: 100%;
-	color: #fff;
+	color: white;
 	font-size: .5em;
 	font-weight: 300;
 	outline: none;
@@ -137,9 +140,9 @@ font-size: 1.5em;
 			<div class="">&nbsp;
 				<h4 >GET IN TOUCH</h4> 
 				<form action="index.php" method="post">
-					<input  class="text" type="text" name="name" placeholder="Name" required="">
-					<input class="emaill" type="email" name="email" placeholder="Email" required="">
-					<textarea placeholder="Message" name="message" required=""></textarea>
+					<input  class="text" type="text" name="name" placeholder="Name" required="" style="color: white">
+					<input class="emaill" type="email" name="email" placeholder="Email" required="" style="color: white">
+					<textarea placeholder="Message" name="message" required="" style="color: white"></textarea>
 					<input class="button" type="submit" name="submit" value="SUBMIT">
 				</form>  
 			
@@ -162,15 +165,9 @@ font-size: 1.5em;
 		$visitor_email= $_POST['email'];
 		$message= $_POST['message'];
 		
-		$mailTo=['ubabaig@gmail.com'];
+		$mailTo=['mycuisine.info@gmail.com'];
 		$headers="From: ".$visitor_email;
-		$txt="You have received an e-mail from ".$name.".\n\n".$message;
-		
-		
-		
-		
-		
-		
+		$txt="You have received an e-mail from ".$name.".\n\n".$message;	
 		mail($mailTo,$message,$txt,$headers);
 		header("Location: contact.php?mailsend");
 		

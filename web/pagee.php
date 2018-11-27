@@ -83,17 +83,87 @@ error_reporting(0);
 div {
     display: block;
 }
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    font-family: cursive;
+
+}
+.para{
+	font-size: 25px;
+font-family: cursive;
+font-weight: bold;
+}
 </style>
 
 
 </head>
 <body>
     <?php include('includes/header4.php');?>
-     <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../home.php">Home</a><i class="fa fa-angle-right"></i>Profile <i class="fa fa-angle-right"></i> Change Password</li>
-            </ol>
+   
+            <div class="panel-body">
+            	<h1><center><b>FAQs</b></center></h1><br>
 
-    <?php
+<h4 style="margin-bottom: 5px"><center>If you have an urgent question or feedback do ask/tell us.</center></h4>
+
+<button class="collapsible">What are order placing and cancellation timings?</button>
+<div class="content">
+  <p><img src="capture.png" width="1300px"></p>
+</div>
+<button class="collapsible">Can I pay for the tiffin offline?</button>
+<div class="content">
+  <p>We currently offer 2 payment methods: > Online: Credit/Debit Card/Net Banking > Offline: Delivery (payment pick-up).</p>
+</div>
+<button class="collapsible">How soon will my tiffin start after I have made the payment for the same?</button>
+<div class="content">
+  <p>The tiffin will be delivered on the selected order date after your order has been confirmed online.</p>
+</div>
+<button class="collapsible">What do I do if my tiffin does not get delivered to me?</button>
+<div class="content">
+  <p>We put in a lot of effort to ensure that your tiffin reaches you on time consistently and in an ideal condition. However, due to unforeseen events your tiffin may reach you late and in rare cases may be undelivered. In such a circumstance, please contact 9819800305 or mail us at info_mycuisine@gmail.com We assure you that every attempt will be made to rectify the situation or compensate you.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+            	
+            </div>
+
+    <!--<?php
 if(isset($_GET['about_page'])) {
 
 include('about.php');
@@ -125,7 +195,7 @@ include('contact.php');
 	<?php //include('includes/reviews.php');?>
 	<?php //include('includes/contact.php');?>
 
-	<?php include('includes/footer.php');?>
+	<?php include('includes/footer.php');?> -->
     	
 
 	

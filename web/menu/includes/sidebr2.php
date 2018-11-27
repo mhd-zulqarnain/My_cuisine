@@ -4,7 +4,7 @@ error_reporting(0);
 //include('../function/function.php');
 
 if(isset($_POST['add_to_cart']))
-{
+{  
 
   if (isset($_SESSION["shopping_cart"]))
   {
@@ -34,7 +34,7 @@ if(isset($_POST['add_to_cart']))
     
   else{
     //when session has no data 
-
+      
     $item_array =array(
       'item_id'       =>$_GET['prd_id'],
       'item_name'     =>$_POST['hd_name'],
@@ -42,10 +42,10 @@ if(isset($_POST['add_to_cart']))
       'item_quantity' =>$_POST['qty'],
       'id'            =>$_POST['hd_flid']
     );
-    echo "<script>alert('Item Added to the cart')</script>";
     //storing all details to session from item array
     $_SESSION["shopping_cart"][0] = $item_array;
-    echo "<script>alert('Item Added to the cart')</script>";
+    echo '<script>alert("Item has been Added to the cart")</script>';
+    //echo '<script>("Item Added to the cart")</script>';
    // global $db;
    // $ip_add =getRealIpAddr();
 
@@ -91,7 +91,7 @@ if(isset($_GET["action2"]))
 
 }*/ 
 
-if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
+if (isset($_GET["action"])){
 
   
   $c_ip= getRealIpAddr();
@@ -104,7 +104,7 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
   $cname=$row['c_name'];
 
 
-  if(!empty($_SESSION["shopping_cart"])) 
+  if(!empty($_SESSION["shopping_cart"]) AND !empty($_SESSION["c_email"]) ) 
    {
   $total = 0;
   foreach ($_SESSION["shopping_cart"] as $keys => $values){
@@ -138,16 +138,16 @@ if (isset($_SESSION["c_email"]) AND isset($_GET["action"])){
 
   }
 else{
-     echo "<script>alert('Your cart is empty .Add some items to procede')</script>";
+     echo "<script>alert('Either Your cart is Empty or You are not login')</script>";
 }
 /*if (!isset($_SESSION["c_email"])) {
       echo "<script>alert('Please Login First or Create Account ')</script>";
     } */
 
 
-}/*else{
+}else/*{
   echo "<script>alert('Please Login First or Create Account ')</script>";
- 
+
 }*/
 ?>
 
@@ -1051,8 +1051,13 @@ h3 {
                    <td></td>
                  </tr> 
                  <?php 
+                }else
+                {
+                  echo "<center><b>Your Cart is Empty</b></center>";
                 }
                 ?>
+              
+            
                 
               </table>
               

@@ -57,7 +57,10 @@ tr:nth-child(even) {
         <h3 class="modal-title"><b>Status Information</b></h3>
       </div>
       <!---search bar -->
-      <input  class="textt" type="text" id="myInput" onkeyup="myFunctionn()" placeholder="Search for email..">
+      <input  class="textt" type="text" id="myInput" onkeyup="myFunctionn()" placeholder="Search for email.."> 
+     
+     
+
       <div class="modal-body">
         <div class="row">
           <div class="forgotpassword_wrap">

@@ -11,11 +11,11 @@ else{
 if(isset($_GET['del']))
 {
 $id=$_GET['del'];
-$sql = "delete from fl_info, fl_login  WHERE id=:id";
+$sql = "delete from fl_info,WHERE id=:id";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
-$msg="Page data updated  successfully";
+$msg="Request Deleted successfully";
 
 }
 
@@ -345,14 +345,23 @@ foreach($results as $result)
 
 <td><?php if($result->status=="" || $result->status==0)
 {
-	?><a href="manage-request.php?aeemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Approved')"> Disapproved</a>
+	?><a href="manage-request.php?aeemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Approved')"> Pending</a>
 <?php } else {?>
 
 <a href="manage-request.php?eemail=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to Disapproved')"> Approved</a>
 </td>
 <?php } ?></td>
 
-<td><a href="mailtest/index.php?email=<?php echo $result->fl_email;?>" onclick="return confirm('Do you want to send an approval email');">Send mail</a></td>
+<td><?php if($result->e_status=="" || $result->e_status==0)
+{
+	?><a href="mailtest/index.php?email=<?php echo htmlentities($result->fl_email);?>" onclick="return confirm('Do you really want to send Approval email')"> Send Email</a>
+<?php } else {?>
+
+<a href="#"> <i style="color: green"class="fa fa-check"></i></a>
+</td>
+<?php } ?></td>
+
+<!--<td><a href="mailtest/index.php?email=<?php echo $result->fl_email;?>" onclick="return confirm('Do you really want to send an approval email');">Send Email</a></td> -->
 
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
