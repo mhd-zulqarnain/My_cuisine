@@ -163,10 +163,311 @@ else{
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <style type="text/css">
   
  /* w3 */
     /* Style the tab */
+
+   /*html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}*/
+/*body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #673774;
+  color: #fff;
+}*/
+
+
+
+#contact-form { width: 600px; padding: 15px; background: #252525; margin: 0 auto; }
+
+ul { margin: 0 auto; padding: 0px; }
+
+li { list-style: none; display: inline-block; margin: 0px; padding: 0px;}
+
+li button { width: 297px; padding: 5px; }
+
+h2 { color: #fff; margin-top: 0px; padding-top: 0px;}
+
+form { 
+  margin: 0 auto; 
+  padding: 15px;
+}
+
+form p {
+  color: #fff;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+form label {
+  font: normal 18px Arial, Helvetica; text-align: center;
+}
+
+form textarea {
+  padding: 10px;
+  width: 550px;
+  height: 150px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+input, select {
+  padding: 10px;
+  width: 300px;
+}
+select { width: 324px; }
+
+label span { color: #BA8Df0; }
+
+input, textarea, select {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  outline: none;
+  font: normal 18px Arial, Helvetica;  
+}
+ 
+input:focus, textarea:focus {
+  -webkit-box-shadow: 0 0 4px 3px #BA8DF0;
+  -moz-box-shadow: 0 0 4px 3px #BA8DF0;
+  box-shadow: 0 0 4px 3px #BA8DF0;
+  border: 1px solid #BA8DF0;
+}
+
+.button {
+    -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  display: block;
+  margin: 0 auto;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  background: #BA8Df0;
+  color:#252525;
+  border: none;
+  font: bold 18px Arial, Helvetica; text-align: center;
+}
+
+.button:hover {
+  box-shadow: inset 0 0px 10px 3px #7617eb;
+}
+
+.button:active {
+  color: #fff;
+  background: #7617eb;
+}
+.wrapper {
+  width: 90%;
+  margin: 1em auto;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5em 2em 0.5em 2em;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.wrapper h1 {
+  font-family: Calibri, sans-serif;
+  font-weight: 500;
+  line-height: 1em;
+  text-align: center;
+  margin: 0;
+  font-size: 3em;
+}
+.wrapper h1 span {
+  font-size: 0.2em;
+  background: rgb(81, 206, 129);
+  padding: 0.2em 0.5em;
+}
+.profiling-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.question {
+  margin: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+.question select {
+  border: rgb(0,0,0,0.5);
+  height: 2.2em;
+  width: 20em;
+  font-size: 0.9em;
+  box-sizing: 1px 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  
+   width: 150px;
+  text-align: center;
+  margin:0 auto;
+}
+.submit-button input {
+  padding: 0.5em 4em;
+  margin: 1em 0;
+  font-size: 1em;
+  background: rgb(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  outline: none;
+  transition: all 0.2s;
+}
+.submit-button input:active {
+  background: black;
+  box-shadow: none;
+  color: blue;
+
+}
+
+.display {
+  margin: 1em;
+  /* background: rgba(0, 0, 0, 0.2); */
+}
+.result-container {
+  margin: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+.pill {
+  color: #000;
+  height: min-content;
+  width: min-content;
+  display: flex;
+  float:left;
+  flex-direction: column;
+  background: #f0f9f9;
+  padding: 1em;
+  margin: 1em;
+  
+  border: 10px #a5cce2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+   white-space: nowrap;
+}
+.pill > * {
+  margin: 0;
+  text-align: center;
+  list-style: none;
+  display: inline;
+
+}
+.pill p {
+  margin-bottom: 1em;
+}
+.pill p.calories {
+  margin: 1em 0 0 0;
+}
+.pill .title {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+.pill span {
+  margin: 1em auto;
+  padding: 0.2em 0.5em;
+  background: rgb(11, 45, 97);
+  color: white;
+  text-align: center;
+  width: fit-content;
+}
+.pill .tags span {
+  margin: 0.5em auto;
+  border-radius: 5px;
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.7em 0 0 0.7em;
+}
+.pill btn {
+  text-decoration: none;
+  padding: 0.4em 1em 0.5em 1em;
+  background: #26f393;
+  width: fit-content;
+  margin: 0 auto;
+  color: white;
+  border-radius: 10px;
+  border: black;
+  transition: transform 0.2s ease-in-out;
+  transform: scaleX(0.95);
+}
+.pill btn:hover {
+  transform: scaleX(1);
+}
+.pill ol {
+  margin-bottom: 0.5em;
+  background: rgba(255, 255, 255, 0.9);
+  height: 20vh;
+  overflow: scroll;
+}
+.pill li {
+  text-align: left;
+  padding-top: 0.2em;
+  margin-bottom: 0.2em;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-evenly; */
+}
+@media (min-width: 0px) and (max-width: 370px) {
+  .display {
+    background: none;
+  }
+  .submit-button {
+    justify-content: center;
+  }
+  .wrapper h1 span {
+    display: none;
+  }
+  .pill {
+    min-width: 280px;
+    max-width: 100%;
+  }
+  .pill {
+    font-size: 0.7em;
+  }
+  .pill ol {
+    height: unset;
+  }
+}
+@media (min-width: 800px) {
+  .wrapper {
+    width: 800px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+  }
+
+
 
 input[type="button"], input[type="submit"] {
   transition: 0.5s all;
@@ -305,6 +606,7 @@ h4 {
 
 form {
   margin-top: 0px;
+
 }
 
 select, .tickets input[type="number"] {
@@ -615,47 +917,7 @@ h1 {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-.bg-modal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.close{
-  position: absolute;
-  top:0;
-  right: 14px;
-  font-size: 38px;
-  transform: rotate(45deg);
-  cursor: pointer;
 
-}
-.bg-modal1 {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.close1{
-  position: absolute;
-  top:0;
-  margin-top: -20px;
-  right: 16px;
-  font-size: 38px;
-  transform: rotate(45deg);
-  cursor: pointer;
-
-}
 html
 {
   height:100%;
@@ -676,6 +938,7 @@ body{
   box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
   border-radius: 6px;
     border: 0;
+
 
 }
 @-moz-document url-prefix() {
@@ -731,15 +994,15 @@ h3 {
           <div id="navbar-cart" class="navbar-collapse collapse" style="float: right;color: black">
             <ul class="nav navbar-nav">
               <li>
-                <a  class="color" id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
+                <a id="cart-popover" class="btn" data-placement="bottom" title="Shopping Cart">
                   <span class="glyphicon glyphicon-shopping-cart"></span>
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-                 <a id="complain" class="btn"  >
+               
+                <a href="#form"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Complain</a>
-
-                 <a id="review" class="btn">
+                 <a href="#form1"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Review</a>
               </li>
             </ul>
@@ -816,7 +1079,7 @@ h3 {
     
     </div>
 
-  <div>            
+ <div>            
 <div class="tab" style="margin-top: 0px;">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Daily Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Monthly Menu</button>
@@ -908,8 +1171,7 @@ h3 {
 
   <!-- -->
 </div>
-
-<div id="Paris" class="tabcontent">
+<div id="Paris" class="tabcontent" style="display:none;">
   
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -928,7 +1190,7 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 200px;width: 900px">
  
                             <div class="panel-body">
                                  <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
@@ -938,15 +1200,16 @@ h3 {
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity"/>
 
                                
 
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
                                <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
+                               <a href="#formdetails" data-toggle="modal" data-dismiss="modal" name="view" value="view"  class="view_data" style="font-size: 120%;" onclick="test(<?php
+                               echo $row['idd'] ?>)">Details</a>
+                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart"/>
 
 
                                 <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
@@ -974,60 +1237,101 @@ h3 {
             <div class="clearfix"> </div>
    
 </div>
-<div id="Tokyo" class="tabcontent">
-  <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
-                     <div class="panel panel-default">
-                       <div class="panel-heading"><h3><b>Party Menu</b></h3></div>
-                        <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
-                      
-                           <p>event catering service</p>
-                            <?php 
-     if (isset($_GET['flid'])) {
-      $id=$_GET['flid'];
-     }
-    $val='Party menu';
-    $query ="select * from food_items where category='$val' and fl_id='$id'";
-    $run=mysqli_query($con,$query);
- while ($row=mysqli_fetch_array($run)) {
+<div id="Tokyo" class="tabcontent" style="display:none;">
+  <div class="container" style="width:700px;padding-top: 10px;margin-left: 5px;">
+                     <div class="panel panel-default" style="width:1200px; background-color: #eed5d5;" >
+
+                       <div class="panel-heading" ><h3><b>Reserve us for upcoming event!</b></h3></div>
+                        <div class="container" style="width:600px;margin-top: 10px;margin-left:15px;  ">
+                      <div id="reservation" class="light-wrapper">
+        <section class="ss-style-top"></section>
+        <div class="container inner" >
+            <h2 class="section-title text-center" style="color:  #660000;">Reservation</h2>
+            <p class="lead main text-center">Reserve us for dawat &amp; enjoy.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="form form-table" method="post" name="">
+                        <div class="form-group" 
+                            <h4 style="color: black;">Fill the form for reservation (all fields required)</h4>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="first_name1">Name</label>
+                            <input class="form-control hint" type="text" id="first_name1" name="name" placeholder="Name" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="last_name1">Address</label>
+                            <input class="form-control hint" type="text" id="last_name1" name="address" placeholder="Address" required="">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="email1">email</label>
+                            <input class="form-control hint" type="email" id="email1" name="email" placeholder="Email@domain.com" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="phone1">phone</label>
+                            <input class="form-control hint" type="text" id="phone1" name="phone" placeholder="Phone" required="">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="reserv_date1">reservation date</label>
+                            <input class="form-control datepicker hasDatepicker hint" type="text" id="reserv_date1" name="reservation_date" placeholder="Reservation date" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="numb_guests1">number of guests</label>
+                            <input class="form-control hint" type="text" id="numb_guests1" name="no_of_guest" placeholder="Number of guests" required="">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="alt_reserv_date1">time from</label>
+                            <input class="form-control datepicker hasDatepicker hint" type="text" id="alt_reserv_date1" name="time_from" placeholder="Time from" required="">
+                          </div>
+                          <div class="col-lg-6 col-md-6 form-group">
+                            <label class="sr-only" for="time1">time</label>
+                            <input class="form-control timepicker ui-timepicker-input hint" type="text" id="time1" name="time_to" placeholder="Time to" required="" autocomplete="off">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <p></p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <button type="submit" name="reserve" class="btn btn-danger btn-lg">Reserve!</button>
+                          </div>
+                        </div>
+                      </form>
+                </div><!-- col-md-6 -->
+                <div class="col-md-5 col-md-offset-1">
                     
+                    <h3><i class="fa fa-clock-o fa-fw"></i>Hours</h3>
+                    <h4 style="color:  #660000;">Lunch</h4>
+                    <p>Mon to Fri: 12:00 PM - 5:00 PM</p>
+                    <h4 style="color:  #660000;">Dinner</h4>
+                    <p>Mon to Sat: 6:00 PM -  1:00 AM<br>Sun: 5:30 PM - 12:00 AM</p>
 
-                         ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
- 
-                            <div class="panel-body">
-                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
-                              <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+                    <h3><i class="fa fa-map-marker fa-fw"></i>Directions</h3>
+                    <p>Av das Américas, 4.666, Shopping Barra, Barra da Tijuca, Rio de Janeiro, RJ, Brazil</p>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
+                    <h3><i class="fa fa-mobile fa-fw"></i>Contacts</h3>
+                    <p>Email: <a href="mailto:yourname@tastybox.com">tastybox@customerservice.com</a></p>
+                    <p>Phone: +234 3456 678</p>
 
-                               
+                </div><!-- col-md-6 -->
+            </div>
+            <!-- /.services --> 
+        </div>
+        <!-- /.container -->
+        <section class="ss-style-bottom"></section>
+    </div><!-- #reservation -->
 
-                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
-                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
-                              </div>
-                              </form>
-                             
-                           </div>
                            
-                           
-                    </div>
-                     <?php
-} 
-?>
- 
-                       
                      </div>
 
                   
@@ -1037,71 +1341,197 @@ h3 {
             </div>
             <div class="clearfix"> </div>
 </div>
+</div>
+</div>
+<?php
+if(isset($_POST['reserve']))
+{
+$name=$_POST['name'];
+$address=$_POST['address']; 
+$email=$_POST['email']; 
+$phone=$_POST['phone'];
+$reservation_date=$_POST['reservation_date'];
+$no_of_guest=$_POST['no_of_guest']; 
+$time_from=$_POST['time_from']; 
+$time_to=$_POST['time_to'];
+$query="INSERT INTO reservation(name,address,email,phone,reservation_date,no_of_guest,time_from,time_to) VALUES('$name','$address','$email','$phone','$reservation_date','$no_of_guest','$time_from','$time_to')";
+$run=mysqli_query($con,$query);
+if($run)
+{
+echo "<script>alert('Request sent to foodlancer');</script>";
+}
+else 
+{
+echo "<script>alert('Something went wrong. Please try again');</script>";
+}
+}
+?>
 
-<div id="Pariss" class="tabcontent">
-   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
-                     <div class="panel panel-default">
+
+<div id="Pariss" class="tabcontent" style="display:none;">
+  <div class="w3-display-container" style="position: relative;">
+              <div class="w3-padding w3-display-right" style="position: absolute;
+    top: 300px;
+    right: 5px;
+    font-size: 60px;
+   ">
+                 
+                 <p><a href="#formm" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for diabetes</a></p>
+                 <p><a href="#formw" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for weight loss</a></p>
+                 <p><a href="#formf" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calories chart for gaining weight</a></p>
+                  <p><a href="#formcarb" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for sugar person</a></p>
+                 <p><a href="#formpro" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 120%;">Calorie chart for cholestrol level</a></p>
+            </div>
+            </div>
+   <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;" >
+                     <div class="panel panel-default" >
                        <div class="panel-heading"><h3><b>Diet Menu</b></h3></div>
                         <div class="container" style="width:650px;margin-top: 10px;margin-left:15px">
                       
-                           <p>gain heath with our diet menu</p>
-                            <?php 
-     if (isset($_GET['flid'])) {
-      $id=$_GET['flid'];
-     }
-    $val='Diet menu';
-    $query ="select * from food_items where category='$val' and fl_id='$id'";
+                         
+                            
+                           <?php
+                            $id=$_GET['flid'];
+include("function/function.php");
+include("includes/db.php");
+
+$hostname="localhost";
+$username="root";
+$password="";
+$databaseName="cuisine_data";
+$connect=mysqli_connect($hostname,$username,$password,$databaseName);
+$query="SELECT DISTINCT calories FROM `food_items` where category='diet menu'";
+$query1="SELECT DISTINCT fats FROM `food_items` where category='diet menu'";
+$query2="SELECT DISTINCT carb FROM `food_items` where category='diet menu'";
+$query3="SELECT DISTINCT proteins FROM `food_items` where category='diet menu'"; 
+
+//$result1=mysqli_query($connect,$query);
+$result=mysqli_query($connect,$query);
+$result1=mysqli_query($connect,$query1);
+$result2=mysqli_query($connect,$query2);
+$result3=mysqli_query($connect,$query3);
+$options="";
+ if($result->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result))
+        {
+         $options=$options."<option>$row2[0]</option>";
+        }
+}
+$options1="";
+ if($result1->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result1))
+        {
+         $options1=$options1."<option>$row2[0]</option>";
+        }
+}
+$options2="";
+ if($result2->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result2))
+        {
+         $options2=$options2."<option>$row2[0]</option>";
+        }
+}
+$options3="";
+ if($result3->num_rows>0)
+       {
+        while($row2=mysqli_fetch_array($result3))
+        {
+         $options3=$options3."<option>$row2[0]</option>";
+        }
+}
+
+//ERROR IN QUERY
+?>
+<form  method="POST"  style="background-color:#eed5d5;">
+        
+          
+       <div>
+              <p><label for="name">Enter number of calories! <span>*</span></label></p>
+              <input type="text" id="calories" name="calories" required="">
+        </div>
+         <div>
+              <p><label for="name">Enter number of Fats! <span>*</span></label></p>
+              <input type="text" id="fats" name="fats" required="">
+        </div>
+         <div>
+              <p><label for="name">Enter number of Carbohydrate! <span>*</span></label></p>
+              <input type="text" id="carb" name="carb" required="">
+        </div>
+            <div>
+              <p><label for="name">Enter number of Proteins! <span>*</span></label></p>
+              <input type="text" id="proteins" name="proteins" required="">
+             </div>
+        <div class="submit-button" style="text-align:center; display: flex; justify-content: center; ">
+          <input type="submit" name="save" class="button" value="Submit">  
+
+          <input type="button"  href="#formr" data-toggle="modal" data-dismiss="modal" class="button" value="Request For Diet menu" style="margin-left :5px">  
+
+         </div>
+        </form>
+    </div>
+
+    <div class="display">
+        <?php 
+$id=$_GET['flid'];
+     if (isset($_POST['save'])){
+      $ff_calories="'".$_POST['calories']."'";
+      $food_fats="'".$_POST['fats']."'";
+      $food_carb="'".$_POST['carb']."'";
+      $food_proteins="'".$_POST['proteins']."'";
+    $query ="select * from food_items where `calories`=$ff_calories and `fats`=$food_fats and `carb`=$food_carb and `proteins`=$food_proteins and category='diet menu'";
     $run=mysqli_query($con,$query);
+    
  while ($row=mysqli_fetch_array($run)) {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
- 
-                            <div class="panel-body">
-                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
-                                <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
-                              <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
+                         <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
+    <div class="pill" style="width:500; display: inline-grid;">        
+                <p class="title" style="color: black;"><?php echo $row["f_title"]; ?></p> 
+                
+                <span class="label">Cal:&nbsp;<?php echo $row["calories"]; ?> kcal</span>
+                <span class="label">Fats:&nbsp;<?php echo $row["fats"]; ?> g</span>
+                <span class="label">Carb:&nbsp;<?php echo $row["carb"]; ?></span>
+                <span class="label">Proteins:&nbsp;<?php echo $row["proteins"]; ?> kcal</span>
+               <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity"/>
 
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
-
-                               
+                <p class="title" style="color: black;"> Rs: <?php echo $row['f_price'];?> </p> 
+                <span class="label"><?php echo $row["kitchen_name"]; ?></span>
 
                                 <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
                                 <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
+                                <input type="hidden" name="hd_flid" class="form-control" value="<?php echo $_GET['flid'];?>"/>
+                <input type="submit" name="add_to_cart" class="btn"  onclick="openCity(event, 'Pariss')" value="Add to cart"/>
+       </div>
+                                </form>
 
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
-                              </div>
-                              </form>
-                              
-                           </div>
-                           
-                           
-                    </div>
-                     <?php
-} 
+            
+<?php 
+}
+}
 ?>
- 
-                       
-                     </div>
 
-                  
-                     
-               </div>
-  <div class="clearfix"> </div>
-            </div>
+        <div class="result-container" style="width: 500px;">
+            <ul class="ingredients">
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+  </div>
+</div>
+
+
             <div class="clearfix"> </div>
 </div>
-<div id="Tokyoo" class="tabcontent">
+
+
+
+              
+<div id="Tokyoo" class="tabcontent" style="display:none;">
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
                        <div class="panel-heading"><h3><b>Weekly Trial Menu</b></h3></div>
@@ -1119,31 +1549,17 @@ h3 {
                     
 
                          ?>
-                      <div class="well well-lg" style="margin-left: 3px;height: 145px;width: 900px">
+                      <div class="well well-lg" style="margin-left: 3px;height: 100px">
  
                             <div class="panel-body">
                              
                                 <form  method="post" action="homekitchen4.php?<?php echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd']/*.'&action='.'add'.'&pid='.$row['idd']*/;?>">
                                 <!-- <form action="homekitchen4.php?action=add&id=<?php //echo $row['idd']?>"> -->
                               <div class="row even">
-                                <div class="col-md-7 col-xs-7 border text-info"> <?php echo $row['f_title'];?></div> 
+                                <div class="col-md-7 col-xs-7 border"> <?php echo $row['f_title'];?></div> 
                                 <div class="col-md-3 col-xs-3 food-price-wrap border"> <?php echo $row['servings'];?> </div> 
-                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 500px"> Rs: <?php echo $row['f_price'];?> </div>
-
-                                <input type="text" name="qty" class="form-control col-md-3 col-xs-3 food-price-wrap border" value="1"/ style="width: 150px;" placeholder="Enter Quantity">
-
-                               
-
-                                <input type="hidden" name="hd_name" class="form-control" value="<?php echo $row['f_title']?>"/>
-                                <input type="hidden" name="hd_price" class="form-control" value="<?php echo $row['f_price']?>"/>
-                               <!-- <input type="hidden" name="hd_ser" class="form-control" value="<?php echo $row['servinngs']?>"/> -->
-
-                                 <input type="submit" name="add_to_cart" style="margin-top: 5px;margin-left: 360px" class="btn btn-success " value="Add to Cart">
-
-
-                                <!--<a href="includes/ur_cart.php?pro_id=<?php //echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
-                                  <a href="homekitchen4.php?<?php //echo 'flid='.$_GET['flid'].'&prd_id='.$row['idd'];?>" ><i class="fa fa-plus green-color bold"></i></a>-->
-
+                                <div class="col-md-3 col-xs-3 food-price-wrap border" style="margin-left: 450px"> <?php echo $row['f_price'];?> </div> 
+                                <a href="includes/ur_cart.php?pro_id=<?php echo $row['id'];?>" ><i class="fa fa-plus green-color bold"></i></a> 
                               </div>
                               </form>
                            </div>
@@ -1160,18 +1576,24 @@ h3 {
                   
                      
                </div>
-  <div class="clearfix"> </div>
+  
             </div>
+            
+
             <div class="clearfix"> </div>
 </div>
+
 <div id="Tokyooo" class="tabcontent">
   <h3>Special Deals</h3>
   <p>asdfghjkpoiuytre.</p>
+
 </div>
 
                 <div class="clearfix"> </div>
   
-</div>
+
+
+<input type="hidden" class="myId" value="my test id">
 
 <script>
 function openForm() {
@@ -1180,6 +1602,11 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+}
+
+function test(id){
+  console.log($(".id").val);
+ 
 }
 </script>
 
@@ -1207,137 +1634,11 @@ function closeForm() {
 }
 //Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+
 </script>
 
-
-<div class="bg-modal1">
-  
-<div class="containerw3layouts-agileits">
-      <div class="w3layoutscontactagileits">
-        
-          <div id="wrapper">
-              <form action="includes/connectreviews.php" method="post">
-                <div id="login" class="animate w3layouts agileits form">
-                  <div class="close1">+</div>
-                <div class="ferry ferry-from">
-                    <label>Your Name :</label>
-                    <input type="text" name="name" placeholder="Enter your name" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Your Email :</label>
-                    <input type="text" name="email" placeholder="Enter your email" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Kitchen Name :</label>
-                    <input type="text" name="k_name" placeholder="Enter your email" required=" ">
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Rate us :</label>
-                    <select name="rating">
-                      <option value="Dover">Poor</option>
-                      <option value="Dover">Average</option>
-                      <option value="Dover">Very good</option>
-                      <option value="Dover">Excellent</option>
-                    </select>
-                  </div>
-                  <div class="ferry ferry-from">
-                    <label>Any Comments or Suggestions?</label>
-                    <textarea id="message" name="suggestion" placeholder="Your suggestions!" title="Please enter your suggestions here"></textarea>
-                  </div>
-                  <div class="wthreesubmitaits">
-                    <input type="submit" name="submit" value="Post Review">
-                  </div>
-                </div>
-                </form>
-            </div>
-      </div>
-    </div>
-
-
-
-</div>
-
-
-
-
-
-<div class="bg-modal">
-   <!-- Form Started -->
-            <div class="container form-top">
-               <form action="includes/connectcomplain.php" method="post">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-danger">
-                            <div class="panel-body">
-                                <form id="reused_form">
-                                  <div class="close">+</div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
-                                        <input type="email" name="email" class="form-control" placeholder="Enter Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-user" aria-hidden="true"></i> Kitchen Name</label>
-                                        <input type="text" name="k_name" class="form-control" placeholder="Enter Kitchen Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label><i class="fa fa-comment" name="message" aria-hidden="true"></i> Message</label>
-                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-raised btn-block btn-danger" type="submit" value="Submit" name="submit">Submit Complain &rarr;</button>
-                                    </div>
-                                </form>
-                                <div id="error_message" style="width:100%; height:100%; display:none; ">
-                                    <h4>
-                                        Error
-                                    </h4>
-                                    Sorry there was an error sending your form. 
-                                </div>
-                                <div id="success_message" style="width:100%; height:100%; display:none; ">
-<h2>Success! Your Message was Sent Successfully.</h2>
-</div>
-                            </form>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </div>
-            </div>
-            <!-- Form Ended -->
-        
-  <!-- <img src="http://getaadhar.in/wp-content/uploads/2015/12/complaints-vector-illustration-complaint-box-39426847.jpg" width="100" height="100"  alt="" >
-  <form action="">
-    <input type="text" placeholder="Name">
-    <input type="text" placeholder="E-mail">
-    <textarea name="message" placeholder="Your Message"></textarea>
-    <a href="" class="button">Submit</a>
-  </form> -->
-
-
-</div>
-<script type="text/javascript">
-  document.getElementById('complain').addEventListener('click' , function(){
-document.querySelector('.bg-modal').style.display= "flex";
-  });
-  document.getElementById('review').addEventListener('click' , function(){
-document.querySelector('.bg-modal1').style.display= "flex";
-  });
-  document.querySelector('.close').addEventListener('click',function(){
-    document.querySelector('.bg-modal').style.display="none";
-  });
-   document.querySelector('.close1').addEventListener('click',function(){
-    document.querySelector('.bg-modal1').style.display="none";
-  });
-   window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
+  <script src="main.js"></script>
+ 
 </body>
 </html>

@@ -16,10 +16,12 @@ if(isset($_POST['submit']))
 	$menu_cat =$_POST['menu_cat'];
 	$meals    = $_POST['meals'];
 	$price    = $_POST['price'];
-	$diet_type    = $_POST['diet_type'];
+	$calories    = $_POST['calories'];
+	$fats    = $_POST['fats'];
+	$carb    = $_POST['carb'];
+	$proteins    = $_POST['proteins'];
 
-
-	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,diet_type) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$diet_type')";
+	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,calories,fats,carb,proteins) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$calories','$fats','$carb','$proteins')";
 	$run=mysqli_query($con, $query);
 
 	if ($run) {
@@ -99,6 +101,7 @@ $fl_name=$_SESSION['flname'];
 	<?php include('includes/header.php');?>
 	<div class="ts-main-content">
 	<?php include('includes/leftbar.php');?>
+
 		<div class="content-wrapper">
 			<div class="container-fluid">
 
@@ -114,9 +117,21 @@ $fl_name=$_SESSION['flname'];
 <!--<div class="errorWrap"><strong>ERROR</strong>: </div>
 		<div class="succWrap"><strong>SUCCESS</strong>:<?php //echo htmlentities($msg ?> </div> -->
 				<div class="panel-body">
+					<div class="w3-padding w3-display-right" style="position: absolute;
+    top: 100px;
+    right: 15px;
+    font-size:30px;
+   ">
+                 
+                 <p><a href="#formm" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 50%;">Calorie chart for diabetes</a></p>
+                 <p><a href="#formw" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 50%;">Calorie chart for weight loss</a></p>
+                 <p><a href="#formf" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 50%;">Calories chart for gaining weight</a></p>
+                  <p><a href="#formcarb" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 50%;">Calorie chart for sugar person</a></p>
+                 <p><a href="#formpro" data-toggle="modal" data-dismiss="modal" style="float: right; font-size: 50%;">Calorie chart for cholestrol level</a></p>
+            </div>
+           
 
 					<form method="post" action="" class="form-horizontal">
-					
 						 <input type="hidden" name="fl_id" class="form-control" value="<?php echo $fid ;?>"/>
 						  <input type="hidden" name="fl_k_name" class="form-control" value="<?php echo $kname ;?>"/>
 							
@@ -150,27 +165,50 @@ $fl_name=$_SESSION['flname'];
 							</div>
 						</div>
 <div class="form-group">
-							<label class="col-md-2 control-label">Diet type</label>
+							<label class="col-md-2 control-label">No of Calories</label>
 							<div class="col-md-8">
 								<div class="input-group">
 									<span class="input-group-addon">
-										<i class="fa fa-book"></i>
+										<i class="fa fa-pencil"></i>
 									</span>
-							        <select name="diet_type" >
-					<option value="">Select Category</option>
-					<option>Balanced</option>
-					<option>Less spice</option>
-					<option>More spice</option>	
-					<option>Extra fats </option>
-					<option>Extra salty</option>				
-				</select>
-    
+									<input type="text" class="form-control1" name="calories" placeholder="Enter calories " required>
 								</div>
 							</div>
-	</div>
+						</div>
 
-	
-
+<div class="form-group">
+							<label class="col-md-2 control-label">No of Fats</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="fats" placeholder="Enter fats " required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">No of carb</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="carb" placeholder="Enter carb " required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">No of proteins</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-pencil"></i>
+									</span>
+									<input type="text" class="form-control1" name="proteins" placeholder="Enter proteins " required>
+								</div>
+							</div>
+						</div>
 	<div class="form-group">
 							<label class="col-md-2 control-label">Meals</label>
 							<div class="col-md-8">
@@ -253,6 +291,15 @@ $fl_name=$_SESSION['flname'];
 	<script src="js/fileinput.js"></script>
 	<script src="js/chartData.js"></script>
 	<script src="js/main.js"></script>
+	<?php
+
+include('includes/diabetes.php');
+include('includes/cholestrol.php');
+include('includes/sugar.php');
+include('includes/weightgain.php');
+include('includes/weightloss.php');
+
+?>
 </body>
 </html>
 <?php } ?>

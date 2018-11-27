@@ -166,17 +166,17 @@ $subscribers=$query4->rowCount();
 											<div class="panel-body bk-success text-light">
 												<div class="stat-panel text-center">
 												<?php 
-$sql6 ="SELECT id from tblcontactusquery ";
+$sql6 ="SELECT id from reviews ";
 $query6 = $dbh -> prepare($sql6);;
 $query6->execute();
 $results6=$query6->fetchAll(PDO::FETCH_OBJ);
 $query=$query6->rowCount();
 ?>
 													<div class="stat-panel-number h1 "><?php echo htmlentities($query);?></div>
-													<div class="stat-panel-title text-uppercase">Queries</div>
+													<div class="stat-panel-title text-uppercase">Reviews</div>
 												</div>
 											</div>
-											<a href="manage-conactusquery.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="manage-reviews.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -184,7 +184,7 @@ $query=$query6->rowCount();
 											<div class="panel-body bk-info text-light">
 												<div class="stat-panel text-center">
 <?php 
-$sql5 ="SELECT id from tbltestimonial ";
+$sql5 ="SELECT id from complains ";
 $query5= $dbh -> prepare($sql5);
 $query5->execute();
 $results5=$query5->fetchAll(PDO::FETCH_OBJ);
@@ -192,10 +192,10 @@ $testimonials=$query5->rowCount();
 ?>
 
 													<div class="stat-panel-number h1 "><?php echo htmlentities($testimonials);?></div>
-													<div class="stat-panel-title text-uppercase">Testimonials</div>
+													<div class="stat-panel-title text-uppercase">Complains</div>
 												</div>
 											</div>
-											<a href="testimonials.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="manage-complains.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 								

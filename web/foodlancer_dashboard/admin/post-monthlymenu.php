@@ -16,9 +16,31 @@ if(isset($_POST['submit']))
 	$menu_cat =$_POST['menu_cat'];
 	$meals    = $_POST['meals'];
 	$price    = $_POST['price'];
-
-
-	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price')";
+	$monday_week1    = $_POST['monday_week1'];
+	$monday_week2    = $_POST['monday_week2'];
+	$monday_week3    = $_POST['monday_week3'];
+	$monday_week4    = $_POST['monday_week4'];
+	$tuesday_week1    = $_POST['tuesday_week1'];
+	$tuesday_week2    = $_POST['tuesday_week2'];
+	$tuesday_week3    = $_POST['tuesday_week3'];
+	$tuesday_week4    = $_POST['tuesday_week4'];
+	$wednesday_week1    = $_POST['wednesday_week1'];
+	$wednesday_week2    = $_POST['wednesday_week2'];
+	$wednesday_week3    = $_POST['wednesday_week3'];
+	$wednesday_week4    = $_POST['wednesday_week4'];
+	$thursday_week1    = $_POST['thursday_week1'];
+	$thursday_week2    = $_POST['thursday_week2'];
+	$thursday_week3    = $_POST['thursday_week3'];
+	$thursday_week4    = $_POST['thursday_week4'];
+	$friday_week1    = $_POST['friday_week1'];
+	$friday_week2    = $_POST['friday_week2'];
+	$friday_week3    = $_POST['friday_week3'];
+	$friday_week4    = $_POST['friday_week4'];
+	$saturday_week1    = $_POST['saturday_week1'];
+	$saturday_week2    = $_POST['saturday_week2'];
+	$saturday_week3    = $_POST['saturday_week3'];
+	$saturday_week4    = $_POST['saturday_week4'];
+	$query="INSERT INTO food_items (fl_id,kitchen_name,f_title,category,servings,f_price,monday_week1,monday_week2,monday_week3,monday_week4,tuesday_week1,tuesday_week2,tuesday_week3,tuesday_week4,wednesday_week1,wednesday_week2,wednesday_week3,wednesday_week4,thursday_week1,thursday_week2,thursday_week3,thursday_week4,friday_week1,friday_week2,friday_week3,friday_week4,saturday_week1,saturday_week2,saturday_week3,saturday_week4) values ('$fl_id','$fl_kname','$d_name','$menu_cat','$meals','$price','$monday_week1','$monday_week2','$monday_week3','$monday_week4','$tuesday_week1','$tuesday_week2','$tuesday_week3','$tuesday_week4','$wednesday_week1','$wednesday_week2','$wednesday_week3','$wednesday_week4','$thursday_week1','$thursday_week2','$thursday_week3','$thursday_week4','$friday_week1','$friday_week2','$friday_week3','$friday_week4','$saturday_week1','$saturday_week2','$saturday_week3','$saturday_week4')";
 	$run=mysqli_query($con, $query);
 
 	if ($run) {
@@ -74,6 +96,7 @@ $fl_name=$_SESSION['flname'];
 	<!-- Admin Stye -->
 	<link rel="stylesheet" href="css/style.css">
 <style>
+
 		.errorWrap {
     padding: 10px;
     margin: 0 0 20px 0;
@@ -201,7 +224,83 @@ $fl_name=$_SESSION['flname'];
 								</div>
 							</div>
 						</div> -->
-	
+			
+ <div class="main" style="">
+
+<div class="panel-white">
+  <table class="table-upload">
+    <thead>
+      <tr>
+        <th class="th2"></th>
+        <th class="th2">Days</th>
+        <th class="th2">Week 1</th>
+       <th class="th2">Week 2</th>
+       <th class="th2">Week 3</th>
+       <th class="th2">Week 4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Monday</a></span></td>
+        <td><input type="text" class="sm-input" name="monday_week1"></td>
+        <td><input type="text" class="sm-input" name="monday_week2"></td>
+        <td><input type="text" class="sm-input" name="monday_week3"></td>
+        <td><input type="text" class="sm-input" name="monday_week4"></td>
+      </tr>
+       <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Tuesday</a></span></td>
+        <td><input type="text" class="sm-input" name="tuesday_week1"></td>
+        <td><input type="text" class="sm-input" name="tuesday_week2"></td>
+        <td><input type="text" class="sm-input" name="tuesday_week3"></td>
+        <td><input type="text" class="sm-input" name="tuesday_week4"></td>
+      </tr>
+       <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Wednesday</a></span></td>
+        <td><input type="text" class="sm-input" name="wednesday_week1"></td>
+        <td><input type="text" class="sm-input" name="wednesday_week2"></td>
+        <td><input type="text" class="sm-input" name="wednesday_week3"></td>
+        <td><input type="text" class="sm-input" name="wednesday_week4"></td>
+      </tr>
+       <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Thursday</a></span></td>
+        <td><input type="text" class="sm-input" name="thursday_week1"></td>
+        <td><input type="text" class="sm-input" name="thursday_week2"></td>
+        <td><input type="text" class="sm-input" name="thursday_week3"></td>
+        <td><input type="text" class="sm-input" name="thursday_week4"></td>
+      </tr>
+       <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Friday</a></span></td>
+        <td><input type="text" class="sm-input" name="friday_week1"></td>
+        <td><input type="text" class="sm-input" name="friday_week2"></td>
+        <td><input type="text" class="sm-input" name="friday_week3"></td>
+        <td><input type="text" class="sm-input" name="friday_week4"></td>
+      </tr>
+       <tr class="tr2">
+        <td></td>
+        <td class="files-col "><span class="files-twoline"><a href="#">Saturday</a></span></td>
+        <td><input type="text" class="sm-input" name="saturday_week1"></td>
+        <td><input type="text" class="sm-input" name="saturday_week2"></td>
+        <td><input type="text" class="sm-input" name="saturday_week3"></td>
+        <td><input type="text" class="sm-input" name="saturday_week4"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js3/indexdetails.js"></script>
+
+
+
+
 
 						<div class="col-sm-8 col-sm-offset-2">
 				<button type="submit" name="submit" class="btn-primary btn">Submit</button>

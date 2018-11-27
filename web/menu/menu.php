@@ -13,24 +13,9 @@
 							<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">lunch</a>
 						</li>
 						<li role="presentation">
-							<a href="#testi" aria-controls="profile" role="tab" data-toggle="tab">starters</a>
+							<a href="#testi" aria-controls="profile" role="tab" data-toggle="tab">Dinner</a>
 						</li>
-						<li role="presentation">
-							<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">dinner</a>
-						</li>
-						<li role="presentation">
-							<a href="#testi" aria-controls="profile" role="tab" data-toggle="tab">burger</a>
-						</li>
-						<li role="presentation">
-							<a href="#profile" aria-controls="testi" role="tab" data-toggle="tab">pizza</a>
-						</li>
-						<li role="presentation">
-							<a href="#testi" aria-controls="profile" role="tab" data-toggle="tab">desserts</a>
-						</li>
-						<li role="presentation">
-							<a href="#profile" aria-controls="testi" role="tab" data-toggle="tab">beverages</a>
-						</li>
-
+						
 
 					</ul>
 				</div>

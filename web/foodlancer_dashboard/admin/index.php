@@ -92,7 +92,15 @@ $val='1';
 	<script src="js/fileinput.js"></script>
 	<script src="js/chartData.js"></script>
 	<script src="js/main.js"></script>
+<?php
 
+include('includes/diabetes.php');
+include('includes/cholestrol.php');
+include('includes/sugar.php');
+include('includes/weightgain.php');
+include('includes/weightloss.php');
+
+?>
 </body>
 
 </html>
