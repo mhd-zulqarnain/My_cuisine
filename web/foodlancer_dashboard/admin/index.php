@@ -15,7 +15,8 @@ $val='1';
  
      if(mysqli_num_rows($run)>0) {
 
-      	$_SESSION["flname"]=$name;
+      	//$_SESSION["flname"]=$name;
+      	$_SESSION['flname']=$name;
       	echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 
       }
