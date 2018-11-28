@@ -1,12 +1,12 @@
 <?php
-//session_start();
+session_start();
 #error_reporting(0);
 include('includes/db.php');
-//if(strlen($_SESSION['flname'])==0)
-	//{	
-//header('location:index.php');
-//}
-//else{ 
+if(strlen($_SESSION['flname'])==0)
+{	
+	header('location:index.php');
+}
+else{ 
 	?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -170,7 +170,6 @@ include('includes/db.php');
 
 	}
 	</script>
-	
 </body>
 </html>
-<?php // } ?>
+<?php  } ?>
