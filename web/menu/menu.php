@@ -6,14 +6,14 @@
 				<div class="menu-info">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active">
+						<li role="presentation" class="active" >
 							<a href="#testi" aria-controls="testi" role="tab" data-toggle="tab">Break fast</a>
 						</li>
 						<li role="presentation">
-							<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">lunch</a>
+							<a href="#profile" aria-controls="profile" role="tab1" data-toggle="tab">lunch</a>
 						</li>
 						<li role="presentation">
-							<a href="#testi" aria-controls="profile" role="tab" data-toggle="tab">Dinner</a>
+							<a href="#testi" aria-controls="profile" role="tab2" data-toggle="tab">Dinner</a>
 						</li>
 						
 
@@ -22,247 +22,74 @@
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="testi">
+						 <?php 
+						 include("includes/function.php");
+include("includes/db.php");
+     //if (isset($_GET['flid'])){
+    
+     //}
+    $val='breakfast';
+    $query ="select * from regular_menu where category='$val'";
+    $run=mysqli_query($con,$query);
+  
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+                         <form method="post" action="index.php?<?php echo 'id='.$_GET['id'].'&prd_id='.$row['id']/*.'&action='.'add'.'&pid='.$row['id']*/;?>">
 						<div class="col-md-4 agileinfo-tab-content1">
 							<div class="menu-text-right1">
 								<div class="menu-title">
-									<h4>Congue oluptate </h4>
+									<h4><?php echo $row["d_name"]; ?></h4>
 
 								</div>
 								<div class="menu-price">
-									<h4 class="price-clr">$ 25</h4>
+									<h4 class="price-clr">Rs: <?php echo $row['price'];?> </h4>
 								</div>
 								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
+								<p><?php echo $row['discription'];?> </p>
 							</div>
 						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 35</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 50</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 80</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 40</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 30</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 20</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 45</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="col-md-4 agileinfo-tab-content1">
-							<div class="menu-text-right1">
-								<div class="menu-title">
-									<h4>Congue oluptate </h4>
-
-								</div>
-								<div class="menu-price">
-									<h4 class="price-clr">$ 38</h4>
-								</div>
-								<div class="clearfix"></div>
-								<p> Nam libero tempore cum soluta nobis.</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
+					</form>
+						<?php
+} 
+?>
+						
 					<div role="tabpanel" class="tab-pane" id="profile">
+						<?php 
+						 
+include("includes/db.php");
+     //if (isset($_GET['flid'])){
+      
+     //}
+    $val='lunch';
+    $query ="select * from regular_menu where category='$val'";
+    $run=mysqli_query($con,$query);
+  
+ while ($row=mysqli_fetch_array($run)) {
+                    
+
+                         ?>
+   						<form action="index.php" method="post">
 						<div class="col-md-4 agileinfo-tab-content1">
 								<div class="menu-text-right1">
 									<div class="menu-title">
-										<h4>Cillum fugiat</h4>
+										<h4><?php echo $row["d_name"]; ?></h4>
 
 									</div>
 									<div class="menu-price">
-										<h4 class="price-clr">$ 58</h4>
+										<h4 class="price-clr">Rs: <?php echo $row['price'];?></h4>
 									</div>
 									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
+									<p> <?php echo $row['discription'];?> </p>
 								</div>
 							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Congue oluptate </h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 49</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Cillum fugiat</h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 88</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Congue oluptate </h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 64</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Cillum fugiat </h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 35</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Congue oluptate </h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 29</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Cillum fugiat</h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 50</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Congue oluptate </h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 48</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="col-md-4 agileinfo-tab-content1">
-								<div class="menu-text-right1">
-									<div class="menu-title">
-										<h4>Cillum fugiat</h4>
-
-									</div>
-									<div class="menu-price">
-										<h4 class="price-clr">$ 73</h4>
-									</div>
-									<div class="clearfix"></div>
-									<p> Nam libero tempore cum soluta nobis.</p>
-								</div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
+							</form>
+						<?php
+} 
+?>
+							
 				</div>
 			</div>
-			</div>
+			</div> 
 	<!--menu-->
