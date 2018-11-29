@@ -163,33 +163,10 @@ else{
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
-
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <style type="text/css">
   
  /* w3 */
     /* Style the tab */
-
-   /*html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}*/
-/*body {
-  padding: 0;
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  background: #673774;
-  color: #fff;
-}*/
-
-
 
 #contact-form { width: 600px; padding: 15px; background: #252525; margin: 0 auto; }
 
@@ -974,10 +951,19 @@ h3 {
 }
 
 
-
 </style>
 <body>
-
+<?php include('includes/comp.php');
+include('includes/review.php');
+include('includes/diabetes.php');
+include('includes/cholestrol.php');
+include('includes/sugar.php');
+include('includes/weightgain.php');
+include('includes/weightloss.php');
+include('includes/monthlydetails.php');
+include('includes/request_dietmenu.php');
+?>
+  
    <div >
    <!--<h2 style='background:#000; color:#FC9; padding: 15px; text-align:right;border-top: 0px solid black;margin-top: 0px;height: 60px;width: 100%'><a href="#" onclick="openForm()">cart</a></h2> -->
    
@@ -999,8 +985,7 @@ h3 {
                   <span class="badge"></span>
                   <span class="total_price">Your Cart</span>
                 </a>
-               
-                <a href="#form"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
+                 <a href="#form"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Complain</a>
                  <a href="#form1"  data-toggle="modal" data-dismiss="modal" style="float: right;color: black;">
                   Review</a>
@@ -1367,7 +1352,6 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 }
 ?>
 
-
 <div id="Pariss" class="tabcontent" style="display:none;">
   <div class="w3-display-container" style="position: relative;">
               <div class="w3-padding w3-display-right" style="position: absolute;
@@ -1530,7 +1514,6 @@ $id=$_GET['flid'];
 
 
 
-              
 <div id="Tokyoo" class="tabcontent" style="display:none;">
    <div class="container" style="width:1000px;padding-top: 10px;margin-left: 5px;">
                      <div class="panel panel-default">
@@ -1593,23 +1576,6 @@ $id=$_GET['flid'];
   
 
 
-<input type="hidden" class="myId" value="my test id">
-
-<script>
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-
-function test(id){
-  console.log($(".id").val);
- 
-}
-</script>
-
 <script type="text/javascript">
  function openCity(evt, cityName) {
     // Declare all variables
@@ -1634,11 +1600,29 @@ function test(id){
 }
 //Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-
-
 </script>
 
-  <script src="main.js"></script>
- 
+
+
+<script type="text/javascript">
+  document.getElementById('complain').addEventListener('click' , function(){
+document.querySelector('.bg-modal').style.display= "flex";
+  });
+  document.getElementById('review').addEventListener('click' , function(){
+document.querySelector('.bg-modal1').style.display= "flex";
+  });
+  document.querySelector('.close').addEventListener('click',function(){
+    document.querySelector('.bg-modal').style.display="none";
+  });
+   document.querySelector('.close1').addEventListener('click',function(){
+    document.querySelector('.bg-modal1').style.display="none";
+  });
+   window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </body>
 </html>

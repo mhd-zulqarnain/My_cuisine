@@ -8,10 +8,11 @@
 									<ul id="menu" >
 										<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
 										
-									 <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span> Food Items</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+									 <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Add Food</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
 										   <ul id="menu-academico-sub" >
-										   <li id="menu-academico-avaliacoes" ><a href="create-package.php">Create</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="manage-packages.php">Manage</a></li>
+										   <li id="menu-academico-avaliacoes" ><a href="create-breakfast.php">Breakfast</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="create-lunch.php">Lunch</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="create-dinner.php">Dinner</a></li>
 										  </ul>
 										</li>
 
