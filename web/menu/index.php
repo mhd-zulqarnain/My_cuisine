@@ -85,7 +85,7 @@ include('menu.php');
 	
 	<!--//menu-->
 	<div class="section" style="margin-top: 100px;margin-bottom: 70px;">
-		<div class="w3_agileits-subscribe timings text-center" style="margin-top: 500px;">
+		<div class="w3_agileits-subscribe timings text-center" style="margin-top: 2px;">
 			<h4>opening times</h4>
 			<div class="about-p  text-center">
 				<span class="sub-title p1"></span>
